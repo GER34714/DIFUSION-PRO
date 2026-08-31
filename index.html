@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Difusión Pro | Publicá en hasta 250 grupos</title>
-
-  <meta name="description" content="Publicamos tu anuncio en hasta 250 grupos de compra y venta. Llegá a miles de personas con Difusión Pro. Planes económicos y difusión en todo el país.">
+  <meta name="description" content="Publicamos tu anuncio en hasta 250 grupos de compra y venta. Llegá a miles de personas con Difusión Pro. Planes económicos y difusión en todo el país." />
 
   <style>
     /* ===== RESET Y VARIABLES ===== */
@@ -456,6 +454,42 @@
       fill: currentColor;
     }
 
+    .btn-web {
+      background: var(--celeste);
+      color: #06100a !important;
+      padding: 15px 25px;
+      border-radius: var(--radio);
+      font-weight: 800;
+      transition: transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 0 30px rgba(0, 212, 255, 0.15);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-web::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.15), transparent);
+      transform: rotate(45deg) translateX(-100%);
+      transition: transform 0.6s;
+    }
+    .btn-web:hover::after {
+      transform: rotate(45deg) translateX(100%);
+    }
+    .btn-web:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 0 50px rgba(0, 212, 255, 0.3);
+    }
+
     /* ===== REACH CARD ===== */
     .reach-card {
       background: linear-gradient(145deg, #12221a, #0b1510);
@@ -679,7 +713,7 @@
       font-size: 14px;
     }
 
-    /* ===== NUEVA SECCIÓN: DIFUSIÓN NACIONAL VS LOCAL ===== */
+    /* ===== COBERTURA NACIONAL VS LOCAL ===== */
     .coverage-section {
       background: linear-gradient(145deg, #0a130f, #050d09);
       border-top: 1px solid rgba(0, 255, 136, 0.12);
@@ -971,6 +1005,264 @@
       box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
     }
 
+    /* ===== SERVICIO COMPLEMENTARIO: DISEÑO WEB ===== */
+    .web-section {
+      background: linear-gradient(145deg, #0a130f, #050d09);
+      border-top: 1px solid rgba(0, 212, 255, 0.12);
+      border-bottom: 1px solid rgba(0, 212, 255, 0.12);
+      position: relative;
+    }
+    .web-section::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--celeste), transparent);
+      animation: neon-slide 3s ease-in-out infinite;
+    }
+    .web-section::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--celeste), transparent);
+      animation: neon-slide 3s ease-in-out infinite reverse;
+    }
+
+    .web-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .web-content h2 {
+      margin-bottom: 20px;
+    }
+    .web-content h2 .neon-text-blue {
+      font-size: inherit;
+    }
+    .web-content p {
+      color: var(--gris-claro);
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .web-content .highlight-box {
+      background: rgba(0, 212, 255, 0.05);
+      border: 1px solid rgba(0, 212, 255, 0.1);
+      border-radius: 12px;
+      padding: 15px 20px;
+      margin-bottom: 25px;
+    }
+    .web-content .highlight-box p {
+      margin-bottom: 0;
+      font-size: 14px;
+      color: #b0c4c0;
+    }
+    .web-content .highlight-box strong {
+      color: var(--celeste);
+    }
+
+    .web-content ul {
+      list-style: none;
+      margin-bottom: 25px;
+    }
+    .web-content ul li {
+      padding: 10px 0;
+      color: #d4ded9;
+      font-size: 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .web-content ul li::before {
+      content: "🌐";
+      font-size: 18px;
+    }
+
+    .web-highlight {
+      background: #101d16;
+      border: 1px solid rgba(0, 212, 255, 0.15);
+      border-radius: 20px;
+      padding: 35px;
+      text-align: center;
+      box-shadow: 0 0 40px rgba(0, 212, 255, 0.03), 0 20px 60px rgba(0, 0, 0, 0.2);
+      transition: box-shadow 0.3s, border-color 0.3s;
+    }
+    .web-highlight:hover {
+      box-shadow: 0 0 60px rgba(0, 212, 255, 0.08), 0 20px 60px rgba(0, 0, 0, 0.2);
+      border-color: rgba(0, 212, 255, 0.3);
+    }
+
+    .web-highlight .mockup-container {
+      margin-bottom: 15px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(0, 212, 255, 0.08);
+      border: 1px solid rgba(0, 212, 255, 0.1);
+    }
+    .web-highlight .mockup-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 20px;
+    }
+
+    .web-highlight .big-number {
+      font-size: 62px;
+      font-weight: 900;
+      color: var(--celeste);
+      line-height: 1;
+      text-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
+      animation: neon-pulse-blue 2.5s ease-in-out infinite;
+    }
+    .web-highlight .big-label {
+      color: var(--gris-claro);
+      font-size: 18px;
+      margin: 5px 0 15px;
+    }
+    .web-highlight .price-web {
+      font-size: 30px;
+      font-weight: 900;
+      margin-bottom: 5px;
+    }
+    .web-highlight .price-web .neon-text-blue {
+      font-size: inherit;
+    }
+    .web-highlight .price-web small {
+      color: #819088;
+      font-size: 15px;
+      font-weight: normal;
+    }
+    .web-highlight .web-detail {
+      color: #84948c;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+    .web-highlight .web-note {
+      color: #5a6b63;
+      font-size: 13px;
+      font-style: italic;
+      margin-bottom: 20px;
+      padding: 12px;
+      background: rgba(0, 212, 255, 0.04);
+      border-radius: 8px;
+      border: 1px solid rgba(0, 212, 255, 0.05);
+    }
+    .web-highlight .web-note strong {
+      color: var(--celeste);
+      font-style: normal;
+    }
+
+    .web-highlight .btn-web-combo {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: var(--radio);
+      font-weight: 800;
+      background: var(--celeste);
+      color: #06100a;
+      box-shadow: 0 0 30px rgba(0, 212, 255, 0.15);
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+    }
+    .web-highlight .btn-web-combo:hover {
+      box-shadow: 0 0 50px rgba(0, 212, 255, 0.3);
+      transform: scale(1.02);
+    }
+
+    .web-features-mini {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 15px 0;
+    }
+    .web-features-mini span {
+      background: rgba(0, 212, 255, 0.08);
+      border: 1px solid rgba(0, 212, 255, 0.1);
+      border-radius: 20px;
+      padding: 5px 16px;
+      font-size: 12px;
+      color: #b0c4c0;
+    }
+
+    .web-credit {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0, 212, 255, 0.08);
+      font-size: 13px;
+      color: #5a6b63;
+    }
+    .web-credit strong {
+      color: var(--celeste);
+    }
+    .web-credit a {
+      color: var(--verde-neon);
+      transition: color 0.2s;
+    }
+    .web-credit a:hover {
+      color: var(--verde);
+      text-decoration: underline;
+    }
+
+    .ciborg-logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .ciborg-logo-container img {
+      height: 60px;
+      width: auto;
+      border-radius: 12px;
+      background: #101d16;
+      padding: 8px 15px;
+      border: 1px solid rgba(0, 212, 255, 0.15);
+    }
+    .ciborg-logo-container span {
+      color: var(--gris-claro);
+      font-size: 14px;
+      font-weight: 300;
+    }
+    .ciborg-logo-container span strong {
+      color: var(--celeste);
+    }
+
+    .ciborg-social {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 20px 0 25px;
+      padding: 15px 0;
+      border-top: 1px solid rgba(0, 212, 255, 0.08);
+      border-bottom: 1px solid rgba(0, 212, 255, 0.08);
+    }
+    .ciborg-social a {
+      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+    }
+    .ciborg-social a:hover {
+      transform: scale(1.05);
+    }
+    .ciborg-social .web-link {
+      color: var(--celeste);
+    }
+    .ciborg-social .ig-link {
+      color: #E1306C;
+    }
+
     /* ===== POR QUÉ ===== */
     .why {
       background: #0b1611;
@@ -1013,109 +1305,6 @@
       font-size: 14px;
     }
 
-    /* ===== NUEVA SECCIÓN: WEB + DIFUSIÓN ===== */
-    .web-section {
-      background: linear-gradient(145deg, #0a130f, #07100b);
-      border-top: 1px solid rgba(0, 255, 136, 0.15);
-      border-bottom: 1px solid rgba(0, 255, 136, 0.15);
-      position: relative;
-    }
-    .web-section::before {
-      content: '';
-      position: absolute;
-      top: -1px;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--verde-neon), transparent);
-      animation: neon-slide 3s ease-in-out infinite;
-    }
-    .web-section::after {
-      content: '';
-      position: absolute;
-      bottom: -1px;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--verde-neon), transparent);
-      animation: neon-slide 3s ease-in-out infinite reverse;
-    }
-    .web-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-    .web-content h2 {
-      margin-bottom: 20px;
-    }
-    .web-content p {
-      color: var(--gris-claro);
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-    .web-content ul {
-      list-style: none;
-      margin-bottom: 25px;
-    }
-    .web-content ul li {
-      padding: 10px 0;
-      color: #d4ded9;
-      font-size: 15px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .web-content ul li::before {
-      content: "✨";
-      font-size: 18px;
-    }
-    .web-highlight {
-      background: #101d16;
-      border: 1px solid rgba(0, 255, 136, 0.2);
-      border-radius: 20px;
-      padding: 35px;
-      text-align: center;
-      box-shadow: 0 0 40px rgba(0, 255, 136, 0.05), 0 20px 60px rgba(0, 0, 0, 0.2);
-      transition: box-shadow 0.3s, border-color 0.3s;
-    }
-    .web-highlight:hover {
-      box-shadow: 0 0 60px rgba(0, 255, 136, 0.1), 0 20px 60px rgba(0, 0, 0, 0.2);
-      border-color: rgba(0, 255, 136, 0.4);
-    }
-    .web-highlight .big-number {
-      font-size: 72px;
-      font-weight: 900;
-      color: var(--verde-neon);
-      line-height: 1;
-      text-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
-      animation: neon-pulse 2s ease-in-out infinite;
-    }
-    .web-highlight .big-label {
-      color: var(--gris-claro);
-      font-size: 18px;
-      margin: 10px 0 20px;
-    }
-    .web-highlight .price-combo {
-      font-size: 32px;
-      font-weight: 900;
-      margin-bottom: 5px;
-    }
-    .web-highlight .price-combo .neon-text {
-      font-size: inherit;
-    }
-    .web-highlight .price-combo small {
-      color: #819088;
-      font-size: 16px;
-      font-weight: normal;
-    }
-    .web-highlight .combo-detail {
-      color: #84948c;
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-
     /* ===== CTA ===== */
     .cta {
       padding: 90px 20px;
@@ -1134,6 +1323,42 @@
     .cta p {
       color: var(--gris-claro);
       margin-bottom: 30px;
+    }
+
+    /* ===== FORM ===== */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 450px;
+      margin: 0 auto 25px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 14px;
+      border-radius: var(--radio);
+      border: 1px solid rgba(0, 255, 136, 0.15);
+      background: #0a130f;
+      color: white;
+      font-size: 16px;
+      font-family: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--verde-neon);
+      box-shadow: 0 0 20px rgba(0, 255, 136, 0.05);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #5a6b63;
+    }
+    .form-group select option {
+      background: #0a130f;
+      color: white;
     }
 
     /* ===== FAQ ===== */
@@ -1185,42 +1410,6 @@
       font-size: 14px;
     }
 
-    /* ===== FORM ===== */
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      max-width: 450px;
-      margin: 0 auto 25px;
-    }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      padding: 14px;
-      border-radius: var(--radio);
-      border: 1px solid rgba(0, 255, 136, 0.15);
-      background: #0a130f;
-      color: white;
-      font-size: 16px;
-      font-family: inherit;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--verde-neon);
-      box-shadow: 0 0 20px rgba(0, 255, 136, 0.05);
-    }
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: #5a6b63;
-    }
-    .form-group select option {
-      background: #0a130f;
-      color: white;
-    }
-
     /* ===== FOOTER ===== */
     footer {
       padding: 45px 20px 35px;
@@ -1255,6 +1444,17 @@
     .footer-sub a:hover {
       color: var(--verde);
       text-decoration: underline;
+    }
+    .footer-sub .sep {
+      display: inline-block;
+      margin: 0 8px;
+      color: #3a4a43;
+    }
+    .footer-sub .ig-link {
+      color: #E1306C;
+    }
+    .footer-sub .ig-link:hover {
+      color: #ff4d8a;
     }
     .footer-divider {
       width: 60px;
@@ -1336,6 +1536,12 @@
       .coverage-card .highlight-list li {
         justify-content: center;
       }
+      .ciborg-logo-container {
+        justify-content: center;
+      }
+      .ciborg-social {
+        justify-content: center;
+      }
     }
 
     @media (max-width: 600px) {
@@ -1382,10 +1588,10 @@
         order: -1;
       }
       .web-highlight .big-number {
-        font-size: 52px;
+        font-size: 42px;
       }
-      .web-highlight .price-combo {
-        font-size: 26px;
+      .web-highlight .price-web {
+        font-size: 24px;
       }
       .logo {
         font-size: 20px;
@@ -1393,7 +1599,8 @@
       .logo-sub {
         font-size: 9px;
       }
-      .btn-whatsapp {
+      .btn-whatsapp,
+      .btn-web {
         width: 100%;
         justify-content: center;
       }
@@ -1405,6 +1612,25 @@
       }
       .coverage-card h3 {
         font-size: 22px;
+      }
+      .web-features-mini span {
+        font-size: 11px;
+        padding: 4px 12px;
+      }
+      .web-highlight .web-note {
+        font-size: 12px;
+      }
+      .ciborg-logo-container img {
+        height: 45px;
+        padding: 5px 12px;
+      }
+      .ciborg-logo-container span {
+        font-size: 12px;
+      }
+      .ciborg-social {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
       }
     }
   </style>
@@ -1441,7 +1667,7 @@
         <a href="#como-funciona">Cómo funciona</a>
         <a href="#cobertura">Cobertura</a>
         <a href="#planes">Planes</a>
-        <a href="#web">Web + Difusión</a>
+        <a href="#web">Diseño Web</a>
         <a href="#preguntas">Preguntas</a>
         <a class="nav-button" href="#contacto">Publicar ahora</a>
       </div>
@@ -1574,7 +1800,7 @@
       </div>
     </section>
 
-    <!-- ===== NUEVA SECCIÓN: COBERTURA NACIONAL VS LOCAL ===== -->
+    <!-- ===== COBERTURA NACIONAL VS LOCAL ===== -->
     <section class="coverage-section" id="cobertura">
       <div class="section-container">
         <div class="section-header">
@@ -1722,57 +1948,123 @@
       </div>
     </section>
 
-    <!-- ===== NUEVA SECCIÓN: WEB + DIFUSIÓN ===== -->
+    <!-- ===== SERVICIO COMPLEMENTARIO: DISEÑO WEB ===== -->
     <section class="web-section" id="web">
       <div class="section-container">
         <div class="section-header">
-          <div class="section-label">Combo completo</div>
-          <h2>¿Todavía no tenés página web?</h2>
+          <div class="section-label" style="color: var(--celeste); text-shadow: 0 0 20px rgba(0, 212, 255, 0.2);">🌐 Servicio complementario</div>
+          <h2>¿Todavía no tenés <span class="neon-text-blue">página web</span>?</h2>
           <p class="section-description">
-            Complementá los servicios de <strong style="color: var(--verde-neon);">CIBORG 347</strong> con las herramientas de Difusión Pro.
+            Además de la difusión, también <strong style="color: var(--celeste);">diseñamos páginas web</strong>
+            para tu negocio o emprendimiento. Un servicio <strong>complementario</strong> que podés
+            contratar aparte para potenciar tu presencia online.
           </p>
         </div>
 
         <div class="web-grid">
           <div class="web-content">
+            <!-- LOGO DE CIBORG 347 -->
+            <div class="ciborg-logo-container">
+              <img
+                src="https://fhxcumwhgtfirznnznjx.supabase.co/storage/v1/object/public/difusion%20pro/ciborg%20logo.jpeg"
+                alt="Logo de CIBORG 347 - Diseño web y landing pages"
+                loading="lazy"
+              >
+              <span>
+                <strong style="color: var(--celeste);">CIBORG 347</strong> — Landing Pages & Web Designs
+              </span>
+            </div>
+
             <h2 style="font-size: clamp(28px, 4vw, 40px);">
-              Diseñamos tu web + <span class="neon-text">difusión incluida</span>
+              Diseñamos tu web + <span class="neon-text-blue">difusión opcional</span>
             </h2>
+
             <p>
               ¿Ya tenés tu negocio o emprendimiento pero te falta presencia online?
-              Nosotros te diseñamos una página web profesional y además,
-              <strong>te incluimos el plan de difusión en grupos</strong> para que tu
-              anuncio llegue a miles de personas desde el día uno.
+              <strong>También diseñamos páginas web</strong> profesionales y modernas.
             </p>
+
+            <div class="highlight-box">
+              <p>
+                💡 <strong>¿Querés potenciar tu lanzamiento?</strong> Si contratás nuestro
+                servicio de <strong>diseño web</strong>, podés <strong>sumar la difusión</strong>
+                como un complemento para que tu anuncio llegue a miles de personas desde el día uno.
+                <br><br>
+                <span style="color: var(--celeste);">🔥 Web + Difusión = Lanzamiento completo</span>
+              </p>
+            </div>
+
             <ul>
               <li>Diseño web moderno y responsive</li>
-              <li>Hasta 250 grupos de difusión incluidos</li>
               <li>Optimización para celulares y computadoras</li>
               <li>Contenido y fotos adaptados a tu marca</li>
               <li>Soporte y acompañamiento personalizado</li>
+              <li style="color: var(--celeste); font-weight: bold;">+ Difusión en grupos (opcional, consultar)</li>
             </ul>
-            <a class="btn-whatsapp" href="https://wa.me/5491100000000?text=Hola!%20Quiero%20consultar%20por%20el%20combo%20WEB%20%2B%20DIFUSI%C3%93N%20PRO" target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-              </svg>
-              Consultar combo web + difusión
+
+            <!-- REDES SOCIALES DE CIBORG 347 -->
+            <div class="ciborg-social">
+              <a href="https://ciborg347.onrender.com" target="_blank" rel="noopener noreferrer" class="web-link">
+                🌐 ciborg347.onrender.com
+              </a>
+              <a href="https://instagram.com/ciborg347" target="_blank" rel="noopener noreferrer" class="ig-link">
+                📷 @CIBORG347
+              </a>
+            </div>
+
+            <a class="btn-web" href="https://wa.me/5491100000000?text=Hola!%20Quiero%20consultar%20por%20DISE%C3%91O%20WEB%20y%20tambi%C3%A9n%20por%20DIFUSI%C3%93N%20PRO" target="_blank" rel="noopener noreferrer">
+              🌐 Consultar diseño web
             </a>
           </div>
 
           <div class="web-highlight">
-            <div class="big-number">+250</div>
-            <div class="big-label">grupos de difusión</div>
-            <div class="price-combo">
-              <span class="neon-text">Desde $15.000</span> <small>ARS</small>
+            <!-- MOCKUP DEL CELULAR -->
+            <div class="mockup-container">
+              <img
+                src="https://fhxcumwhgtfirznnznjx.supabase.co/storage/v1/object/public/difusion%20pro/iPhone-14-PRO-MAX-ciborg347.onrender.com.png"
+                alt="Mockup de iPhone mostrando el diseño web de CIBORG 347"
+                loading="lazy"
+              >
             </div>
-            <div class="combo-detail">
-              Incluye diseño web + difusión en grupos
+
+            <div class="big-number">+50</div>
+            <div class="big-label">webs diseñadas</div>
+
+            <div class="price-web">
+              <span class="neon-text-blue">Desde $80.000</span> <small>ARS</small>
             </div>
-            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
-              <span style="color: var(--verde-neon); font-weight: bold;">✓ Web profesional</span>
-              <span style="color: var(--verde-neon); font-weight: bold;">✓ Hasta 250 grupos</span>
-              <span style="color: var(--verde-neon); font-weight: bold;">✓ 1 publicación</span>
+            <div class="web-detail">
+              Landing Page — Precio promocional
             </div>
+
+            <div class="web-note">
+              💰 <strong>Según tu presupuesto</strong>, podemos diseñar algo
+              adaptado a tu marca y necesidades.
+            </div>
+
+            <div class="web-features-mini">
+              <span>📱 Responsive</span>
+              <span>⚡ Rápida</span>
+              <span>🎨 Moderna</span>
+              <span>🔒 Segura</span>
+              <span>💡 Promocional</span>
+            </div>
+
+            <div class="web-credit">
+              <p>
+                🌟 Diseñado por <strong>CIBORG 347</strong> —
+                <a href="https://ciborg347.onrender.com" target="_blank" rel="noopener noreferrer" style="color: var(--celeste);">
+                  webs espectaculares
+                </a>
+              </p>
+              <p style="font-size: 12px; color: #5a6b63; margin-top: 5px;">
+                ¡Consultá por opciones más ajustadas a tu presupuesto!
+              </p>
+            </div>
+
+            <a href="#contacto" class="btn-web-combo" style="margin-top: 10px; display: inline-block;">
+              Consultar presupuesto
+            </a>
           </div>
         </div>
       </div>
@@ -1843,10 +2135,11 @@
               <option value="50">Difusión 50 ($5.000)</option>
               <option value="150">Difusión 150 ($8.000) ⭐ Más elegido</option>
               <option value="250">Difusión 250 ($12.000)</option>
-              <option value="combo">Combo Web + Difusión (desde $15.000)</option>
+              <option value="web">Diseño Web (desde $80.000)</option>
+              <option value="combo">Combo Web + Difusión (consultar)</option>
               <option value="local">Difusión Local (consultar)</option>
             </select>
-            <textarea name="mensaje" placeholder="Contanos qué querés publicar... (¿Nacional o local?)" rows="3"></textarea>
+            <textarea name="mensaje" placeholder="Contanos qué necesitas... (¿difusión, web o combo?)" rows="3"></textarea>
           </div>
 
           <button type="submit" class="btn-primary" style="border: none; cursor: pointer; font-size: 16px;">
@@ -1921,11 +2214,17 @@
             </p>
           </details>
           <details>
-            <summary>¿Qué incluye el combo Web + Difusión?</summary>
+            <summary>¿Ofrecen diseño web también?</summary>
             <p>
-              Incluye el diseño de una página web profesional para tu negocio
-              o emprendimiento, más el plan de difusión en hasta 250 grupos
-              de compra y venta. Ideal para lanzar tu marca con todo.
+              ¡Sí! <strong>Diseñamos páginas web</strong> como un servicio
+              <strong>complementario</strong> a la difusión. Desde <strong>$80.000</strong>
+              para landing pages promocionales. Y según tu presupuesto, podemos
+              adaptar algo a tu medida. <br><br>
+              🌟 Diseñado por <strong>CIBORG 347</strong> — ¡webs espectaculares!
+              <br>
+              📷 <a href="https://instagram.com/ciborg347" target="_blank" rel="noopener noreferrer" style="color: #E1306C;">@CIBORG347</a>
+              &nbsp;·&nbsp;
+              🌐 <a href="https://ciborg347.onrender.com" target="_blank" rel="noopener noreferrer" style="color: var(--celeste);">ciborg347.onrender.com</a>
             </p>
           </details>
         </div>
@@ -1943,6 +2242,10 @@
       Creado y diseñado por
       <a href="https://ciborg347.onrender.com" target="_blank" rel="noopener noreferrer">
         <strong>CIBORG 347</strong>
+      </a>
+      <span class="sep">·</span>
+      <a href="https://instagram.com/ciborg347" target="_blank" rel="noopener noreferrer" class="ig-link">
+        📷 @CIBORG347
       </a>
     </div>
     <div class="footer-divider"></div>
