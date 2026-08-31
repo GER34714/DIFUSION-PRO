@@ -1,0 +1,1968 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Difusión Pro | Publicá en hasta 250 grupos</title>
+
+  <meta name="description" content="Publicamos tu anuncio en hasta 250 grupos de compra y venta. Llegá a miles de personas con Difusión Pro. Planes económicos y difusión en todo el país.">
+
+  <style>
+    /* ===== RESET Y VARIABLES ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --verde: #25D366;
+      --verde-oscuro: #0b8f45;
+      --verde-neon: #00ff88;
+      --verde-neon-glow: rgba(0, 255, 136, 0.4);
+      --negro: #08110d;
+      --gris: #101c17;
+      --gris-claro: #aebdb6;
+      --blanco: #ffffff;
+      --amarillo: #ffd84d;
+      --celeste: #00d4ff;
+      --celeste-glow: rgba(0, 212, 255, 0.3);
+      --radio: 12px;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      --neon-shadow: 0 0 20px rgba(0, 255, 136, 0.3), 0 0 60px rgba(0, 255, 136, 0.1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--negro);
+      color: var(--blanco);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ===== FONDO CON PARTÍCULAS ===== */
+    .bg-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: var(--verde-neon);
+      border-radius: 50%;
+      animation: float-particle linear infinite;
+      opacity: 0.3;
+      box-shadow: 0 0 10px var(--verde-neon);
+    }
+    .particle:nth-child(1) { left: 10%; animation-duration: 18s; animation-delay: 0s; width: 4px; height: 4px; }
+    .particle:nth-child(2) { left: 25%; animation-duration: 22s; animation-delay: 2s; width: 2px; height: 2px; }
+    .particle:nth-child(3) { left: 45%; animation-duration: 20s; animation-delay: 4s; width: 5px; height: 5px; }
+    .particle:nth-child(4) { left: 65%; animation-duration: 17s; animation-delay: 1s; width: 3px; height: 3px; }
+    .particle:nth-child(5) { left: 80%; animation-duration: 24s; animation-delay: 3s; width: 4px; height: 4px; }
+    .particle:nth-child(6) { left: 50%; animation-duration: 19s; animation-delay: 5s; width: 2px; height: 2px; }
+    .particle:nth-child(7) { left: 90%; animation-duration: 21s; animation-delay: 2s; width: 3px; height: 3px; }
+    .particle:nth-child(8) { left: 5%; animation-duration: 16s; animation-delay: 4s; width: 4px; height: 4px; }
+    .particle:nth-child(9) { left: 35%; animation-duration: 23s; animation-delay: 1s; width: 2px; height: 2px; }
+    .particle:nth-child(10) { left: 70%; animation-duration: 20s; animation-delay: 3s; width: 5px; height: 5px; }
+
+    @keyframes float-particle {
+      0% { transform: translateY(100vh) scale(0); opacity: 0; }
+      10% { opacity: 0.4; }
+      90% { opacity: 0.4; }
+      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    }
+
+    /* ===== FOCUS ===== */
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+      outline: 2px solid var(--verde-neon);
+      outline-offset: 3px;
+    }
+
+    /* ===== NEON TEXTO ===== */
+    .neon-text {
+      color: var(--verde-neon);
+      text-shadow:
+        0 0 10px var(--verde-neon-glow),
+        0 0 20px var(--verde-neon-glow),
+        0 0 40px var(--verde-neon-glow),
+        0 0 80px rgba(0, 255, 136, 0.1);
+      animation: neon-pulse 2s ease-in-out infinite;
+    }
+
+    .neon-text-blue {
+      color: var(--celeste);
+      text-shadow:
+        0 0 10px var(--celeste-glow),
+        0 0 20px var(--celeste-glow),
+        0 0 40px rgba(0, 212, 255, 0.2);
+      animation: neon-pulse-blue 2.5s ease-in-out infinite;
+    }
+
+    @keyframes neon-pulse {
+      0%, 100% {
+        text-shadow:
+          0 0 10px var(--verde-neon-glow),
+          0 0 20px var(--verde-neon-glow),
+          0 0 40px rgba(0, 255, 136, 0.2);
+      }
+      50% {
+        text-shadow:
+          0 0 15px var(--verde-neon-glow),
+          0 0 30px var(--verde-neon-glow),
+          0 0 60px rgba(0, 255, 136, 0.4),
+          0 0 100px rgba(0, 255, 136, 0.1);
+      }
+    }
+
+    @keyframes neon-pulse-blue {
+      0%, 100% {
+        text-shadow:
+          0 0 10px var(--celeste-glow),
+          0 0 20px var(--celeste-glow),
+          0 0 40px rgba(0, 212, 255, 0.15);
+      }
+      50% {
+        text-shadow:
+          0 0 15px var(--celeste-glow),
+          0 0 30px var(--celeste-glow),
+          0 0 60px rgba(0, 212, 255, 0.3);
+      }
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(8, 17, 13, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 255, 136, 0.15);
+    }
+    nav::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--verde-neon), transparent);
+      animation: neon-slide 3s ease-in-out infinite;
+    }
+    @keyframes neon-slide {
+      0% { opacity: 0.3; }
+      50% { opacity: 1; }
+      100% { opacity: 0.3; }
+    }
+
+    .nav-container {
+      max-width: 1150px;
+      margin: auto;
+      height: 75px;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo-wrapper {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+    .logo span {
+      color: var(--verde-neon);
+      text-shadow: 0 0 20px var(--verde-neon-glow);
+    }
+
+    .logo-sub {
+      font-size: 10px;
+      color: var(--gris-claro);
+      letter-spacing: 1px;
+      font-weight: 300;
+      margin-top: 2px;
+    }
+    .logo-sub a {
+      color: var(--verde-neon);
+      transition: color 0.2s;
+      text-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+    }
+    .logo-sub a:hover {
+      color: var(--verde);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+    .nav-links a {
+      color: #d7e2dd;
+      font-size: 14px;
+      transition: color 0.2s, text-shadow 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--verde-neon);
+      text-shadow: 0 0 20px var(--verde-neon-glow);
+    }
+
+    .nav-button {
+      background: var(--verde-neon);
+      color: #06100a !important;
+      padding: 11px 19px;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+    }
+    .nav-button:hover {
+      background: var(--verde);
+      transform: scale(1.02);
+      box-shadow: 0 0 40px rgba(0, 255, 136, 0.4);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 80% 30%, rgba(0, 255, 136, 0.15), transparent 30%),
+        radial-gradient(circle at 20% 70%, rgba(0, 255, 136, 0.08), transparent 25%),
+        var(--negro);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border: 1px solid rgba(0, 255, 136, 0.15);
+      border-radius: 50%;
+      right: -170px;
+      top: 80px;
+      pointer-events: none;
+      animation: glow-rotate 20s linear infinite;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border: 1px solid rgba(0, 255, 136, 0.08);
+      border-radius: 50%;
+      left: -100px;
+      bottom: 50px;
+      pointer-events: none;
+      animation: glow-rotate 25s linear infinite reverse;
+    }
+    @keyframes glow-rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .hero-container {
+      width: 100%;
+      max-width: 1150px;
+      margin: auto;
+      padding: 70px 20px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 255, 136, 0.10);
+      border: 1px solid rgba(0, 255, 136, 0.25);
+      color: var(--verde-neon);
+      padding: 8px 14px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      box-shadow: 0 0 20px rgba(0, 255, 136, 0.1);
+      animation: badge-glow 3s ease-in-out infinite;
+    }
+    @keyframes badge-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 136, 0.1); }
+      50% { box-shadow: 0 0 40px rgba(0, 255, 136, 0.3); }
+    }
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--verde-neon);
+      box-shadow: 0 0 20px var(--verde-neon);
+      animation: dot-pulse 1.5s ease-in-out infinite;
+    }
+    @keyframes dot-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    h1 {
+      font-size: clamp(43px, 6vw, 72px);
+      line-height: 0.98;
+      letter-spacing: -3px;
+      margin-bottom: 25px;
+    }
+    h1 .neon-text {
+      display: inline-block;
+    }
+
+    .hero-description {
+      color: var(--gris-claro);
+      font-size: 18px;
+      max-width: 620px;
+      margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      background: var(--verde-neon);
+      color: #06100a;
+      padding: 15px 25px;
+      border-radius: var(--radio);
+      font-weight: 800;
+      transition: transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+      transform: rotate(45deg) translateX(-100%);
+      transition: transform 0.6s;
+    }
+    .btn-primary:hover::after {
+      transform: rotate(45deg) translateX(100%);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 50px rgba(0, 255, 136, 0.4), 0 15px 35px rgba(0, 255, 136, 0.2);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 25px;
+      border: 1px solid rgba(0, 255, 136, 0.2);
+      border-radius: var(--radio);
+      color: white;
+      font-weight: bold;
+      transition: border-color 0.25s, color 0.25s, box-shadow 0.25s;
+    }
+    .btn-secondary:hover {
+      border-color: var(--verde-neon);
+      color: var(--verde-neon);
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.1);
+    }
+
+    .btn-whatsapp {
+      background: var(--verde-neon);
+      color: #06100a !important;
+      padding: 15px 25px;
+      border-radius: var(--radio);
+      font-weight: 800;
+      transition: transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-whatsapp::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.15), transparent);
+      transform: rotate(45deg) translateX(-100%);
+      transition: transform 0.6s;
+    }
+    .btn-whatsapp:hover::after {
+      transform: rotate(45deg) translateX(100%);
+    }
+    .btn-whatsapp:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 0 50px rgba(0, 255, 136, 0.4);
+    }
+    .btn-whatsapp svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+    }
+
+    /* ===== REACH CARD ===== */
+    .reach-card {
+      background: linear-gradient(145deg, #12221a, #0b1510);
+      border: 1px solid rgba(0, 255, 136, 0.15);
+      border-radius: 25px;
+      padding: 35px;
+      box-shadow: 0 0 40px rgba(0, 255, 136, 0.05), 0 25px 80px rgba(0, 0, 0, 0.35);
+      position: relative;
+      transition: box-shadow 0.3s;
+    }
+    .reach-card:hover {
+      box-shadow: 0 0 60px rgba(0, 255, 136, 0.15), 0 25px 80px rgba(0, 0, 0, 0.35);
+    }
+    .reach-card::after {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: 25px;
+      padding: 1px;
+      background: linear-gradient(140deg, rgba(0, 255, 136, 0.5), transparent 45%);
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      animation: border-glow 3s ease-in-out infinite;
+    }
+    @keyframes border-glow {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+
+    .reach-top {
+      color: var(--gris-claro);
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+    .reach-number {
+      font-size: 80px;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--verde-neon);
+      text-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+      animation: neon-pulse 2s ease-in-out infinite;
+    }
+    .reach-title {
+      font-size: 25px;
+      font-weight: 800;
+      margin-bottom: 25px;
+    }
+
+    .group-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 13px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid transparent;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .group:hover {
+      border-color: rgba(0, 255, 136, 0.2);
+      box-shadow: 0 0 20px rgba(0, 255, 136, 0.05);
+    }
+    .group-icon {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: rgba(0, 255, 136, 0.12);
+      font-size: 20px;
+    }
+    .group-text strong {
+      display: block;
+      font-size: 14px;
+    }
+    .group-text small {
+      color: #83958c;
+      font-size: 12px;
+    }
+
+    /* ===== STATS ===== */
+    .stats {
+      border-top: 1px solid rgba(0, 255, 136, 0.1);
+      border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+      background: #0c1712;
+      position: relative;
+    }
+    .stats::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--verde-neon), transparent);
+      animation: neon-slide 4s ease-in-out infinite;
+    }
+    .stats::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--verde-neon), transparent);
+      animation: neon-slide 4s ease-in-out infinite reverse;
+    }
+    .stats-container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 35px 20px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      text-align: center;
+    }
+    .stat {
+      border-right: 1px solid rgba(0, 255, 136, 0.08);
+    }
+    .stat:last-child {
+      border-right: none;
+    }
+    .stat-number {
+      font-size: 34px;
+      font-weight: 900;
+      color: var(--verde-neon);
+      text-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+    }
+    .stat-text {
+      color: var(--gris-claro);
+      font-size: 13px;
+    }
+
+    /* ===== SECCIONES ===== */
+    section {
+      padding: 95px 20px;
+      position: relative;
+    }
+    .section-container {
+      max-width: 1100px;
+      margin: auto;
+      position: relative;
+      z-index: 2;
+    }
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 55px;
+    }
+    .section-label {
+      color: var(--verde-neon);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      text-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+    }
+    h2 {
+      font-size: clamp(32px, 5vw, 50px);
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 15px;
+    }
+    .section-description {
+      color: var(--gris-claro);
+      font-size: 16px;
+    }
+
+    /* ===== CÓMO FUNCIONA ===== */
+    .how {
+      background: #0a130f;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .step {
+      padding: 30px;
+      background: #101d16;
+      border: 1px solid rgba(0, 255, 136, 0.08);
+      border-radius: 18px;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+    }
+    .step:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0, 255, 136, 0.3);
+      box-shadow: 0 0 40px rgba(0, 255, 136, 0.05);
+    }
+    .step-number {
+      width: 45px;
+      height: 45px;
+      border-radius: 12px;
+      background: var(--verde-neon);
+      color: #06100a;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      margin-bottom: 25px;
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
+      transition: box-shadow 0.3s;
+    }
+    .step:hover .step-number {
+      box-shadow: 0 0 50px rgba(0, 255, 136, 0.4);
+    }
+    .step h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .step p {
+      color: var(--gris-claro);
+      font-size: 14px;
+    }
+
+    /* ===== NUEVA SECCIÓN: DIFUSIÓN NACIONAL VS LOCAL ===== */
+    .coverage-section {
+      background: linear-gradient(145deg, #0a130f, #050d09);
+      border-top: 1px solid rgba(0, 255, 136, 0.12);
+      border-bottom: 1px solid rgba(0, 255, 136, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+    .coverage-section::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--verde-neon), transparent);
+      animation: neon-slide 3s ease-in-out infinite;
+    }
+    .coverage-section::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--verde-neon), transparent);
+      animation: neon-slide 3s ease-in-out infinite reverse;
+    }
+
+    .coverage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .coverage-card {
+      background: #101d16;
+      border-radius: 20px;
+      padding: 35px 30px;
+      border: 1px solid rgba(0, 255, 136, 0.08);
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .coverage-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0, 255, 136, 0.25);
+      box-shadow: 0 0 40px rgba(0, 255, 136, 0.05);
+    }
+
+    .coverage-card.nacional {
+      border-color: rgba(0, 255, 136, 0.2);
+    }
+    .coverage-card.nacional::before {
+      content: '🇦🇷';
+      position: absolute;
+      top: -20px;
+      right: -10px;
+      font-size: 80px;
+      opacity: 0.08;
+      transform: rotate(15deg);
+    }
+
+    .coverage-card.local {
+      border-color: rgba(0, 212, 255, 0.15);
+    }
+    .coverage-card.local::before {
+      content: '📍';
+      position: absolute;
+      top: -20px;
+      right: -10px;
+      font-size: 80px;
+      opacity: 0.08;
+      transform: rotate(15deg);
+    }
+
+    .coverage-card .card-icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .coverage-card h3 {
+      font-size: 26px;
+      margin-bottom: 12px;
+    }
+
+    .coverage-card p {
+      color: var(--gris-claro);
+      font-size: 15px;
+      margin-bottom: 15px;
+    }
+
+    .coverage-card .highlight-list {
+      list-style: none;
+      margin: 15px 0 20px;
+    }
+    .coverage-card .highlight-list li {
+      padding: 8px 0;
+      color: #d4ded9;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .coverage-card .highlight-list li::before {
+      content: "✓";
+      color: var(--verde-neon);
+      font-weight: bold;
+    }
+    .coverage-card.local .highlight-list li::before {
+      color: var(--celeste);
+    }
+
+    .coverage-card .btn-coverage {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: var(--radio);
+      font-weight: bold;
+      transition: all 0.3s;
+      margin-top: 5px;
+    }
+    .coverage-card.nacional .btn-coverage {
+      background: var(--verde-neon);
+      color: #06100a;
+      box-shadow: 0 0 20px rgba(0, 255, 136, 0.15);
+    }
+    .coverage-card.nacional .btn-coverage:hover {
+      box-shadow: 0 0 40px rgba(0, 255, 136, 0.3);
+      transform: scale(1.02);
+    }
+    .coverage-card.local .btn-coverage {
+      background: var(--celeste);
+      color: #06100a;
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.15);
+    }
+    .coverage-card.local .btn-coverage:hover {
+      box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+      transform: scale(1.02);
+    }
+
+    .coverage-badge {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .coverage-card.nacional .coverage-badge {
+      background: rgba(0, 255, 136, 0.15);
+      color: var(--verde-neon);
+      border: 1px solid rgba(0, 255, 136, 0.2);
+    }
+    .coverage-card.local .coverage-badge {
+      background: rgba(0, 212, 255, 0.12);
+      color: var(--celeste);
+      border: 1px solid rgba(0, 212, 255, 0.15);
+    }
+
+    .coverage-note {
+      text-align: center;
+      margin-top: 30px;
+      padding: 20px;
+      background: rgba(0, 255, 136, 0.05);
+      border-radius: 12px;
+      border: 1px solid rgba(0, 255, 136, 0.06);
+    }
+    .coverage-note p {
+      color: var(--gris-claro);
+      font-size: 14px;
+    }
+    .coverage-note strong {
+      color: var(--verde-neon);
+    }
+
+    /* ===== PLANES ===== */
+    .plans {
+      background: var(--negro);
+    }
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+    .plan {
+      background: #101b16;
+      border: 1px solid rgba(0, 255, 136, 0.08);
+      border-radius: 20px;
+      padding: 32px;
+      position: relative;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+      display: flex;
+      flex-direction: column;
+    }
+    .plan:hover {
+      transform: translateY(-7px);
+      border-color: rgba(0, 255, 136, 0.3);
+      box-shadow: 0 0 40px rgba(0, 255, 136, 0.05);
+    }
+    .plan.featured {
+      border: 2px solid var(--verde-neon);
+      box-shadow: 0 0 40px rgba(0, 255, 136, 0.1), 0 20px 60px rgba(0, 0, 0, 0.2);
+    }
+    .plan.featured:hover {
+      box-shadow: 0 0 60px rgba(0, 255, 136, 0.2), 0 20px 60px rgba(0, 0, 0, 0.2);
+    }
+    .popular {
+      position: absolute;
+      top: -14px;
+      right: 20px;
+      background: var(--verde-neon);
+      color: #06100a;
+      font-size: 11px;
+      font-weight: 900;
+      padding: 6px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+    }
+    .plan-name {
+      color: var(--gris-claro);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: bold;
+    }
+    .plan h3 {
+      font-size: 29px;
+      margin: 5px 0 12px;
+    }
+    .plan h3 .neon-text {
+      font-size: inherit;
+    }
+    .price {
+      font-size: 39px;
+      font-weight: 900;
+      margin-bottom: 5px;
+    }
+    .price .neon-text {
+      font-size: inherit;
+    }
+    .price small {
+      color: #819088;
+      font-size: 13px;
+      font-weight: normal;
+    }
+    .plan-subtitle {
+      color: #84948c;
+      font-size: 13px;
+      min-height: 40px;
+      margin-bottom: 25px;
+    }
+    .features {
+      list-style: none;
+      margin-bottom: 28px;
+      flex-grow: 1;
+    }
+    .features li {
+      padding: 9px 0;
+      color: #d4ded9;
+      font-size: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .features li::before {
+      content: "⚡";
+      color: var(--verde-neon);
+      font-weight: bold;
+      margin-right: 9px;
+    }
+    .plan-button {
+      display: block;
+      text-align: center;
+      padding: 13px;
+      border: 1px solid rgba(0, 255, 136, 0.15);
+      border-radius: 9px;
+      font-weight: bold;
+      transition: background 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+    .featured .plan-button,
+    .plan-button:hover {
+      background: var(--verde-neon);
+      color: #06100a;
+      border-color: var(--verde-neon);
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
+    }
+
+    /* ===== POR QUÉ ===== */
+    .why {
+      background: #0b1611;
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .why-item {
+      padding: 28px;
+      border-radius: 18px;
+      background: #101c17;
+      border: 1px solid rgba(0, 255, 136, 0.06);
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .why-item:hover {
+      border-color: rgba(0, 255, 136, 0.2);
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.03);
+    }
+    .why-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(0, 255, 136, 0.1);
+      display: grid;
+      place-items: center;
+      font-size: 23px;
+      box-shadow: 0 0 20px rgba(0, 255, 136, 0.05);
+    }
+    .why-item h3 {
+      margin-bottom: 5px;
+    }
+    .why-item p {
+      color: var(--gris-claro);
+      font-size: 14px;
+    }
+
+    /* ===== NUEVA SECCIÓN: WEB + DIFUSIÓN ===== */
+    .web-section {
+      background: linear-gradient(145deg, #0a130f, #07100b);
+      border-top: 1px solid rgba(0, 255, 136, 0.15);
+      border-bottom: 1px solid rgba(0, 255, 136, 0.15);
+      position: relative;
+    }
+    .web-section::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--verde-neon), transparent);
+      animation: neon-slide 3s ease-in-out infinite;
+    }
+    .web-section::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--verde-neon), transparent);
+      animation: neon-slide 3s ease-in-out infinite reverse;
+    }
+    .web-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .web-content h2 {
+      margin-bottom: 20px;
+    }
+    .web-content p {
+      color: var(--gris-claro);
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    .web-content ul {
+      list-style: none;
+      margin-bottom: 25px;
+    }
+    .web-content ul li {
+      padding: 10px 0;
+      color: #d4ded9;
+      font-size: 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .web-content ul li::before {
+      content: "✨";
+      font-size: 18px;
+    }
+    .web-highlight {
+      background: #101d16;
+      border: 1px solid rgba(0, 255, 136, 0.2);
+      border-radius: 20px;
+      padding: 35px;
+      text-align: center;
+      box-shadow: 0 0 40px rgba(0, 255, 136, 0.05), 0 20px 60px rgba(0, 0, 0, 0.2);
+      transition: box-shadow 0.3s, border-color 0.3s;
+    }
+    .web-highlight:hover {
+      box-shadow: 0 0 60px rgba(0, 255, 136, 0.1), 0 20px 60px rgba(0, 0, 0, 0.2);
+      border-color: rgba(0, 255, 136, 0.4);
+    }
+    .web-highlight .big-number {
+      font-size: 72px;
+      font-weight: 900;
+      color: var(--verde-neon);
+      line-height: 1;
+      text-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+      animation: neon-pulse 2s ease-in-out infinite;
+    }
+    .web-highlight .big-label {
+      color: var(--gris-claro);
+      font-size: 18px;
+      margin: 10px 0 20px;
+    }
+    .web-highlight .price-combo {
+      font-size: 32px;
+      font-weight: 900;
+      margin-bottom: 5px;
+    }
+    .web-highlight .price-combo .neon-text {
+      font-size: inherit;
+    }
+    .web-highlight .price-combo small {
+      color: #819088;
+      font-size: 16px;
+      font-weight: normal;
+    }
+    .web-highlight .combo-detail {
+      color: #84948c;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    /* ===== CTA ===== */
+    .cta {
+      padding: 90px 20px;
+      background:
+        radial-gradient(circle at center, rgba(0, 255, 136, 0.08), transparent 50%),
+        #07100b;
+      text-align: center;
+    }
+    .cta-container {
+      max-width: 750px;
+      margin: auto;
+    }
+    .cta h2 {
+      margin-bottom: 18px;
+    }
+    .cta p {
+      color: var(--gris-claro);
+      margin-bottom: 30px;
+    }
+
+    /* ===== FAQ ===== */
+    .faq {
+      background: var(--negro);
+    }
+    .faq-list {
+      max-width: 800px;
+      margin: auto;
+    }
+    details {
+      background: #101b16;
+      border: 1px solid rgba(0, 255, 136, 0.06);
+      border-radius: var(--radio);
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    details:hover {
+      border-color: rgba(0, 255, 136, 0.15);
+    }
+    summary {
+      cursor: pointer;
+      padding: 20px;
+      font-weight: bold;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+    summary::-webkit-details-marker {
+      display: none;
+    }
+    summary::after {
+      content: "+";
+      color: var(--verde-neon);
+      font-size: 24px;
+      line-height: 1;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    details[open] summary::after {
+      content: "−";
+    }
+    details p {
+      padding: 0 20px 20px;
+      color: var(--gris-claro);
+      font-size: 14px;
+    }
+
+    /* ===== FORM ===== */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 450px;
+      margin: 0 auto 25px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 14px;
+      border-radius: var(--radio);
+      border: 1px solid rgba(0, 255, 136, 0.15);
+      background: #0a130f;
+      color: white;
+      font-size: 16px;
+      font-family: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--verde-neon);
+      box-shadow: 0 0 20px rgba(0, 255, 136, 0.05);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #5a6b63;
+    }
+    .form-group select option {
+      background: #0a130f;
+      color: white;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      padding: 45px 20px 35px;
+      border-top: 1px solid rgba(0, 255, 136, 0.08);
+      text-align: center;
+      color: #74837b;
+      font-size: 13px;
+    }
+    footer strong {
+      color: var(--verde-neon);
+    }
+    .footer-brand {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      margin-bottom: 5px;
+    }
+    .footer-brand span {
+      color: var(--verde-neon);
+      text-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+    }
+    .footer-sub {
+      font-size: 12px;
+      color: #5a6b63;
+      margin-bottom: 15px;
+    }
+    .footer-sub a {
+      color: var(--verde-neon);
+      transition: color 0.2s;
+      text-shadow: 0 0 10px rgba(0, 255, 136, 0.1);
+    }
+    .footer-sub a:hover {
+      color: var(--verde);
+      text-decoration: underline;
+    }
+    .footer-divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--verde-neon), transparent);
+      margin: 15px auto;
+      border-radius: 2px;
+      animation: neon-slide 3s ease-in-out infinite;
+    }
+
+    /* ===== WHATSAPP FLOTANTE ===== */
+    .whatsapp-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--verde-neon);
+      color: white;
+      display: grid;
+      place-items: center;
+      z-index: 999;
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.3), 0 8px 30px rgba(0, 0, 0, 0.3);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 50px rgba(0, 255, 136, 0.5), 0 12px 40px rgba(0, 0, 0, 0.3);
+    }
+    .whatsapp-float svg {
+      width: 34px;
+      height: 34px;
+      fill: white;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 850px) {
+      .nav-links {
+        display: none;
+      }
+      .hero-container {
+        grid-template-columns: 1fr;
+        gap: 45px;
+        text-align: center;
+      }
+      .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-buttons {
+        justify-content: center;
+      }
+      .reach-card {
+        max-width: 500px;
+        margin: auto;
+        text-align: left;
+      }
+      .steps,
+      .plans-grid {
+        grid-template-columns: 1fr;
+      }
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+      .web-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .web-content ul li {
+        justify-content: center;
+      }
+      .coverage-grid {
+        grid-template-columns: 1fr;
+      }
+      .coverage-card {
+        text-align: center;
+      }
+      .coverage-card .highlight-list li {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      section {
+        padding: 70px 17px;
+      }
+      .hero {
+        min-height: auto;
+      }
+      .hero-container {
+        padding: 65px 17px;
+      }
+      h1 {
+        font-size: 48px;
+        letter-spacing: -2px;
+      }
+      .hero-description {
+        font-size: 16px;
+      }
+      .reach-card {
+        padding: 25px;
+      }
+      .reach-number {
+        font-size: 65px;
+      }
+      .stats-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+      .stat {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 20px;
+      }
+      .stat:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      .hero-buttons a {
+        width: 100%;
+        justify-content: center;
+      }
+      .plan.featured {
+        order: -1;
+      }
+      .web-highlight .big-number {
+        font-size: 52px;
+      }
+      .web-highlight .price-combo {
+        font-size: 26px;
+      }
+      .logo {
+        font-size: 20px;
+      }
+      .logo-sub {
+        font-size: 9px;
+      }
+      .btn-whatsapp {
+        width: 100%;
+        justify-content: center;
+      }
+      .coverage-card {
+        padding: 25px 20px;
+      }
+      .coverage-card .card-icon {
+        font-size: 30px;
+      }
+      .coverage-card h3 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== PARTÍCULAS DE FONDO ===== -->
+  <div class="bg-particles" aria-hidden="true">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav aria-label="Navegación principal">
+    <div class="nav-container">
+      <div class="logo-wrapper">
+        <div class="logo">
+          Difusión<span>Pro</span>
+        </div>
+        <div class="logo-sub">
+          by <a href="https://ciborg347.onrender.com" target="_blank" rel="noopener noreferrer">CIBORG 347</a>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#cobertura">Cobertura</a>
+        <a href="#planes">Planes</a>
+        <a href="#web">Web + Difusión</a>
+        <a href="#preguntas">Preguntas</a>
+        <a class="nav-button" href="#contacto">Publicar ahora</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== MAIN ===== -->
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <header class="hero">
+      <div class="hero-container">
+
+        <div>
+          <div class="badge">
+            <span class="badge-dot" aria-hidden="true"></span>
+            Difusión en grupos de compra y venta
+          </div>
+
+          <h1>
+            Tu publicación.<br>
+            <span class="neon-text">Hasta 250 grupos.</span>
+          </h1>
+
+          <p class="hero-description">
+            Hacemos llegar tu anuncio a una gran cantidad de grupos de
+            compra y venta, con integrantes activos y de distintas zonas.
+            Más lugares donde tu publicación puede ser vista.
+          </p>
+
+          <div class="hero-buttons">
+            <a class="btn-primary" href="#planes">
+              🚀 Ver planes
+            </a>
+            <a class="btn-secondary" href="#cobertura">
+              🌎 ¿Vendés a todo el país?
+            </a>
+          </div>
+        </div>
+
+        <div class="reach-card">
+          <div class="reach-top">Alcance de tu publicación</div>
+          <div class="reach-number">250</div>
+          <div class="reach-title">grupos de compra y venta</div>
+
+          <div class="group-list">
+            <div class="group">
+              <span class="group-icon" aria-hidden="true">🛒</span>
+              <div class="group-text">
+                <strong>Compra y Venta</strong>
+                <small>Personas buscando productos</small>
+              </div>
+            </div>
+            <div class="group">
+              <span class="group-icon" aria-hidden="true">📍</span>
+              <div class="group-text">
+                <strong>Distintas zonas</strong>
+                <small>Difusión en diferentes lugares</small>
+              </div>
+            </div>
+            <div class="group">
+              <span class="group-icon" aria-hidden="true">👥</span>
+              <div class="group-text">
+                <strong>Muchos integrantes</strong>
+                <small>Grupos con comunidad activa</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- ===== STATS ===== -->
+    <section class="stats" aria-label="Estadísticas">
+      <div class="stats-container">
+        <div class="stat">
+          <div class="stat-number">250</div>
+          <div class="stat-text">grupos disponibles</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">1</div>
+          <div class="stat-text">publicación difundida</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">🇦🇷</div>
+          <div class="stat-text">distintas zonas del país</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CÓMO FUNCIONA ===== -->
+    <section class="how" id="como-funciona">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-label">Simple y rápido</div>
+          <h2>Vos preparás el anuncio.<br>Nosotros hacemos la difusión.</h2>
+          <p class="section-description">
+            No necesitás publicar manualmente en cientos de grupos.
+            Nos encargamos de distribuir tu publicación.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">01</div>
+            <h3>Enviás tu publicación</h3>
+            <p>
+              Nos enviás la imagen, texto o información del producto,
+              servicio o publicación que querés promocionar.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step-number">02</div>
+            <h3>Elegís tu plan</h3>
+            <p>
+              Elegís la cantidad de grupos en los que querés que
+              difundamos tu publicación.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step-number">03</div>
+            <h3>Hacemos la difusión</h3>
+            <p>
+              Publicamos tu anuncio en los grupos correspondientes
+              según el plan que hayas elegido.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== NUEVA SECCIÓN: COBERTURA NACIONAL VS LOCAL ===== -->
+    <section class="coverage-section" id="cobertura">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-label">🌎 Cobertura geográfica</div>
+          <h2>
+            ¿Vendés a <span class="neon-text">todo el país</span>?
+          </h2>
+          <p class="section-description">
+            Ofrecemos dos modalidades de difusión para que elijas la que mejor se adapte a tu negocio.
+          </p>
+        </div>
+
+        <div class="coverage-grid">
+
+          <!-- CARD NACIONAL -->
+          <div class="coverage-card nacional">
+            <span class="coverage-badge">🚀 Difusión Nacional</span>
+            <span class="card-icon">🇦🇷</span>
+            <h3>Llegá a <span class="neon-text">todo el país</span></h3>
+            <p>
+              Tu publicación se difunde en grupos de <strong>distintas provincias y zonas</strong>
+              de Argentina. Ideal si vendés por envíos a todo el territorio nacional.
+            </p>
+            <ul class="highlight-list">
+              <li>Grupos de Buenos Aires, Córdoba, Rosario, Mendoza y más</li>
+              <li>Llegá a compradores de diferentes regiones</li>
+              <li>Ideal para productos con envíos a todo el país</li>
+              <li>Máxima exposición geográfica</li>
+            </ul>
+            <a href="#planes" class="btn-coverage">Ver planes nacionales →</a>
+          </div>
+
+          <!-- CARD LOCAL -->
+          <div class="coverage-card local">
+            <span class="coverage-badge">📍 Difusión Local</span>
+            <span class="card-icon">🏘️</span>
+            <h3>¿Vendés solo en <span class="neon-text-blue">tu zona</span>?</h3>
+            <p>
+              No vendés a todo el país, solo en tu ciudad o zona.
+              <strong>Tenemos planes de difusión local</strong> con menos alcance geográfico,
+              pero igual de efectivos en tu mercado.
+            </p>
+            <ul class="highlight-list">
+              <li>Grupos exclusivos de tu ciudad o zona</li>
+              <li>Menor alcance, pero más segmentado</li>
+              <li>Ideal para emprendimientos locales</li>
+              <li>Perfecto para servicios sin envíos</li>
+            </ul>
+            <a href="#contacto" class="btn-coverage">Consultar planes locales →</a>
+          </div>
+
+        </div>
+
+        <div class="coverage-note">
+          <p>
+            💡 <strong>¿No sabés cuál elegir?</strong> Consultanos y te ayudamos a definir
+            la mejor estrategia para tu negocio. ¡La difusión correcta marca la diferencia!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PLANES ===== -->
+    <section class="plans" id="planes">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-label">Planes económicos</div>
+          <h2>Elegí cuánto querés difundir</h2>
+          <p class="section-description">
+            Diferentes opciones para que puedas promocionar tu publicación
+            sin gastar una fortuna. <strong>Todos los planes aplican a difusión nacional.</strong>
+          </p>
+        </div>
+
+        <div class="plans-grid">
+
+          <!-- Plan 50 -->
+          <article class="plan">
+            <div class="plan-name">Plan Inicial</div>
+            <h3>Difusión 50</h3>
+            <div class="price">
+              <span class="neon-text">$5.000</span>
+              <small>ARS</small>
+            </div>
+            <div class="plan-subtitle">Ideal para probar el servicio.</div>
+            <ul class="features">
+              <li>Hasta 50 grupos</li>
+              <li>1 publicación</li>
+              <li>Grupos de compra y venta</li>
+              <li>Envío de tu material</li>
+              <li>Coordinación por WhatsApp</li>
+            </ul>
+            <a class="plan-button" href="#contacto">Elegir este plan</a>
+          </article>
+
+          <!-- Plan 150 (Destacado) -->
+          <article class="plan featured">
+            <div class="popular">⭐ Más elegido</div>
+            <div class="plan-name">Plan Pro</div>
+            <h3>Difusión 150</h3>
+            <div class="price">
+              <span class="neon-text">$8.000</span>
+              <small>ARS</small>
+            </div>
+            <div class="plan-subtitle">Más grupos. Más oportunidades de ser visto.</div>
+            <ul class="features">
+              <li>Hasta 150 grupos</li>
+              <li>1 publicación</li>
+              <li>Grupos de compra y venta</li>
+              <li>Mayor alcance</li>
+              <li>Coordinación por WhatsApp</li>
+            </ul>
+            <a class="plan-button" href="#contacto">Elegir este plan</a>
+          </article>
+
+          <!-- Plan 250 -->
+          <article class="plan">
+            <div class="plan-name">Plan Premium</div>
+            <h3>Difusión 250</h3>
+            <div class="price">
+              <span class="neon-text">$12.000</span>
+              <small>ARS</small>
+            </div>
+            <div class="plan-subtitle">Nuestra máxima opción de difusión.</div>
+            <ul class="features">
+              <li>Hasta 250 grupos</li>
+              <li>1 publicación</li>
+              <li>Grupos de compra y venta</li>
+              <li>Máxima cobertura</li>
+              <li>Coordinación por WhatsApp</li>
+            </ul>
+            <a class="plan-button" href="#contacto">Elegir este plan</a>
+          </article>
+
+        </div>
+
+        <!-- Aviso de planes locales -->
+        <div style="text-align: center; margin-top: 30px; padding: 20px; background: rgba(0, 212, 255, 0.05); border-radius: 12px; border: 1px solid rgba(0, 212, 255, 0.08);">
+          <p style="color: var(--gris-claro); font-size: 14px;">
+            📍 ¿Vendés solo en tu zona? Consultá por nuestros
+            <strong style="color: var(--celeste);">planes de difusión local</strong>
+            — menos alcance, pero enfocados en tu mercado.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== NUEVA SECCIÓN: WEB + DIFUSIÓN ===== -->
+    <section class="web-section" id="web">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-label">Combo completo</div>
+          <h2>¿Todavía no tenés página web?</h2>
+          <p class="section-description">
+            Complementá los servicios de <strong style="color: var(--verde-neon);">CIBORG 347</strong> con las herramientas de Difusión Pro.
+          </p>
+        </div>
+
+        <div class="web-grid">
+          <div class="web-content">
+            <h2 style="font-size: clamp(28px, 4vw, 40px);">
+              Diseñamos tu web + <span class="neon-text">difusión incluida</span>
+            </h2>
+            <p>
+              ¿Ya tenés tu negocio o emprendimiento pero te falta presencia online?
+              Nosotros te diseñamos una página web profesional y además,
+              <strong>te incluimos el plan de difusión en grupos</strong> para que tu
+              anuncio llegue a miles de personas desde el día uno.
+            </p>
+            <ul>
+              <li>Diseño web moderno y responsive</li>
+              <li>Hasta 250 grupos de difusión incluidos</li>
+              <li>Optimización para celulares y computadoras</li>
+              <li>Contenido y fotos adaptados a tu marca</li>
+              <li>Soporte y acompañamiento personalizado</li>
+            </ul>
+            <a class="btn-whatsapp" href="https://wa.me/5491100000000?text=Hola!%20Quiero%20consultar%20por%20el%20combo%20WEB%20%2B%20DIFUSI%C3%93N%20PRO" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Consultar combo web + difusión
+            </a>
+          </div>
+
+          <div class="web-highlight">
+            <div class="big-number">+250</div>
+            <div class="big-label">grupos de difusión</div>
+            <div class="price-combo">
+              <span class="neon-text">Desde $15.000</span> <small>ARS</small>
+            </div>
+            <div class="combo-detail">
+              Incluye diseño web + difusión en grupos
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
+              <span style="color: var(--verde-neon); font-weight: bold;">✓ Web profesional</span>
+              <span style="color: var(--verde-neon); font-weight: bold;">✓ Hasta 250 grupos</span>
+              <span style="color: var(--verde-neon); font-weight: bold;">✓ 1 publicación</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== POR QUÉ ===== -->
+    <section class="why" id="por-que">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-label">¿Por qué Difusión Pro?</div>
+          <h2>Llegá a más personas sin hacerlo manualmente</h2>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-item">
+            <span class="why-icon" aria-hidden="true">📢</span>
+            <div>
+              <h3>Gran cantidad de grupos</h3>
+              <p>Tu publicación puede llegar a una gran cantidad de comunidades de compra y venta.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <span class="why-icon" aria-hidden="true">👥</span>
+            <div>
+              <h3>Comunidades activas</h3>
+              <p>Trabajamos con grupos que cuentan con integrantes y movimiento.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <span class="why-icon" aria-hidden="true">⏱️</span>
+            <div>
+              <h3>Ahorro de tiempo</h3>
+              <p>Evitá pasar horas buscando grupos y publicando el mismo anuncio uno por uno.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <span class="why-icon" aria-hidden="true">💰</span>
+            <div>
+              <h3>Planes accesibles</h3>
+              <p>Opciones económicas para particulares, emprendedores y pequeños negocios.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta" id="contacto">
+      <div class="cta-container">
+        <div class="section-label">Empezá ahora</div>
+        <h2>¿Querés que tu publicación llegue a más grupos?</h2>
+        <p>
+          Elegí tu plan y completá el formulario. Te contactaremos a la brevedad
+          para coordinar el envío de tu publicación y la difusión.
+        </p>
+
+        <!-- Formulario de contacto -->
+        <form action="https://formsubmit.co/tu-email@dominio.com" method="POST">
+          <input type="hidden" name="_subject" value="Nuevo pedido de Difusión Pro">
+          <input type="hidden" name="_captcha" value="false">
+
+          <div class="form-group">
+            <input type="text" name="nombre" placeholder="Tu nombre" required>
+            <input type="email" name="email" placeholder="Tu email" required>
+            <input type="text" name="telefono" placeholder="Tu número de WhatsApp (opcional)">
+            <select name="plan" required>
+              <option value="">Seleccioná tu plan</option>
+              <option value="50">Difusión 50 ($5.000)</option>
+              <option value="150">Difusión 150 ($8.000) ⭐ Más elegido</option>
+              <option value="250">Difusión 250 ($12.000)</option>
+              <option value="combo">Combo Web + Difusión (desde $15.000)</option>
+              <option value="local">Difusión Local (consultar)</option>
+            </select>
+            <textarea name="mensaje" placeholder="Contanos qué querés publicar... (¿Nacional o local?)" rows="3"></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary" style="border: none; cursor: pointer; font-size: 16px;">
+            💬 Enviar consulta
+          </button>
+        </form>
+
+        <p style="margin-top: 20px; font-size: 14px; color: #74837b;">
+          También podés escribirnos directamente por
+          <a href="https://wa.me/5491100000000?text=Hola!%20Quiero%20consultar%20por%20Difusión%20Pro" target="_blank" rel="noopener noreferrer" style="color: var(--verde-neon); font-weight: bold; display: inline-flex; align-items: center; gap: 6px;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            WhatsApp
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="faq" id="preguntas">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-label">Preguntas frecuentes</div>
+          <h2>Antes de publicar</h2>
+        </div>
+
+        <div class="faq-list">
+          <details>
+            <summary>¿En cuántos grupos puedo publicar?</summary>
+            <p>
+              Dependiendo del plan elegido, podés contratar difusión
+              de hasta 250 grupos de compra y venta.
+            </p>
+          </details>
+          <details>
+            <summary>¿Qué tengo que enviar?</summary>
+            <p>
+              Nos enviás tu imagen, texto o información del producto
+              o servicio que querés promocionar.
+            </p>
+          </details>
+          <details>
+            <summary>¿Puedo promocionar cualquier producto?</summary>
+            <p>
+              La publicación debe cumplir con las normas de los grupos
+              donde se realiza la difusión y con las condiciones del servicio.
+            </p>
+          </details>
+          <details>
+            <summary>¿La difusión garantiza ventas?</summary>
+            <p>
+              No. La difusión aumenta los lugares donde puede ser vista
+              tu publicación, pero las consultas y ventas dependen también
+              del producto, precio, anuncio y público interesado.
+            </p>
+          </details>
+          <details>
+            <summary>¿Cómo contrato el servicio?</summary>
+            <p>
+              Es muy simple. Elegís un plan, nos escribís por WhatsApp
+              o completás el formulario, y coordinamos el envío de tu publicación.
+            </p>
+          </details>
+          <details>
+            <summary>¿Qué diferencia hay entre difusión nacional y local?</summary>
+            <p>
+              La <strong>difusión nacional</strong> distribuye tu anuncio en grupos de
+              distintas provincias y zonas del país. La <strong>difusión local</strong>
+              se enfoca en grupos de tu ciudad o zona específica, ideal si no hacés
+              envíos a todo el país. ¡Consultanos por precios!
+            </p>
+          </details>
+          <details>
+            <summary>¿Qué incluye el combo Web + Difusión?</summary>
+            <p>
+              Incluye el diseño de una página web profesional para tu negocio
+              o emprendimiento, más el plan de difusión en hasta 250 grupos
+              de compra y venta. Ideal para lanzar tu marca con todo.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-brand">
+      Difusión<span>Pro</span>
+    </div>
+    <div class="footer-sub">
+      Creado y diseñado por
+      <a href="https://ciborg347.onrender.com" target="_blank" rel="noopener noreferrer">
+        <strong>CIBORG 347</strong>
+      </a>
+    </div>
+    <div class="footer-divider"></div>
+    <p>
+      © 2026 Difusión Pro — Servicio de difusión en grupos de compra y venta.
+    </p>
+  </footer>
+
+  <!-- ===== WHATSAPP FLOTANTE ===== -->
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/5491100000000?text=Hola!%20Quiero%20consultar%20por%20Difusión%20Pro"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contactar por WhatsApp"
+  >
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+</body>
+</html>
