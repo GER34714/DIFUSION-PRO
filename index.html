@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Difusión Pro | Publicá en hasta 250 grupos</title>
-  <meta name="description" content="Publicamos tu anuncio en hasta 250 grupos de compra y venta. Llegá a miles de personas con Difusión Pro. Planes económicos y difusión en todo el país." />
+  <title>Difusión Pro | Publicá en cientos de grupos</title>
+  <meta name="description" content="Publicamos tu anuncio en cientos de grupos de compra y venta. Llegá a miles de personas con Difusión Pro. Planes económicos y difusión en todo el país." />
 
   <style>
     /* ===== RESET Y VARIABLES ===== */
@@ -228,6 +228,7 @@
       color: var(--verde-neon);
     }
 
+    /* ===== MENÚ HAMBURGUESA ===== */
     .nav-links {
       display: flex;
       gap: 30px;
@@ -257,46 +258,82 @@
       box-shadow: 0 0 40px rgba(0, 255, 136, 0.4), 0 0 40px rgba(0, 212, 255, 0.2);
     }
 
-    /* ===== HERO ===== */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 5px;
+      z-index: 1001;
+    }
+    .hamburger span {
+      display: block;
+      width: 28px;
+      height: 3px;
+      background: var(--blanco);
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 280px;
+      height: 100vh;
+      background: rgba(10, 10, 15, 0.98);
+      backdrop-filter: blur(12px);
+      padding: 80px 30px 30px;
+      flex-direction: column;
+      gap: 20px;
+      transition: right 0.4s ease;
+      z-index: 999;
+      border-left: 1px solid rgba(0, 255, 136, 0.1);
+    }
+    .mobile-menu.open {
+      right: 0;
+    }
+    .mobile-menu a {
+      color: #d7e2dd;
+      font-size: 18px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover {
+      color: var(--verde-neon);
+    }
+    .mobile-menu .nav-button {
+      display: inline-block;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    /* ===== HERO - SIN IMAGEN DE FONDO ===== */
     .hero {
       min-height: 700px;
       display: flex;
       align-items: center;
       position: relative;
       overflow: hidden;
+      background-color: var(--negro);
       background:
         radial-gradient(circle at 80% 30%, rgba(0, 255, 136, 0.12), transparent 30%),
         radial-gradient(circle at 20% 70%, rgba(168, 85, 247, 0.08), transparent 25%),
         radial-gradient(circle at 50% 80%, rgba(0, 212, 255, 0.05), transparent 20%),
         var(--negro);
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      border: 1px solid rgba(0, 255, 136, 0.10);
-      border-radius: 50%;
-      right: -170px;
-      top: 80px;
-      pointer-events: none;
-      animation: glow-rotate 20s linear infinite;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      border: 1px solid rgba(168, 85, 247, 0.08);
-      border-radius: 50%;
-      left: -100px;
-      bottom: 50px;
-      pointer-events: none;
-      animation: glow-rotate 25s linear infinite reverse;
-    }
-    @keyframes glow-rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
     }
 
     .hero-container {
@@ -305,22 +342,24 @@
       margin: auto;
       padding: 70px 20px;
       display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
-      gap: 60px;
+      grid-template-columns: 1fr;
+      gap: 0;
       align-items: center;
       position: relative;
-      z-index: 2;
+      z-index: 3;
+      text-align: center;
+      justify-items: center;
     }
 
-    /* LOGO EN EL HERO - MÁS GRANDE (cambiado de 80px a 120px) */
     .hero-logo {
       display: flex;
       align-items: center;
       gap: 20px;
       margin-bottom: 30px;
+      justify-content: center;
     }
     .hero-logo img {
-      height: 120px;  /* antes era 80px */
+      height: 120px;
       width: auto;
       display: block;
       filter: drop-shadow(0 0 30px rgba(0, 255, 136, 0.3));
@@ -389,12 +428,15 @@
       font-size: 18px;
       max-width: 620px;
       margin-bottom: 32px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .hero-buttons {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
+      justify-content: center;
     }
 
     .btn-primary {
@@ -451,178 +493,13 @@
       box-shadow: 0 0 30px rgba(0, 255, 136, 0.1);
     }
 
-    .btn-whatsapp {
-      background: linear-gradient(135deg, var(--verde-neon), var(--verde-oscuro));
-      color: #06100a !important;
-      padding: 15px 25px;
-      border-radius: var(--radio);
-      font-weight: 800;
-      transition: transform 0.25s, box-shadow 0.25s;
-      box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      position: relative;
-      overflow: hidden;
-    }
-    .btn-whatsapp::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.15), transparent);
-      transform: rotate(45deg) translateX(-100%);
-      transition: transform 0.6s;
-    }
-    .btn-whatsapp:hover::after {
-      transform: rotate(45deg) translateX(100%);
-    }
-    .btn-whatsapp:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 0 50px rgba(0, 255, 136, 0.4);
-    }
-    .btn-whatsapp svg {
-      width: 24px;
-      height: 24px;
-      fill: currentColor;
-    }
-
-    .btn-web {
-      background: linear-gradient(135deg, var(--celeste), var(--violeta));
-      color: #06100a !important;
-      padding: 15px 25px;
-      border-radius: var(--radio);
-      font-weight: 800;
-      transition: transform 0.25s, box-shadow 0.25s;
-      box-shadow: 0 0 30px rgba(0, 212, 255, 0.15);
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      position: relative;
-      overflow: hidden;
-    }
-    .btn-web::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.15), transparent);
-      transform: rotate(45deg) translateX(-100%);
-      transition: transform 0.6s;
-    }
-    .btn-web:hover::after {
-      transform: rotate(45deg) translateX(100%);
-    }
-    .btn-web:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 0 50px rgba(0, 212, 255, 0.3), 0 0 50px rgba(168, 85, 247, 0.2);
-    }
-
-    /* ===== REACH CARD ===== */
-    .reach-card {
-      background: linear-gradient(145deg, #14141e, #0a0a12);
-      border: 1px solid rgba(0, 255, 136, 0.12);
-      border-radius: 25px;
-      padding: 35px;
-      box-shadow: 0 0 40px rgba(0, 255, 136, 0.03), 0 25px 80px rgba(0, 0, 0, 0.35);
-      position: relative;
-      transition: box-shadow 0.3s;
-    }
-    .reach-card:hover {
-      box-shadow: 0 0 60px rgba(0, 255, 136, 0.08), 0 0 60px rgba(0, 212, 255, 0.05), 0 25px 80px rgba(0, 0, 0, 0.35);
-    }
-    .reach-card::after {
-      content: "";
-      position: absolute;
-      inset: -1px;
-      border-radius: 25px;
-      padding: 1px;
-      background: linear-gradient(140deg, rgba(0, 255, 136, 0.4), rgba(0, 212, 255, 0.2), transparent 45%);
-      -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-      animation: border-glow 3s ease-in-out infinite;
-    }
-    @keyframes border-glow {
-      0%, 100% { opacity: 0.6; }
-      50% { opacity: 1; }
-    }
-
-    .reach-top {
-      color: var(--gris-claro);
-      font-size: 14px;
-      margin-bottom: 5px;
-    }
-    .reach-number {
-      font-size: 80px;
-      font-weight: 900;
-      line-height: 1;
-      color: var(--verde-neon);
-      text-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
-      animation: neon-pulse 2s ease-in-out infinite;
-    }
-    .reach-title {
-      font-size: 25px;
-      font-weight: 800;
-      margin-bottom: 25px;
-    }
-
-    .group-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .group {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 13px;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid transparent;
-      transition: border-color 0.3s, box-shadow 0.3s;
-    }
-    .group:hover {
-      border-color: rgba(0, 255, 136, 0.15);
-      box-shadow: 0 0 20px rgba(0, 255, 136, 0.03);
-    }
-    .group-icon {
-      width: 40px;
-      height: 40px;
-      display: grid;
-      place-items: center;
-      border-radius: 10px;
-      background: rgba(0, 255, 136, 0.08);
-      font-size: 20px;
-    }
-    .group-text strong {
-      display: block;
-      font-size: 14px;
-    }
-    .group-text small {
-      color: #83958c;
-      font-size: 12px;
-    }
-
-    /* ===== STATS ===== */
+    /* ===== STATS - BANNER ===== */
     .stats {
       border-top: 1px solid rgba(0, 255, 136, 0.08);
       border-bottom: 1px solid rgba(0, 255, 136, 0.08);
       background: #0c0c14;
       position: relative;
+      padding: 30px 20px;
     }
     .stats::before {
       content: '';
@@ -646,34 +523,31 @@
       animation: neon-slide 4s ease-in-out infinite reverse;
       background-size: 300% 100%;
     }
+
     .stats-container {
       max-width: 1000px;
-      margin: auto;
-      padding: 35px 20px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      text-align: center;
-    }
-    .stat {
-      border-right: 1px solid rgba(0, 255, 136, 0.06);
-    }
-    .stat:last-child {
-      border-right: none;
-    }
-    .stat-number {
-      font-size: 34px;
-      font-weight: 900;
-      background: linear-gradient(135deg, var(--verde-neon), var(--celeste));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: none;
-    }
-    .stat-text {
-      color: var(--gris-claro);
-      font-size: 13px;
+      margin: 0 auto;
     }
 
-    /* ===== SECCIONES ===== */
+    .stats-banner {
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(0, 255, 136, 0.05), 0 0 80px rgba(0, 255, 136, 0.02);
+      transition: box-shadow 0.3s, transform 0.3s;
+      border: 1px solid rgba(0, 255, 136, 0.06);
+    }
+    .stats-banner:hover {
+      box-shadow: 0 0 60px rgba(0, 255, 136, 0.10), 0 0 100px rgba(0, 212, 255, 0.05);
+      transform: scale(1.002);
+    }
+    .stats-banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ===== RESTO DE SECCIONES ===== */
     section {
       padding: 95px 20px;
       position: relative;
@@ -711,7 +585,6 @@
       font-size: 16px;
     }
 
-    /* ===== CÓMO FUNCIONA ===== */
     .how {
       background: #0c0c14;
     }
@@ -757,7 +630,6 @@
       font-size: 14px;
     }
 
-    /* ===== COBERTURA NACIONAL VS LOCAL ===== */
     .coverage-section {
       background: linear-gradient(145deg, #0a0a12, #08080f);
       border-top: 1px solid rgba(0, 255, 136, 0.08);
@@ -939,7 +811,6 @@
       color: var(--verde-neon);
     }
 
-    /* ===== PLANES ===== */
     .plans {
       background: var(--negro);
     }
@@ -1051,7 +922,6 @@
       box-shadow: 0 0 30px rgba(0, 255, 136, 0.15);
     }
 
-    /* ===== SERVICIO COMPLEMENTARIO: DISEÑO WEB (CIBORG 347) ===== */
     .web-section {
       background: linear-gradient(145deg, #0a0a12, #08080f);
       border-top: 1px solid rgba(0, 212, 255, 0.08);
@@ -1342,7 +1212,6 @@
       text-decoration: underline;
     }
 
-    /* ===== POR QUÉ ===== */
     .why {
       background: #0c0c14;
     }
@@ -1384,7 +1253,6 @@
       font-size: 14px;
     }
 
-    /* ===== CTA ===== */
     .cta {
       padding: 90px 20px;
       background:
@@ -1405,7 +1273,6 @@
       margin-bottom: 30px;
     }
 
-    /* ===== FORM ===== */
     .form-group {
       display: flex;
       flex-direction: column;
@@ -1441,7 +1308,6 @@
       color: white;
     }
 
-    /* ===== FAQ ===== */
     .faq {
       background: var(--negro);
     }
@@ -1490,13 +1356,14 @@
       font-size: 14px;
     }
 
-    /* ===== FOOTER ===== */
     footer {
       padding: 45px 20px 35px;
       border-top: 1px solid rgba(0, 255, 136, 0.06);
       text-align: center;
       color: #74837b;
       font-size: 13px;
+      position: relative;
+      z-index: 10;
     }
 
     .footer-logo {
@@ -1552,7 +1419,13 @@
       place-items: center;
       z-index: 999;
       box-shadow: 0 0 30px rgba(0, 255, 136, 0.3), 0 8px 30px rgba(0, 0, 0, 0.3);
-      transition: transform 0.25s, box-shadow 0.25s;
+      transition: transform 0.25s, box-shadow 0.25s, opacity 0.4s, visibility 0.4s;
+      opacity: 1;
+      visibility: visible;
+    }
+    .whatsapp-float.hidden {
+      opacity: 0;
+      visibility: hidden;
     }
     .whatsapp-float:hover {
       transform: scale(1.08);
@@ -1569,9 +1442,16 @@
       .nav-links {
         display: none;
       }
+      .hamburger {
+        display: flex;
+      }
+      .mobile-menu {
+        display: flex;
+      }
+
       .hero-container {
         grid-template-columns: 1fr;
-        gap: 45px;
+        gap: 0;
         text-align: center;
       }
       .hero-description {
@@ -1580,11 +1460,6 @@
       }
       .hero-buttons {
         justify-content: center;
-      }
-      .reach-card {
-        max-width: 500px;
-        margin: auto;
-        text-align: left;
       }
       .steps,
       .plans-grid {
@@ -1627,7 +1502,7 @@
         flex-wrap: wrap;
       }
       .hero-logo img {
-        height: 80px;  /* en responsive también lo agrandé un poco */
+        height: 80px;
       }
       .hero-logo .hero-logo-text {
         font-size: 14px;
@@ -1650,25 +1525,6 @@
       }
       .hero-description {
         font-size: 16px;
-      }
-      .reach-card {
-        padding: 25px;
-      }
-      .reach-number {
-        font-size: 65px;
-      }
-      .stats-container {
-        grid-template-columns: 1fr;
-        gap: 25px;
-      }
-      .stat {
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        padding-bottom: 20px;
-      }
-      .stat:last-child {
-        border-bottom: none;
-        padding-bottom: 0;
       }
       .hero-buttons a {
         width: 100%;
@@ -1726,10 +1582,28 @@
         height: 30px;
       }
       .hero-logo img {
-        height: 60px;  /* en móvil también lo dejé más grande que antes */
+        height: 60px;
       }
       .hero-logo .hero-logo-text {
         font-size: 12px;
+      }
+      .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        right: 15px;
+        bottom: 15px;
+      }
+      .whatsapp-float svg {
+        width: 28px;
+        height: 28px;
+      }
+      .mobile-menu {
+        width: 240px;
+        padding: 70px 20px 30px;
+      }
+      .mobile-menu a {
+        font-size: 16px;
+        padding: 10px 0;
       }
     }
   </style>
@@ -1759,7 +1633,7 @@
       <div class="logo-wrapper">
         <img
           src="https://fhxcumwhgtfirznnznjx.supabase.co/storage/v1/object/public/difusion%20pro/difu%20pro.png"
-          alt="Difusión Pro - Publicá en hasta 250 grupos"
+          alt="Difusión Pro - Publicá en cientos de grupos"
           class="logo-img"
         />
         <div class="logo-sub">
@@ -1775,19 +1649,34 @@
         <a href="#preguntas">Preguntas</a>
         <a class="nav-button" href="#contacto">Publicar ahora</a>
       </div>
+
+      <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
+
+  <!-- ===== MENÚ MÓVIL ===== -->
+  <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Menú móvil">
+    <a href="#como-funciona" class="mobile-link">Cómo funciona</a>
+    <a href="#cobertura" class="mobile-link">Cobertura</a>
+    <a href="#planes" class="mobile-link">Planes</a>
+    <a href="#web" class="mobile-link">Diseño Web</a>
+    <a href="#preguntas" class="mobile-link">Preguntas</a>
+    <a href="#contacto" class="nav-button mobile-link" style="text-align:center;">Publicar ahora</a>
+  </div>
 
   <!-- ===== MAIN ===== -->
   <main>
 
-    <!-- ===== HERO ===== -->
+    <!-- ===== HERO - SIN IMAGEN DE FONDO ===== -->
     <header class="hero">
+
       <div class="hero-container">
 
-        <!-- COLUMNA IZQUIERDA -->
         <div>
-          <!-- LOGO EN EL HERO - MÁS GRANDE (height: 120px) -->
           <div class="hero-logo">
             <img
               src="https://fhxcumwhgtfirznnznjx.supabase.co/storage/v1/object/public/difusion%20pro/difu%20pro.png"
@@ -1806,7 +1695,7 @@
 
           <h1>
             Tu publicación.<br>
-            <span class="neon-text">Hasta 250 grupos.</span>
+            <span class="neon-text">En cientos de grupos.</span>
           </h1>
 
           <p class="hero-description">
@@ -1825,54 +1714,18 @@
           </div>
         </div>
 
-        <!-- COLUMNA DERECHA: REACH CARD -->
-        <div class="reach-card">
-          <div class="reach-top">Alcance de tu publicación</div>
-          <div class="reach-number">250</div>
-          <div class="reach-title">grupos de compra y venta</div>
-
-          <div class="group-list">
-            <div class="group">
-              <span class="group-icon" aria-hidden="true">🛒</span>
-              <div class="group-text">
-                <strong>Compra y Venta</strong>
-                <small>Personas buscando productos</small>
-              </div>
-            </div>
-            <div class="group">
-              <span class="group-icon" aria-hidden="true">📍</span>
-              <div class="group-text">
-                <strong>Distintas zonas</strong>
-                <small>Difusión en diferentes lugares</small>
-              </div>
-            </div>
-            <div class="group">
-              <span class="group-icon" aria-hidden="true">👥</span>
-              <div class="group-text">
-                <strong>Muchos integrantes</strong>
-                <small>Grupos con comunidad activa</small>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </header>
 
-    <!-- ===== STATS ===== -->
+    <!-- ===== STATS - BANNER ===== -->
     <section class="stats" aria-label="Estadísticas">
       <div class="stats-container">
-        <div class="stat">
-          <div class="stat-number">250</div>
-          <div class="stat-text">grupos disponibles</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">1</div>
-          <div class="stat-text">publicación difundida</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">🇦🇷</div>
-          <div class="stat-text">distintas zonas del país</div>
+        <div class="stats-banner">
+          <img
+            src="https://fhxcumwhgtfirznnznjx.supabase.co/storage/v1/object/public/difusion%20pro/baner%20difusion%20pro.png"
+            alt="Banner Difusión Pro - Una nueva forma de comunicar"
+            loading="lazy"
+          />
         </div>
       </div>
     </section>
@@ -1933,7 +1786,6 @@
 
         <div class="coverage-grid">
 
-          <!-- CARD NACIONAL -->
           <div class="coverage-card nacional">
             <span class="coverage-badge">🚀 Difusión Nacional</span>
             <span class="card-icon">🇦🇷</span>
@@ -1951,7 +1803,6 @@
             <a href="#planes" class="btn-coverage">Ver planes nacionales →</a>
           </div>
 
-          <!-- CARD LOCAL -->
           <div class="coverage-card local">
             <span class="coverage-badge">📍 Difusión Local</span>
             <span class="card-icon">🏘️</span>
@@ -1995,7 +1846,6 @@
 
         <div class="plans-grid">
 
-          <!-- Plan 50 -->
           <article class="plan">
             <div class="plan-name">Plan Inicial</div>
             <h3>Difusión 50</h3>
@@ -2014,7 +1864,6 @@
             <a class="plan-button" href="#contacto">Elegir este plan</a>
           </article>
 
-          <!-- Plan 150 (Destacado) -->
           <article class="plan featured">
             <div class="popular">⭐ Más elegido</div>
             <div class="plan-name">Plan Pro</div>
@@ -2034,7 +1883,6 @@
             <a class="plan-button" href="#contacto">Elegir este plan</a>
           </article>
 
-          <!-- Plan 250 -->
           <article class="plan">
             <div class="plan-name">Plan Premium</div>
             <h3>Difusión 250</h3>
@@ -2055,7 +1903,6 @@
 
         </div>
 
-        <!-- Aviso de planes locales -->
         <div style="text-align: center; margin-top: 30px; padding: 20px; background: rgba(0, 212, 255, 0.03); border-radius: 12px; border: 1px solid rgba(0, 212, 255, 0.05);">
           <p style="color: var(--gris-claro); font-size: 14px;">
             📍 ¿Vendés solo en tu zona? Consultá por nuestros
@@ -2081,7 +1928,6 @@
 
         <div class="web-grid">
           <div class="web-content">
-            <!-- LOGO DE CIBORG 347 -->
             <div class="brand-header">
               <img
                 src="https://fhxcumwhgtfirznnznjx.supabase.co/storage/v1/object/public/difusion%20pro/ciborg%20347%20png.png"
@@ -2120,20 +1966,18 @@
               <li style="background: linear-gradient(135deg, var(--celeste), var(--violeta)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold;">+ Difusión en grupos (opcional, consultar)</li>
             </ul>
 
-            <!-- REDES SOCIALES DE CIBORG 347 (SOLO WEB) -->
             <div class="social-row">
               <a href="https://ciborg347.onrender.com" target="_blank" rel="noopener noreferrer" class="web-link">
                 🌐 ciborg347.onrender.com
               </a>
             </div>
 
-            <a class="btn-web" href="https://wa.me/5491100000000?text=Hola!%20Quiero%20consultar%20por%20DISE%C3%91O%20WEB%20y%20tambi%C3%A9n%20por%20DIFUSI%C3%93N%20PRO" target="_blank" rel="noopener noreferrer">
+            <a class="btn-web" href="https://wa.me/5491125128251?text=Hola!%20Quiero%20consultar%20por%20DISE%C3%91O%20WEB%20y%20tambi%C3%A9n%20por%20DIFUSI%C3%93N%20PRO" target="_blank" rel="noopener noreferrer">
               🌐 Consultar diseño web
             </a>
           </div>
 
           <div class="web-highlight">
-            <!-- MOCKUP DEL CELULAR -->
             <div class="mockup-container">
               <img
                 src="https://fhxcumwhgtfirznnznjx.supabase.co/storage/v1/object/public/difusion%20pro/iPhone-14-PRO-MAX-ciborg347.onrender.com.png"
@@ -2238,7 +2082,6 @@
           para coordinar el envío de tu publicación y la difusión.
         </p>
 
-        <!-- Formulario de contacto -->
         <form action="https://formsubmit.co/tu-email@dominio.com" method="POST">
           <input type="hidden" name="_subject" value="Nuevo pedido de Difusión Pro">
           <input type="hidden" name="_captcha" value="false">
@@ -2266,7 +2109,7 @@
 
         <p style="margin-top: 20px; font-size: 14px; color: #74837b;">
           También podés escribirnos directamente por
-          <a href="https://wa.me/5491100000000?text=Hola!%20Quiero%20consultar%20por%20Difusión%20Pro" target="_blank" rel="noopener noreferrer" style="color: var(--verde-neon); font-weight: bold; display: inline-flex; align-items: center; gap: 6px;">
+          <a href="https://wa.me/5491125128251?text=Hola!%20Quiero%20consultar%20por%20Difusión%20Pro" target="_blank" rel="noopener noreferrer" style="color: var(--verde-neon); font-weight: bold; display: inline-flex; align-items: center; gap: 6px;">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
             </svg>
@@ -2371,7 +2214,8 @@
   <!-- ===== WHATSAPP FLOTANTE ===== -->
   <a
     class="whatsapp-float"
-    href="https://wa.me/5491100000000?text=Hola!%20Quiero%20consultar%20por%20Difusión%20Pro"
+    id="whatsappFloat"
+    href="https://wa.me/5491125128251?text=Hola!%20Quiero%20consultar%20por%20Difusión%20Pro"
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Contactar por WhatsApp"
@@ -2380,6 +2224,46 @@
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
     </svg>
   </a>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // Menú hamburguesa
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburgerBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburgerBtn.classList.toggle('active');
+      hamburgerBtn.setAttribute('aria-expanded', isOpen);
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburgerBtn.classList.remove('active');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // WhatsApp se oculta al llegar al footer
+    const whatsappFloat = document.getElementById('whatsappFloat');
+    const footer = document.querySelector('footer');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          whatsappFloat.classList.add('hidden');
+        } else {
+          whatsappFloat.classList.remove('hidden');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    observer.observe(footer);
+  </script>
 
 </body>
 </html>
