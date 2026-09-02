@@ -417,21 +417,21 @@
       display: none;
     }
 
-    /* ===== STATS - BANNER ===== */
-    .stats {
-      border-top: 1px solid var(--gris-100);
-      border-bottom: 1px solid var(--gris-100);
+    /* ===== BANNER (reposicionado) ===== */
+    .banner-section {
       background: var(--blanco);
       padding: 30px 0;
+      border-top: 1px solid var(--gris-100);
+      border-bottom: 1px solid var(--gris-100);
     }
 
-    .stats-container {
+    .banner-container {
       max-width: 1000px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
-    .stats-banner {
+    .banner-img {
       width: 100%;
       border-radius: 16px;
       overflow: hidden;
@@ -439,10 +439,10 @@
       box-shadow: var(--shadow-sm);
       transition: var(--transition);
     }
-    .stats-banner:hover {
+    .banner-img:hover {
       box-shadow: var(--shadow-md);
     }
-    .stats-banner img {
+    .banner-img img {
       width: 100%;
       height: auto;
       display: block;
@@ -455,7 +455,6 @@
       border-bottom: 1px solid var(--gris-100);
     }
 
-    /* IMAGEN CENTRAL ENTRE TEXTOS */
     .diffusion-image-center {
       max-width: 500px;
       margin: 0 auto 40px;
@@ -517,6 +516,8 @@
     /* ===== PLANES CON TABS ===== */
     .plans-section {
       background: var(--blanco);
+      border-top: none;
+      padding-top: 40px;
     }
 
     .plans-tabs {
@@ -1084,6 +1085,10 @@
         width: 100%;
         justify-content: center;
       }
+
+      .banner-section {
+        padding: 20px 0;
+      }
     }
 
     @media (max-width: 480px) {
@@ -1210,19 +1215,6 @@
       </div>
     </section>
 
-    <!-- ===== STATS - BANNER ===== -->
-    <section class="stats" aria-label="Estadísticas">
-      <div class="stats-container">
-        <div class="stats-banner">
-          <img
-            src="https://fhxcumwhgtfirznnznjx.supabase.co/storage/v1/object/public/difusion%20pro/baner%20difusion%20pro.png"
-            alt="Banner Difusión Pro - Una nueva forma de comunicar"
-            loading="lazy"
-          />
-        </div>
-      </div>
-    </section>
-
     <!-- ===== DIFUSIÓN PRO ===== -->
     <section class="diffusion-section section-padding" id="diffusion-pro">
       <div class="container">
@@ -1257,10 +1249,23 @@
             <button class="btn-primary" id="openModalBtn">💬 Consultar opciones de difusión</button>
           </div>
           <div class="image">
-            <!-- Espacio vacío o podés poner otra imagen si querés -->
+            <!-- Espacio vacío -->
           </div>
         </div>
 
+      </div>
+    </section>
+
+    <!-- ===== BANNER (reposicionado arriba de Planes) ===== -->
+    <section class="banner-section" aria-label="Banner Difusión Pro">
+      <div class="banner-container">
+        <div class="banner-img">
+          <img
+            src="https://fhxcumwhgtfirznnznjx.supabase.co/storage/v1/object/public/difusion%20pro/baner%20difusion%20pro.png"
+            alt="Banner Difusión Pro - Una nueva forma de comunicar"
+            loading="lazy"
+          />
+        </div>
       </div>
     </section>
 
