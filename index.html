@@ -455,6 +455,19 @@
       border-bottom: 1px solid var(--gris-100);
     }
 
+    /* IMAGEN CENTRAL ENTRE TEXTOS */
+    .diffusion-image-center {
+      max-width: 500px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+
+    .diffusion-image-center img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     .diffusion-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -477,7 +490,6 @@
       margin-bottom: 24px;
     }
 
-    /* TEXTO ACTUALIZADO */
     .diffusion-grid .content p .highlight-text {
       font-weight: 600;
       color: var(--verde);
@@ -500,21 +512,6 @@
       color: var(--verde);
       font-weight: 700;
       font-size: 18px;
-    }
-
-    .diffusion-grid .image {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .diffusion-grid .image img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 0;
-      box-shadow: none;
-      border: none;
     }
 
     /* ===== PLANES CON TABS ===== */
@@ -969,6 +966,9 @@
       .diffusion-grid .content .features-list li {
         justify-content: center;
       }
+      .diffusion-image-center {
+        max-width: 80%;
+      }
       .web-grid {
         grid-template-columns: 1fr;
         text-align: center;
@@ -1039,6 +1039,10 @@
         font-size: 12px;
       }
 
+      .diffusion-image-center {
+        max-width: 90%;
+      }
+
       .plans-grid,
       .plans-grid.active {
         grid-template-columns: 1fr;
@@ -1060,9 +1064,6 @@
 
       .web-grid .mockup img {
         max-width: 200px;
-      }
-      .diffusion-grid .image img {
-        max-width: 80%;
       }
 
       .section-padding {
@@ -1108,6 +1109,10 @@
         font-size: 18px;
       }
 
+      .diffusion-image-center {
+        max-width: 100%;
+      }
+
       .plan-card {
         padding: 24px 20px;
       }
@@ -1120,9 +1125,6 @@
       }
       .plans-tabs .tab-btn {
         text-align: center;
-      }
-      .diffusion-grid .image img {
-        max-width: 70%;
       }
     }
   </style>
@@ -1224,12 +1226,24 @@
     <!-- ===== DIFUSIÓN PRO ===== -->
     <section class="diffusion-section section-padding" id="diffusion-pro">
       <div class="container">
+
+        <!-- ENCABEZADO -->
         <div class="section-header">
           <span class="section-label">DIFUSIÓN PRO</span>
           <h2>Hacé que tu negocio <span style="color: var(--verde);">llegue a más personas</span></h2>
           <p>Ofrecemos difusión de publicaciones, negocios, servicios, páginas web, promociones y productos mediante nuestra red de grupos y canales de difusión.</p>
         </div>
 
+        <!-- IMAGEN CENTRAL (entre los dos textos) -->
+        <div class="diffusion-image-center">
+          <img
+            src="https://fhxcumwhgtfirznnznjx.supabase.co/storage/v1/object/public/difusion%20pro/COMP.png"
+            alt="Difusión Pro - Publicaciones"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- CONTENIDO (Amplificá tu mensaje...) -->
         <div class="diffusion-grid">
           <div class="content">
             <h2>Amplificá tu mensaje sin gastar una fortuna</h2>
@@ -1243,13 +1257,10 @@
             <button class="btn-primary" id="openModalBtn">💬 Consultar opciones de difusión</button>
           </div>
           <div class="image">
-            <img
-              src="https://fhxcumwhgtfirznnznjx.supabase.co/storage/v1/object/public/difusion%20pro/COMP.png"
-              alt="Difusión Pro - Publicaciones"
-              loading="lazy"
-            />
+            <!-- Espacio vacío o podés poner otra imagen si querés -->
           </div>
         </div>
+
       </div>
     </section>
 
