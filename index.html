@@ -417,7 +417,7 @@
       display: none;
     }
 
-    /* ===== BANNER (reposicionado) ===== */
+    /* ===== BANNER ===== */
     .banner-section {
       background: var(--blanco);
       padding: 30px 0;
@@ -654,6 +654,7 @@
       color: var(--gris-700);
       transition: var(--transition);
       margin-top: auto;
+      cursor: pointer;
     }
     .plan-card .btn-plan:hover {
       background: var(--verde);
@@ -713,6 +714,180 @@
     }
     .plans-extra .tip strong {
       color: var(--verde);
+    }
+
+    /* ===== MODAL DE DETALLE DEL PLAN ===== */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.60);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      animation: fadeInOverlay 0.3s ease;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    @keyframes fadeInOverlay {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-detail {
+      background: var(--blanco);
+      border-radius: 24px;
+      max-width: 520px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 32px 30px 28px;
+      position: relative;
+      box-shadow: 0 25px 70px rgba(15, 23, 42, 0.20);
+      animation: slideUpModal 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes slideUpModal {
+      from { transform: translateY(30px) scale(0.96); opacity: 0; }
+      to { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    .modal-detail .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      background: var(--gris-100);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      color: var(--gris-700);
+      font-size: 22px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+    .modal-detail .modal-close:hover {
+      background: var(--gris-300);
+      transform: rotate(90deg);
+    }
+
+    .modal-detail .modal-badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 14px;
+      border-radius: 20px;
+      background: var(--verde-claro);
+      color: var(--verde);
+      margin-bottom: 8px;
+    }
+
+    .modal-detail h2 {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--negro);
+      margin-bottom: 4px;
+    }
+
+    .modal-detail .modal-price {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--verde);
+      margin-bottom: 16px;
+    }
+    .modal-detail .modal-price small {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--gris-500);
+    }
+
+    .modal-detail .modal-divider {
+      height: 1px;
+      background: var(--gris-100);
+      margin: 16px 0;
+    }
+
+    .modal-detail .modal-features {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+    .modal-detail .modal-features li {
+      padding: 10px 0;
+      color: var(--gris-700);
+      font-size: 15px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      border-bottom: 1px solid var(--gris-100);
+    }
+    .modal-detail .modal-features li:last-child {
+      border-bottom: none;
+    }
+    .modal-detail .modal-features li .icon {
+      font-size: 20px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .modal-detail .modal-features li .text {
+      flex: 1;
+    }
+    .modal-detail .modal-features li .text strong {
+      color: var(--negro);
+    }
+    .modal-detail .modal-features li .text .sub {
+      display: block;
+      font-size: 13px;
+      color: var(--gris-500);
+      font-weight: 400;
+      margin-top: 2px;
+    }
+
+    .modal-detail .modal-note {
+      background: var(--gris-50);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin: 16px 0 20px;
+      border-left: 3px solid var(--verde);
+    }
+    .modal-detail .modal-note p {
+      font-size: 14px;
+      color: var(--gris-700);
+      line-height: 1.6;
+    }
+    .modal-detail .modal-note p strong {
+      color: var(--verde);
+    }
+
+    .modal-detail .btn-modal-whatsapp {
+      display: inline-block;
+      width: 100%;
+      padding: 16px;
+      border-radius: 50px;
+      background: var(--verde);
+      color: var(--blanco);
+      font-weight: 700;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(22, 163, 74, 0.20);
+    }
+    .modal-detail .btn-modal-whatsapp:hover {
+      background: var(--verde-oscuro);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(22, 163, 74, 0.30);
     }
 
     /* ===== WEB SECTION ===== */
@@ -987,6 +1162,10 @@
       .footer-grid {
         grid-template-columns: 1fr 1fr;
       }
+      .modal-detail {
+        max-width: 440px;
+        padding: 28px 24px 24px;
+      }
     }
 
     @media (max-width: 768px) {
@@ -1089,6 +1268,18 @@
       .banner-section {
         padding: 20px 0;
       }
+      .modal-detail {
+        max-width: 100%;
+        padding: 24px 18px 20px;
+        border-radius: 20px;
+        margin: 10px;
+      }
+      .modal-detail h2 {
+        font-size: 24px;
+      }
+      .modal-detail .modal-price {
+        font-size: 28px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -1130,6 +1321,12 @@
       }
       .plans-tabs .tab-btn {
         text-align: center;
+      }
+      .modal-detail {
+        padding: 20px 16px 18px;
+      }
+      .modal-detail .modal-features li {
+        font-size: 14px;
       }
     }
   </style>
@@ -1219,14 +1416,12 @@
     <section class="diffusion-section section-padding" id="diffusion-pro">
       <div class="container">
 
-        <!-- ENCABEZADO -->
         <div class="section-header">
           <span class="section-label">DIFUSIÓN PRO</span>
           <h2>Hacé que tu negocio <span style="color: var(--verde);">llegue a más personas</span></h2>
           <p>Ofrecemos difusión de publicaciones, negocios, servicios, páginas web, promociones y productos mediante nuestra red de grupos y canales de difusión.</p>
         </div>
 
-        <!-- IMAGEN CENTRAL (entre los dos textos) -->
         <div class="diffusion-image-center">
           <img
             src="https://fhxcumwhgtfirznnznjx.supabase.co/storage/v1/object/public/difusion%20pro/COMP.png"
@@ -1235,7 +1430,6 @@
           />
         </div>
 
-        <!-- CONTENIDO (Amplificá tu mensaje...) -->
         <div class="diffusion-grid">
           <div class="content">
             <h2>Amplificá tu mensaje sin gastar una fortuna</h2>
@@ -1248,15 +1442,13 @@
             </ul>
             <button class="btn-primary" id="openModalBtn">💬 Consultar opciones de difusión</button>
           </div>
-          <div class="image">
-            <!-- Espacio vacío -->
-          </div>
+          <div class="image"></div>
         </div>
 
       </div>
     </section>
 
-    <!-- ===== BANNER (reposicionado arriba de Planes) ===== -->
+    <!-- ===== BANNER ===== -->
     <section class="banner-section" aria-label="Banner Difusión Pro">
       <div class="banner-container">
         <div class="banner-img">
@@ -1286,49 +1478,49 @@
         <!-- PLANES LOCALES -->
         <div class="plans-grid" id="planesLocal">
           <div class="plan-card">
-            <div class="plan-name">Plan Barrial</div>
-            <h3>10 grupos</h3>
-            <div class="price">$5.000 <small>ARS</small></div>
-            <div class="plan-detail">Ideal para probar la difusión en tu zona.</div>
+            <div class="plan-name">🥉 Plan Barrial</div>
+            <h3>20 grupos</h3>
+            <div class="price">$6.000 <small>ARS</small></div>
+            <div class="plan-detail">Algunos grupos de tu zona y otros aledaños.</div>
             <ul class="features">
-              <li>Hasta 10 grupos de tu barrio o zona</li>
-              <li>1 publicación</li>
+              <li>Hasta 20 grupos (zonales y aledaños)</li>
+              <li><strong>1 publicación</strong></li>
               <li>Grupos de compra y venta locales</li>
-              <li>Segmentado para tu ciudad</li>
+              <li>Segmentado para tu zona</li>
               <li>Coordinación por WhatsApp</li>
             </ul>
-            <a href="#contacto" class="btn-plan">Elegir este plan</a>
+            <button class="btn-plan" onclick="openPlanDetail('🥉 Plan Barrial', '$6.000', '20 grupos', '1 publicación', 'Algunos grupos de tu zona y otros aledaños.', 'local')">Elegir este plan</button>
           </div>
 
           <div class="plan-card featured">
             <div class="popular">⭐ Más elegido</div>
-            <div class="plan-name">Plan Zonal</div>
-            <h3>20 grupos</h3>
-            <div class="price">$7.000 <small>ARS</small></div>
-            <div class="plan-detail">Llegá a más personas de tu ciudad y alrededores.</div>
+            <div class="plan-name">🥈 Plan Zonal</div>
+            <h3>50 grupos</h3>
+            <div class="price">$8.500 <small>ARS</small></div>
+            <div class="plan-detail">Algunos grupos de tu zona y otros aledaños.</div>
             <ul class="features">
-              <li>Hasta 20 grupos de tu zona</li>
-              <li>1 publicación</li>
+              <li>Hasta 50 grupos (zonales y aledaños)</li>
+              <li><strong>2 publicaciones iguales</strong></li>
               <li>Grupos de compra y venta locales</li>
               <li>Mayor cobertura local</li>
               <li>Coordinación por WhatsApp</li>
             </ul>
-            <a href="#contacto" class="btn-plan">Elegir este plan</a>
+            <button class="btn-plan" onclick="openPlanDetail('🥈 Plan Zonal', '$8.500', '50 grupos', '2 publicaciones iguales', 'Algunos grupos de tu zona y otros aledaños.', 'local')">Elegir este plan</button>
           </div>
 
           <div class="plan-card">
-            <div class="plan-name">Plan Regional</div>
-            <h3>30 grupos</h3>
-            <div class="price">$10.000 <small>ARS</small></div>
-            <div class="plan-detail">Amplia cobertura en tu provincia o región.</div>
+            <div class="plan-name">🥇 Plan Regional</div>
+            <h3>70 grupos</h3>
+            <div class="price">$12.000 <small>ARS</small></div>
+            <div class="plan-detail">Algunos grupos de tu zona y otros aledaños.</div>
             <ul class="features">
-              <li>Hasta 30 grupos de tu región</li>
-              <li>1 publicación</li>
+              <li>Hasta 70 grupos (zonales y aledaños)</li>
+              <li><strong>3 publicaciones diferentes</strong></li>
               <li>Grupos de compra y venta locales</li>
               <li>Máxima cobertura local</li>
               <li>Coordinación por WhatsApp</li>
             </ul>
-            <a href="#contacto" class="btn-plan">Elegir este plan</a>
+            <button class="btn-plan" onclick="openPlanDetail('🥇 Plan Regional', '$12.000', '70 grupos', '3 publicaciones diferentes', 'Algunos grupos de tu zona y otros aledaños.', 'local')">Elegir este plan</button>
           </div>
 
           <div class="plans-extra active" id="plansExtraLocal">
@@ -1352,12 +1544,12 @@
             <div class="plan-detail">Hasta 50 grupos en todo el país.</div>
             <ul class="features">
               <li>Hasta 50 grupos</li>
-              <li>1 publicación</li>
+              <li><strong>1 publicación</strong></li>
               <li>Grupos de compra y venta</li>
               <li>Cobertura nacional</li>
               <li>Coordinación por WhatsApp</li>
             </ul>
-            <a href="#contacto" class="btn-plan">Elegir este plan</a>
+            <button class="btn-plan" onclick="openPlanDetail('Plan Nacional', '$10.000', '50 grupos', '1 publicación', 'Hasta 50 grupos en todo el país.', 'nacional')">Elegir este plan</button>
           </div>
 
           <div class="plan-card featured">
@@ -1368,12 +1560,12 @@
             <div class="plan-detail">Hasta 150 grupos en todo el país.</div>
             <ul class="features">
               <li>Hasta 150 grupos</li>
-              <li>1 publicación</li>
+              <li><strong>2 publicaciones</strong></li>
               <li>Grupos de compra y venta</li>
               <li>Mayor alcance nacional</li>
               <li>Coordinación por WhatsApp</li>
             </ul>
-            <a href="#contacto" class="btn-plan">Elegir este plan</a>
+            <button class="btn-plan" onclick="openPlanDetail('Plan Nacional Pro', '$16.000', '150 grupos', '2 publicaciones', 'Hasta 150 grupos en todo el país.', 'nacional')">Elegir este plan</button>
           </div>
 
           <div class="plan-card">
@@ -1383,12 +1575,12 @@
             <div class="plan-detail">Hasta 250 grupos en todo el país.</div>
             <ul class="features">
               <li>Hasta 250 grupos</li>
-              <li>1 publicación</li>
+              <li><strong>3 publicaciones</strong></li>
               <li>Grupos de compra y venta</li>
               <li>Máxima cobertura nacional</li>
               <li>Coordinación por WhatsApp</li>
             </ul>
-            <a href="#contacto" class="btn-plan">Elegir este plan</a>
+            <button class="btn-plan" onclick="openPlanDetail('Plan Nacional Premium', '$24.000', '250 grupos', '3 publicaciones', 'Hasta 250 grupos en todo el país.', 'nacional')">Elegir este plan</button>
           </div>
         </div>
 
@@ -1398,6 +1590,46 @@
 
       </div>
     </section>
+
+    <!-- ===== MODAL DE DETALLE DEL PLAN ===== -->
+    <div class="modal-overlay" id="planModal">
+      <div class="modal-detail">
+        <button class="modal-close" onclick="closePlanDetail()">✕</button>
+
+        <span class="modal-badge" id="modalBadge">📍 Difusión Local</span>
+        <h2 id="modalTitle">Plan Barrial</h2>
+        <div class="modal-price" id="modalPrice">$6.000 <small>ARS</small></div>
+
+        <div class="modal-divider"></div>
+
+        <ul class="modal-features">
+          <li>
+            <span class="icon">📢</span>
+            <span class="text"><strong id="modalGrupos">20 grupos</strong> <span class="sub">Algunos grupos de tu zona y otros aledaños.</span></span>
+          </li>
+          <li>
+            <span class="icon">📄</span>
+            <span class="text"><strong id="modalPublicaciones">1 publicación</strong> <span class="sub">1 imagen + 1 texto (vos lo preparás)</span></span>
+          </li>
+          <li>
+            <span class="icon">🖼️</span>
+            <span class="text"><strong>La imagen y el texto los proporcionás vos</strong> <span class="sub">Podés crearlos con ChatGPT, Gemini, Canva o la herramienta que prefieras</span></span>
+          </li>
+          <li>
+            <span class="icon">📱</span>
+            <span class="text"><strong>Coordinación por WhatsApp</strong> <span class="sub">Te acompañamos en todo el proceso</span></span>
+          </li>
+        </ul>
+
+        <div class="modal-note">
+          <p>💡 <strong>¿Cómo preparo mi publicación?</strong> Podés usar herramientas como <strong>ChatGPT o Gemini</strong> para crear el texto y <strong>Canva</strong> para diseñar la imagen. ¡Nosotros nos encargamos de difundirla!</p>
+        </div>
+
+        <a href="https://wa.me/5491125128251?text=Hola!%20Quiero%20contratar%20el%20plan%3A%20" target="_blank" rel="noopener noreferrer" class="btn-modal-whatsapp" id="modalWhatsappBtn">
+          💬 Contratar este plan por WhatsApp
+        </a>
+      </div>
+    </div>
 
     <!-- ===== WEB SECTION ===== -->
     <section class="web-section section-padding" id="web">
@@ -1484,7 +1716,7 @@
         <div style="max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px;">
           <details style="background: var(--blanco); padding: 16px 20px; border-radius: var(--radio); border: 1px solid var(--gris-100);">
             <summary style="font-weight: 600; cursor: pointer; color: var(--negro);">¿En cuántos grupos puedo publicar?</summary>
-            <p style="margin-top: 12px; color: var(--gris-500);">Dependiendo del plan elegido, podés contratar difusión desde 10 hasta 250 grupos de compra y venta.</p>
+            <p style="margin-top: 12px; color: var(--gris-500);">Dependiendo del plan elegido, podés contratar difusión desde 20 hasta 250 grupos de compra y venta.</p>
           </details>
           <details style="background: var(--blanco); padding: 16px 20px; border-radius: var(--radio); border: 1px solid var(--gris-100);">
             <summary style="font-weight: 600; cursor: pointer; color: var(--negro);">¿Qué diferencia hay entre difusión local y nacional?</summary>
@@ -1621,7 +1853,47 @@
       });
     });
 
-    // ===== ABRIR MODAL =====
+    // ===== MODAL DE DETALLE DEL PLAN =====
+    const planModal = document.getElementById('planModal');
+
+    function openPlanDetail(name, price, grupos, publicaciones, detalle, tipo) {
+      document.getElementById('modalTitle').textContent = name;
+      document.getElementById('modalPrice').innerHTML = price + ' <small>ARS</small>';
+      document.getElementById('modalGrupos').textContent = grupos;
+      document.getElementById('modalPublicaciones').textContent = publicaciones;
+      document.getElementById('modalBadge').textContent = tipo === 'local' ? '📍 Difusión Local' : '🌎 Difusión Nacional';
+      document.getElementById('modalBadge').style.background = tipo === 'local' ? 'var(--verde-claro)' : '#dbeafe';
+      document.getElementById('modalBadge').style.color = tipo === 'local' ? 'var(--verde)' : 'var(--celeste)';
+
+      // Actualizar el detalle de los grupos en el modal
+      const gruposText = document.querySelector('#modalGrupos').closest('.text').querySelector('.sub');
+      if (gruposText) gruposText.textContent = detalle;
+
+      // Actualizar el link de WhatsApp
+      const whatsappBtn = document.getElementById('modalWhatsappBtn');
+      const msg = `Hola!%20Quiero%20contratar%20el%20plan%3A%20${encodeURIComponent(name)}%20(${price}%20ARS)%0A%0A📢%20${publicaciones}%0A📍%20${grupos}%0A%0A¿Qué%20necesito%20enviar%20para%20empezar?`;
+      whatsappBtn.href = `https://wa.me/5491125128251?text=${msg}`;
+
+      planModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePlanDetail() {
+      planModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Cerrar modal al hacer clic fuera
+    planModal.addEventListener('click', (e) => {
+      if (e.target === planModal) closePlanDetail();
+    });
+
+    // Cerrar con ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && planModal.classList.contains('active')) closePlanDetail();
+    });
+
+    // ===== ABRIR MODAL ASISTENTE =====
     document.getElementById('openModalBtn').addEventListener('click', function() {
       alert('📩 ¡Consultá por DIFUSIÓN LOCAL o NACIONAL! Te contamos las opciones disponibles.');
     });
