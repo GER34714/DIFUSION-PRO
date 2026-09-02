@@ -6,6 +6,11 @@
   <title>Difusión Pro | Publicá en cientos de grupos</title>
   <meta name="description" content="Publicamos tu anuncio en cientos de grupos de compra y venta. Llegá a miles de personas con Difusión Pro. Planes económicos y difusión en todo el país." />
 
+  <!-- Google Fonts para tipografía más premium -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+
   <style>
     /* ===== RESET Y VARIABLES ===== */
     * {
@@ -36,6 +41,7 @@
       --radio: 12px;
       --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
       --neon-shadow: 0 0 20px rgba(0, 255, 136, 0.3), 0 0 60px rgba(0, 255, 136, 0.1);
+      --font: 'Inter', Arial, Helvetica, sans-serif;
     }
 
     html {
@@ -43,7 +49,7 @@
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: var(--font);
       background: var(--negro);
       color: var(--blanco);
       line-height: 1.6;
@@ -346,18 +352,51 @@
     }
 
     /* ===== HERO ===== */
-    .hero {
+     .hero {
       min-height: 700px;
       display: flex;
       align-items: center;
       position: relative;
       overflow: hidden;
       background-color: var(--negro);
+      background-image:
+        linear-gradient(90deg, rgba(5, 8, 12, 0.96) 0%, rgba(5, 8, 12, 0.84) 42%, rgba(5, 8, 12, 0.62) 70%, rgba(5, 8, 12, 0.78) 100%),
+        url('https://images.unsplash.com/photo-1777559542653-944182ce96db?auto=format&fit=crop&fm=jpg&q=85&w=2000');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
       background:
-        radial-gradient(circle at 80% 30%, rgba(0, 255, 136, 0.12), transparent 30%),
-        radial-gradient(circle at 20% 70%, rgba(168, 85, 247, 0.08), transparent 25%),
-        radial-gradient(circle at 50% 80%, rgba(0, 212, 255, 0.05), transparent 20%),
-        var(--negro);
+        radial-gradient(circle at 78% 45%, rgba(0, 255, 136, 0.18), transparent 30%),
+        radial-gradient(circle at 25% 70%, rgba(0, 212, 255, 0.10), transparent 28%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      right: -180px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      background: rgba(0, 255, 136, 0.08);
+      filter: blur(70px);
+      animation: hero-light 5s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes hero-light {
+      0%, 100% { opacity: .45; transform: translateY(-50%) scale(1); }
+      50% { opacity: .85; transform: translateY(-50%) scale(1.12); }
     }
 
     .hero-container {
@@ -650,6 +689,7 @@
       border: 1px solid rgba(0, 255, 136, 0.1);
     }
 
+    /* Dots del carrusel */
     .tips-dots {
       display: flex;
       justify-content: center;
@@ -675,6 +715,7 @@
       background: var(--verde-neon);
     }
 
+    /* Flechas del carrusel */
     .tips-arrows {
       display: flex;
       justify-content: center;
@@ -702,439 +743,7 @@
       box-shadow: 0 0 30px rgba(0, 255, 136, 0.05);
     }
 
-    /* ===== SECCIÓN DIFUSIÓN PRO (SIN PRECIOS) ===== */
-    .difusion-section {
-      background: linear-gradient(145deg, #0a0a12, #08080f);
-      padding: 95px 20px;
-      border-top: 1px solid rgba(0, 255, 136, 0.08);
-      border-bottom: 1px solid rgba(0, 255, 136, 0.08);
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-    }
-    .difusion-section::before {
-      content: '';
-      position: absolute;
-      top: -1px;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--verde-neon), var(--celeste), transparent);
-      animation: neon-slide 3s ease-in-out infinite;
-      background-size: 300% 100%;
-    }
-    .difusion-section::after {
-      content: '';
-      position: absolute;
-      bottom: -1px;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--violeta), var(--rosa), transparent);
-      animation: neon-slide 3s ease-in-out infinite reverse;
-      background-size: 300% 100%;
-    }
-
-    .difusion-content {
-      max-width: 750px;
-      margin: 0 auto;
-    }
-
-    .difusion-icon {
-      font-size: 64px;
-      margin-bottom: 20px;
-      display: block;
-    }
-
-    .difusion-content h2 {
-      font-size: clamp(36px, 5vw, 52px);
-      margin-bottom: 20px;
-    }
-
-    .difusion-content p {
-      color: var(--gris-claro);
-      font-size: 17px;
-      max-width: 600px;
-      margin: 0 auto 30px;
-      line-height: 1.7;
-    }
-
-    .difusion-features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
-      margin: 30px 0 40px;
-    }
-
-    .difusion-features .feature-item {
-      background: rgba(0, 255, 136, 0.04);
-      border: 1px solid rgba(0, 255, 136, 0.06);
-      border-radius: 12px;
-      padding: 16px 12px;
-      font-size: 14px;
-      color: #d4ded9;
-      transition: border-color 0.3s;
-    }
-    .difusion-features .feature-item:hover {
-      border-color: rgba(0, 255, 136, 0.15);
-    }
-    .difusion-features .feature-item span {
-      display: block;
-      font-size: 28px;
-      margin-bottom: 6px;
-    }
-
-    .btn-difusion-consultar {
-      background: linear-gradient(135deg, var(--verde-neon), var(--celeste));
-      color: #06100a;
-      padding: 16px 40px;
-      border-radius: 30px;
-      font-weight: 800;
-      font-size: 18px;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.25s, box-shadow 0.25s;
-      box-shadow: 0 0 40px rgba(0, 255, 136, 0.15);
-    }
-    .btn-difusion-consultar:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 0 60px rgba(0, 255, 136, 0.25), 0 0 60px rgba(0, 212, 255, 0.15);
-    }
-
-    /* ===== MODAL ===== */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(8px);
-      z-index: 2000;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      animation: modalFadeIn 0.3s ease;
-    }
-    .modal-overlay.active {
-      display: flex;
-    }
-
-    @keyframes modalFadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    .modal-container {
-      background: #14141e;
-      border: 1px solid rgba(0, 255, 136, 0.1);
-      border-radius: 24px;
-      max-width: 580px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      padding: 40px 35px 35px;
-      position: relative;
-      box-shadow: 0 20px 80px rgba(0, 0, 0, 0.6);
-    }
-    .modal-container::-webkit-scrollbar {
-      width: 4px;
-    }
-    .modal-container::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    .modal-container::-webkit-scrollbar-thumb {
-      background: var(--verde-neon);
-      border-radius: 4px;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 16px;
-      right: 20px;
-      background: none;
-      border: none;
-      color: #819088;
-      font-size: 28px;
-      cursor: pointer;
-      transition: color 0.3s, transform 0.3s;
-      line-height: 1;
-    }
-    .modal-close:hover {
-      color: var(--verde-neon);
-      transform: rotate(90deg);
-    }
-
-    /* Progress bar */
-    .modal-progress {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 30px;
-    }
-    .modal-progress .step-indicator {
-      color: #819088;
-      font-size: 13px;
-      font-weight: 600;
-    }
-    .modal-progress .step-indicator strong {
-      color: var(--verde-neon);
-    }
-    .modal-progress .progress-bar {
-      flex: 1;
-      height: 4px;
-      background: #2a2a3a;
-      border-radius: 4px;
-      margin: 0 15px;
-      overflow: hidden;
-    }
-    .modal-progress .progress-bar .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--verde-neon), var(--celeste));
-      border-radius: 4px;
-      transition: width 0.4s ease;
-      width: 0%;
-    }
-
-    .modal-step {
-      display: none;
-      animation: stepFadeIn 0.3s ease;
-    }
-    .modal-step.active {
-      display: block;
-    }
-
-    @keyframes stepFadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .modal-step h3 {
-      font-size: 22px;
-      margin-bottom: 8px;
-    }
-    .modal-step .step-sub {
-      color: var(--gris-claro);
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-
-    .modal-step label {
-      display: block;
-      font-size: 13px;
-      font-weight: 600;
-      color: #a0b0a8;
-      margin-bottom: 6px;
-    }
-
-    .modal-step input[type="text"],
-    .modal-step textarea {
-      width: 100%;
-      padding: 14px 16px;
-      border-radius: var(--radio);
-      border: 1px solid rgba(0, 255, 136, 0.10);
-      background: #0a0a12;
-      color: white;
-      font-size: 16px;
-      font-family: inherit;
-      transition: border-color 0.2s, box-shadow 0.2s;
-      margin-bottom: 12px;
-    }
-    .modal-step input[type="text"]:focus,
-    .modal-step textarea:focus {
-      outline: none;
-      border-color: var(--verde-neon);
-      box-shadow: 0 0 20px rgba(0, 255, 136, 0.03);
-    }
-    .modal-step input[type="text"]::placeholder,
-    .modal-step textarea::placeholder {
-      color: #5a6b63;
-    }
-
-    .modal-step textarea {
-      min-height: 80px;
-      resize: vertical;
-    }
-
-    /* Opciones tipo cards */
-    .options-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin: 15px 0 20px;
-    }
-    .options-grid.single-col {
-      grid-template-columns: 1fr;
-    }
-
-    .option-card {
-      background: rgba(0, 255, 136, 0.03);
-      border: 2px solid rgba(0, 255, 136, 0.06);
-      border-radius: 14px;
-      padding: 18px 14px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.3s;
-      user-select: none;
-    }
-    .option-card:hover {
-      border-color: rgba(0, 255, 136, 0.15);
-      background: rgba(0, 255, 136, 0.05);
-    }
-    .option-card.selected {
-      border-color: var(--verde-neon);
-      background: rgba(0, 255, 136, 0.08);
-      box-shadow: 0 0 30px rgba(0, 255, 136, 0.05);
-    }
-    .option-card .opt-icon {
-      font-size: 28px;
-      display: block;
-      margin-bottom: 6px;
-    }
-    .option-card .opt-label {
-      font-size: 14px;
-      font-weight: 600;
-      color: #d4ded9;
-    }
-    .option-card .opt-desc {
-      font-size: 12px;
-      color: #6a7b73;
-      margin-top: 3px;
-    }
-
-    .option-card.local-opt.selected {
-      border-color: var(--celeste);
-      background: rgba(0, 212, 255, 0.08);
-      box-shadow: 0 0 30px rgba(0, 212, 255, 0.05);
-    }
-
-    .modal-buttons {
-      display: flex;
-      gap: 12px;
-      margin-top: 25px;
-      justify-content: space-between;
-    }
-    .modal-buttons .btn-back {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: var(--gris-claro);
-      padding: 12px 24px;
-      border-radius: var(--radio);
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.3s;
-      font-size: 14px;
-    }
-    .modal-buttons .btn-back:hover {
-      background: rgba(255, 255, 255, 0.08);
-    }
-    .modal-buttons .btn-next {
-      background: linear-gradient(135deg, var(--verde-neon), var(--celeste));
-      color: #06100a;
-      padding: 12px 32px;
-      border-radius: var(--radio);
-      border: none;
-      cursor: pointer;
-      font-weight: 700;
-      font-size: 14px;
-      transition: transform 0.25s, box-shadow 0.25s;
-    }
-    .modal-buttons .btn-next:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 30px rgba(0, 255, 136, 0.15);
-    }
-    .modal-buttons .btn-next:disabled {
-      opacity: 0.4;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    /* Paso 4: resumen */
-    .summary-box {
-      background: rgba(0, 255, 136, 0.03);
-      border: 1px solid rgba(0, 255, 136, 0.06);
-      border-radius: 14px;
-      padding: 20px;
-      margin: 15px 0;
-    }
-    .summary-box .summary-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-      font-size: 14px;
-    }
-    .summary-box .summary-row:last-child {
-      border-bottom: none;
-    }
-    .summary-box .summary-row .s-label {
-      color: #819088;
-    }
-    .summary-box .summary-row .s-value {
-      color: #d4ded9;
-      font-weight: 500;
-    }
-
-    .summary-plans {
-      margin: 20px 0;
-    }
-    .summary-plans .plan-option {
-      background: rgba(0, 255, 136, 0.04);
-      border: 1px solid rgba(0, 255, 136, 0.06);
-      border-radius: 12px;
-      padding: 16px 18px;
-      margin-bottom: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: border-color 0.3s;
-    }
-    .summary-plans .plan-option:hover {
-      border-color: rgba(0, 255, 136, 0.15);
-    }
-    .summary-plans .plan-option .plan-name {
-      font-weight: 600;
-      color: #d4ded9;
-    }
-    .summary-plans .plan-option .plan-price {
-      font-weight: 800;
-      color: var(--verde-neon);
-      font-size: 18px;
-    }
-    .summary-plans .plan-option .plan-desc {
-      font-size: 12px;
-      color: #6a7b73;
-    }
-
-    .btn-whatsapp-final {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      width: 100%;
-      padding: 14px;
-      background: linear-gradient(135deg, var(--verde), var(--verde-oscuro));
-      color: white;
-      border: none;
-      border-radius: var(--radio);
-      font-weight: 700;
-      font-size: 16px;
-      cursor: pointer;
-      transition: transform 0.25s, box-shadow 0.25s;
-      margin-top: 10px;
-    }
-    .btn-whatsapp-final:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 40px rgba(37, 211, 102, 0.3);
-    }
-    .btn-whatsapp-final svg {
-      width: 22px;
-      height: 22px;
-      fill: white;
-    }
-
-    /* ===== RESTO DE SECCIONES ===== */
+    /* ===== SECCIONES GENERALES ===== */
     section {
       padding: 95px 20px;
       position: relative;
@@ -1172,6 +781,652 @@
       font-size: 16px;
     }
 
+    /* ===== SECCIÓN DIFUSIÓN PRO (MODIFICADA) ===== */
+    .diffusion-section {
+      background: #0c0c14;
+      border-top: 1px solid rgba(0, 255, 136, 0.08);
+      border-bottom: 1px solid rgba(0, 255, 136, 0.08);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .diffusion-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 40%, rgba(0,255,136,0.03), transparent 50%);
+      animation: rotate-bg 30s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes rotate-bg {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .diffusion-section .diffusion-icon {
+      font-size: 56px;
+      margin-bottom: 10px;
+      display: block;
+      position: relative;
+    }
+    .diffusion-section h2 {
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .diffusion-section .diffusion-desc {
+      max-width: 680px;
+      margin: 0 auto 30px;
+      color: var(--gris-claro);
+      font-size: 17px;
+      line-height: 1.7;
+      position: relative;
+    }
+    .diffusion-section .diffusion-desc strong {
+      color: var(--verde-neon);
+    }
+    .btn-diffusion-modal {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, var(--verde-neon), var(--celeste));
+      color: #06100a;
+      padding: 16px 38px;
+      border-radius: 60px;
+      font-weight: 800;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-diffusion-modal::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.15), transparent);
+      transform: rotate(45deg) translateX(-100%);
+      transition: transform 0.6s;
+    }
+    .btn-diffusion-modal:hover::after {
+      transform: rotate(45deg) translateX(100%);
+    }
+    .btn-diffusion-modal:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 50px rgba(0, 255, 136, 0.3), 0 0 50px rgba(0, 212, 255, 0.15);
+    }
+
+    /* ===== MODAL PRO ===== */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(12px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      animation: fadeInOverlay 0.4s ease;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    @keyframes fadeInOverlay {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-container {
+      background: #14141e;
+      border: 1px solid rgba(0, 255, 136, 0.12);
+      border-radius: 28px;
+      max-width: 620px;
+      width: 100%;
+      max-height: 95vh;
+      overflow-y: auto;
+      padding: 32px 30px 28px;
+      position: relative;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(0, 255, 136, 0.04);
+      animation: slideUpModal 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      background: linear-gradient(145deg, #161620, #0e0e18);
+    }
+    .modal-container::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      right: -1px;
+      bottom: -1px;
+      border-radius: 28px;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(0,255,136,0.15), transparent, rgba(0,212,255,0.10), transparent);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    @keyframes slideUpModal {
+      from { transform: translateY(40px) scale(0.96); opacity: 0; }
+      to { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      color: var(--gris-claro);
+      font-size: 20px;
+      cursor: pointer;
+      transition: all 0.3s;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-close:hover {
+      background: rgba(255,255,255,0.08);
+      color: var(--blanco);
+      transform: rotate(90deg);
+    }
+
+    .modal-progress {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+      font-size: 13px;
+      color: var(--gris-claro);
+      gap: 10px;
+    }
+    .modal-progress .step-indicator {
+      font-weight: 700;
+      color: var(--verde-neon);
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .modal-progress .step-indicator .check-icon {
+      display: none;
+      color: var(--verde-neon);
+    }
+    .modal-progress .step-indicator.done .check-icon {
+      display: inline;
+    }
+    .modal-progress .step-indicator.done .step-num {
+      display: none;
+    }
+    .progress-bar {
+      flex: 1;
+      height: 4px;
+      background: #2a2a3a;
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 0 8px;
+    }
+    .progress-bar .fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--verde-neon), var(--celeste));
+      border-radius: 4px;
+      transition: width 0.5s ease;
+    }
+    .modal-progress .time-estimate {
+      font-size: 12px;
+      color: #5a6b63;
+      white-space: nowrap;
+    }
+
+    .modal-step {
+      display: none;
+      animation: fadeStep 0.35s ease;
+    }
+    .modal-step.active {
+      display: block;
+    }
+    @keyframes fadeStep {
+      from { opacity: 0; transform: translateX(12px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .modal-step h3 {
+      font-size: 24px;
+      margin-bottom: 4px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    .modal-step .step-sub {
+      color: var(--gris-claro);
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .modal-step input[type="text"],
+    .modal-step input[type="tel"],
+    .modal-step input[type="email"],
+    .modal-step textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: var(--radio);
+      border: 1px solid rgba(0, 255, 136, 0.10);
+      background: #0a0a12;
+      color: white;
+      font-size: 16px;
+      font-family: inherit;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .modal-step input[type="text"]:focus,
+    .modal-step input[type="tel"]:focus,
+    .modal-step input[type="email"]:focus,
+    .modal-step textarea:focus {
+      outline: none;
+      border-color: var(--verde-neon);
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.04);
+    }
+    .modal-step input[type="text"]::placeholder,
+    .modal-step input[type="tel"]::placeholder,
+    .modal-step input[type="email"]::placeholder,
+    .modal-step textarea::placeholder {
+      color: #5a6b63;
+    }
+
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 12px 0 18px;
+    }
+    .radio-group label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+      border-radius: var(--radio);
+      border: 1px solid rgba(255,255,255,0.05);
+      background: #0a0a12;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-weight: 500;
+      position: relative;
+    }
+    .radio-group label:hover {
+      border-color: rgba(0, 255, 136, 0.15);
+      background: #11111c;
+    }
+    .radio-group label.selected {
+      border-color: var(--verde-neon);
+      background: rgba(0, 255, 136, 0.05);
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.02);
+    }
+    .radio-group label.selected .radio-label-text {
+      color: var(--verde-neon);
+    }
+    .radio-group input[type="radio"] {
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid #3a3a4a;
+      transition: all 0.3s;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .radio-group input[type="radio"]:checked {
+      border-color: var(--verde-neon);
+      background: var(--verde-neon);
+      box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+    }
+    .radio-group input[type="radio"]:checked::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #06100a;
+    }
+    .radio-group .radio-label-text {
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .radio-group .radio-label-small {
+      font-size: 13px;
+      color: var(--gris-claro);
+      font-weight: 300;
+    }
+    .radio-group label .radio-icon {
+      font-size: 26px;
+      margin-right: 2px;
+    }
+    .radio-group label .radio-check {
+      margin-left: auto;
+      opacity: 0;
+      transition: opacity 0.3s;
+      color: var(--verde-neon);
+    }
+    .radio-group label.selected .radio-check {
+      opacity: 1;
+    }
+
+    .option-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 12px 0 18px;
+    }
+    .option-grid .option-btn {
+      padding: 14px 12px;
+      border-radius: var(--radio);
+      border: 1px solid rgba(255,255,255,0.05);
+      background: #0a0a12;
+      color: var(--gris-claro);
+      cursor: pointer;
+      transition: all 0.3s;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      position: relative;
+    }
+    .option-grid .option-btn:hover {
+      border-color: rgba(0, 255, 136, 0.15);
+      background: #11111c;
+      color: white;
+    }
+    .option-grid .option-btn.selected {
+      border-color: var(--verde-neon);
+      background: rgba(0, 255, 136, 0.06);
+      color: var(--verde-neon);
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.03);
+    }
+    .option-grid .option-btn .opt-icon {
+      display: block;
+      font-size: 28px;
+      margin-bottom: 4px;
+    }
+    .option-grid .option-btn .opt-check {
+      position: absolute;
+      top: 6px;
+      right: 8px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 14px;
+    }
+    .option-grid .option-btn.selected .opt-check {
+      opacity: 1;
+    }
+
+    .modal-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+    .modal-buttons button {
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 15px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      flex: 1;
+      min-width: 100px;
+    }
+    .btn-back {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06) !important;
+      color: var(--gris-claro);
+    }
+    .btn-back:hover {
+      background: rgba(255,255,255,0.06);
+      color: white;
+    }
+    .btn-continue {
+      background: linear-gradient(135deg, var(--verde-neon), var(--celeste));
+      color: #06100a;
+      box-shadow: 0 0 20px rgba(0, 255, 136, 0.08);
+    }
+    .btn-continue:hover:not(:disabled) {
+      box-shadow: 0 0 40px rgba(0, 255, 136, 0.2);
+      transform: scale(1.02);
+    }
+    .btn-continue:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* ===== SOCIAL PROOF DENTRO DEL MODAL ===== */
+    .modal-social-proof {
+      margin-top: 16px;
+      padding: 10px 14px;
+      background: rgba(0, 255, 136, 0.03);
+      border-radius: 10px;
+      border: 1px solid rgba(0, 255, 136, 0.04);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--gris-claro);
+    }
+    .modal-social-proof .sp-avatar {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .modal-social-proof .sp-avatar span {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--verde-neon), var(--celeste));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: #06100a;
+    }
+    .modal-social-proof .sp-text {
+      font-size: 12px;
+    }
+    .modal-social-proof .sp-text strong {
+      color: var(--verde-neon);
+    }
+
+    /* ===== RESUMEN ===== */
+    .resumen-box {
+      background: #0a0a12;
+      border-radius: var(--radio);
+      padding: 18px 20px;
+      margin: 12px 0 18px;
+      border: 1px solid rgba(0, 255, 136, 0.06);
+    }
+    .resumen-box .resumen-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 14px;
+    }
+    .resumen-box .resumen-item:last-child {
+      border-bottom: none;
+    }
+    .resumen-box .resumen-item .label {
+      color: var(--gris-claro);
+    }
+    .resumen-box .resumen-item .value {
+      color: white;
+      font-weight: 500;
+      text-align: right;
+      max-width: 60%;
+    }
+
+    .btn-show-plans {
+      display: inline-block;
+      width: 100%;
+      padding: 16px;
+      border-radius: var(--radio);
+      background: linear-gradient(135deg, var(--verde-neon), var(--celeste));
+      color: #06100a;
+      font-weight: 800;
+      font-size: 17px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.08);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-show-plans::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+      transform: rotate(45deg) translateX(-100%);
+      transition: transform 0.6s;
+    }
+    .btn-show-plans:hover::after {
+      transform: rotate(45deg) translateX(100%);
+    }
+    .btn-show-plans:hover {
+      box-shadow: 0 0 50px rgba(0, 255, 136, 0.25);
+      transform: scale(1.02);
+    }
+
+    /* ===== PLANES DENTRO DEL MODAL ===== */
+    .plans-modal-container {
+      margin-top: 16px;
+      display: none;
+      animation: fadeStep 0.4s ease;
+    }
+    .plans-modal-container.active {
+      display: block;
+    }
+
+    .plan-recommendation {
+      background: rgba(0, 255, 136, 0.04);
+      border-left: 3px solid var(--verde-neon);
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-bottom: 14px;
+      font-size: 14px;
+      color: var(--gris-claro);
+    }
+    .plan-recommendation strong {
+      color: var(--verde-neon);
+    }
+
+    .plan-modal-card {
+      background: #0a0a12;
+      border: 1px solid rgba(0, 255, 136, 0.06);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .plan-modal-card:hover {
+      border-color: rgba(0, 255, 136, 0.12);
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.02);
+    }
+    .plan-modal-card.featured {
+      border-color: var(--verde-neon);
+      background: rgba(0, 255, 136, 0.03);
+    }
+    .plan-modal-card .plan-name {
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .plan-modal-card .plan-price {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--verde-neon);
+    }
+    .plan-modal-card .plan-price small {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--gris-claro);
+    }
+    .plan-modal-card .plan-detail {
+      font-size: 13px;
+      color: var(--gris-claro);
+    }
+    .plan-modal-card .plan-badge {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 2px 12px;
+      border-radius: 20px;
+      background: rgba(0, 255, 136, 0.10);
+      color: var(--verde-neon);
+      border: 1px solid rgba(0, 255, 136, 0.08);
+    }
+    .plan-modal-card .plan-btn {
+      padding: 8px 20px;
+      border-radius: 30px;
+      border: 1px solid rgba(0, 255, 136, 0.15);
+      background: transparent;
+      color: var(--verde-neon);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s;
+      font-size: 13px;
+    }
+    .plan-modal-card .plan-btn:hover {
+      background: var(--verde-neon);
+      color: #06100a;
+      border-color: var(--verde-neon);
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.1);
+    }
+
+    .modal-whatsapp-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 16px;
+      border-radius: var(--radio);
+      background: linear-gradient(135deg, var(--verde), #128C7E);
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-align: center;
+      margin-top: 12px;
+    }
+    .modal-whatsapp-btn:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 40px rgba(37, 211, 102, 0.2);
+    }
+
+    /* ===== HOW ===== */
     .how {
       background: #0c0c14;
     }
@@ -1217,6 +1472,7 @@
       font-size: 14px;
     }
 
+    /* ===== COBERTURA ===== */
     .coverage-section {
       background: linear-gradient(145deg, #0a0a12, #08080f);
       border-top: 1px solid rgba(0, 255, 136, 0.08);
@@ -1854,6 +2110,43 @@
       color: white;
     }
 
+    /* ===== DISCLAIMER SUTIL Y PROFESIONAL ===== */
+    .disclaimer-box {
+      background: rgba(0, 255, 136, 0.02);
+      border: 1px solid rgba(0, 255, 136, 0.04);
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin: 20px auto 0;
+      max-width: 750px;
+      text-align: left;
+    }
+    .disclaimer-box .disclaimer-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+    .disclaimer-box .disclaimer-header span {
+      font-size: 14px;
+      color: #74837b;
+      font-weight: 500;
+    }
+    .disclaimer-box p {
+      color: #6a7b73;
+      font-size: 12px;
+      line-height: 1.5;
+      margin: 0;
+    }
+    .disclaimer-box p strong {
+      color: var(--verde-neon);
+      font-weight: 600;
+    }
+    .disclaimer-box .disclaimer-extra {
+      display: inline-block;
+      margin-top: 2px;
+      color: #5a6b63;
+    }
+
     /* ===== FAQ ===== */
     .faq {
       background: var(--negro);
@@ -1953,31 +2246,6 @@
       font-size: 12px;
     }
 
-    /* Términos y condiciones en footer */
-    .footer-terms {
-      max-width: 700px;
-      margin: 20px auto 0;
-      padding: 18px 20px;
-      background: rgba(255, 216, 77, 0.03);
-      border: 1px solid rgba(255, 216, 77, 0.06);
-      border-radius: 12px;
-      text-align: left;
-      font-size: 12px;
-      color: #8a9b93;
-      line-height: 1.7;
-    }
-    .footer-terms strong {
-      color: var(--amarillo);
-      font-weight: 600;
-    }
-    .footer-terms .term-title {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--amarillo);
-      margin-bottom: 4px;
-      display: block;
-    }
-
     /* ===== WHATSAPP FLOTANTE ===== */
     .whatsapp-float {
       position: fixed;
@@ -2034,7 +2302,9 @@
       .hero-buttons {
         justify-content: center;
       }
-      .steps {
+      .steps,
+      .plans-grid,
+      .plans-grid.local-plans.active {
         grid-template-columns: 1fr;
       }
       .why-grid {
@@ -2082,14 +2352,24 @@
       .reviews-grid {
         grid-template-columns: 1fr 1fr;
       }
-      .difusion-features {
-        grid-template-columns: 1fr 1fr;
+      .plans-tabs {
+        gap: 10px;
       }
-      .modal-container {
-        padding: 30px 20px 25px;
-        margin: 10px;
+      .plans-tabs .tab-btn {
+        padding: 8px 18px;
+        font-size: 12px;
       }
-      .options-grid {
+      .tip-card {
+        padding: 30px 20px;
+        min-height: 160px;
+      }
+      .tip-card h3 {
+        font-size: 18px;
+      }
+      .tip-icon {
+        font-size: 36px;
+      }
+      .option-grid {
         grid-template-columns: 1fr 1fr;
       }
     }
@@ -2114,12 +2394,6 @@
       .hero-buttons a {
         width: 100%;
         justify-content: center;
-      }
-      .web-highlight .big-number {
-        font-size: 42px;
-      }
-      .web-highlight .price-web {
-        font-size: 24px;
       }
       .logo-img {
         height: 30px;
@@ -2193,38 +2467,71 @@
       .review-card {
         padding: 18px 16px;
       }
-      .difusion-features {
-        grid-template-columns: 1fr;
+      .plans-tabs {
+        flex-direction: column;
+        align-items: center;
+      }
+      .plans-tabs .tab-btn {
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
+      }
+      .plan .disclaimer-small {
+        font-size: 10px;
+      }
+      .tip-card {
+        padding: 25px 18px;
+        min-height: 140px;
+      }
+      .tip-card h3 {
+        font-size: 16px;
+      }
+      .tip-card p {
+        font-size: 13px;
+      }
+      .tip-icon {
+        font-size: 30px;
+      }
+      .disclaimer-box {
+        padding: 12px 14px;
+      }
+      .disclaimer-box p {
+        font-size: 11px;
       }
       .modal-container {
-        padding: 25px 16px 20px;
-        border-radius: 18px;
+        padding: 24px 16px;
+        border-radius: 20px;
+      }
+      .option-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      .option-grid .option-btn {
+        padding: 12px 8px;
+        font-size: 13px;
       }
       .modal-step h3 {
-        font-size: 19px;
+        font-size: 20px;
       }
-      .options-grid {
-        grid-template-columns: 1fr;
+      .modal-buttons button {
+        padding: 10px 16px;
+        font-size: 13px;
+        min-width: 70px;
       }
-      .modal-buttons {
+      .plan-modal-card {
         flex-direction: column;
+        align-items: stretch;
+        text-align: center;
       }
-      .modal-buttons .btn-back {
-        order: 2;
-      }
-      .modal-buttons .btn-next {
-        order: 1;
+      .plan-modal-card .plan-btn {
         width: 100%;
       }
-      .summary-plans .plan-option {
-        flex-direction: column;
-        text-align: center;
-        gap: 4px;
+      .modal-progress .time-estimate {
+        display: none;
       }
-      .footer-terms {
-        font-size: 11px;
-        padding: 14px 16px;
-        text-align: left;
+      .modal-social-proof {
+        font-size: 12px;
+        flex-wrap: wrap;
       }
     }
   </style>
@@ -2232,7 +2539,7 @@
 
 <body>
 
-  <!-- ===== PARTÍCULAS DE FONDO MULTICOLOR ===== -->
+  <!-- ===== PARTÍCULAS DE FONDO ===== -->
   <div class="bg-particles" aria-hidden="true">
     <div class="particle"></div>
     <div class="particle"></div>
@@ -2265,7 +2572,7 @@
       <div class="nav-links">
         <a href="#como-funciona">Cómo funciona</a>
         <a href="#cobertura">Cobertura</a>
-        <a href="#difusion">Difusión PRO</a>
+        <a href="#planes">Planes</a>
         <a href="#web">Diseño Web</a>
         <a href="#preguntas">Preguntas</a>
         <a class="nav-button" href="#contacto">Publicar ahora</a>
@@ -2283,7 +2590,7 @@
   <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Menú móvil">
     <a href="#como-funciona" class="mobile-link">Cómo funciona</a>
     <a href="#cobertura" class="mobile-link">Cobertura</a>
-    <a href="#difusion" class="mobile-link">Difusión PRO</a>
+    <a href="#planes" class="mobile-link">Planes</a>
     <a href="#web" class="mobile-link">Diseño Web</a>
     <a href="#preguntas" class="mobile-link">Preguntas</a>
     <a href="#contacto" class="nav-button mobile-link" style="text-align:center;">Publicar ahora</a>
@@ -2324,8 +2631,8 @@
           </p>
 
           <div class="hero-buttons">
-            <a class="btn-primary" href="#difusion">
-              🚀 Conocé Difusión PRO
+            <a class="btn-primary" href="#planes">
+              🚀 Ver planes
             </a>
             <a class="btn-secondary" href="#cobertura">
               🌎 ¿Vendés a todo el país?
@@ -2435,14 +2742,214 @@
           </div>
         </div>
 
+        <!-- Flechas -->
         <div class="tips-arrows">
           <button id="prevTip" aria-label="Anterior">‹</button>
           <button id="nextTip" aria-label="Siguiente">›</button>
         </div>
 
+        <!-- Dots -->
         <div class="tips-dots" id="tipsDots"></div>
       </div>
     </section>
+
+    <!-- ===== SECCIÓN DIFUSIÓN PRO ===== -->
+    <section class="diffusion-section" id="diffusion-pro">
+      <div class="section-container">
+        <span class="diffusion-icon">🚀</span>
+        <div class="section-header" style="margin-bottom: 20px;">
+          <div class="section-label">DIFUSIÓN PRO</div>
+          <h2>Hacé que tu negocio <span class="neon-text">llegue a más personas</span></h2>
+        </div>
+        <p class="diffusion-desc">
+          Ofrecemos difusión de <strong>publicaciones, negocios, servicios, páginas web, promociones, productos y otros contenidos</strong> mediante nuestra red de grupos y canales de difusión. 
+          <br><br>
+          Te ayudamos a amplificar tu mensaje para que más personas conozcan lo que ofrecés. 
+          <strong>Sin precios a la vista</strong>, primero conocé qué opción se adapta mejor a vos.
+        </p>
+        <button class="btn-diffusion-modal" id="openModalBtn">
+          💬 Consultar opciones de difusión
+        </button>
+      </div>
+    </section>
+
+    <!-- ===== MODAL ASISTENTE PRO ===== -->
+    <div class="modal-overlay" id="diffusionModal">
+      <div class="modal-container">
+        <button class="modal-close" id="closeModalBtn" aria-label="Cerrar modal">✕</button>
+
+        <!-- Progress -->
+        <div class="modal-progress">
+          <span class="step-indicator" id="stepIndicator">
+            <span class="step-num">1</span>
+            <span class="check-icon">✅</span>
+            <span> de 6</span>
+          </span>
+          <div class="progress-bar">
+            <div class="fill" id="progressFill" style="width: 16.6%;"></div>
+          </div>
+          <span class="time-estimate">⏱️ ~2 min</span>
+        </div>
+
+        <!-- ===== STEP 1: ALCANCE ===== -->
+        <div class="modal-step active" data-step="1">
+          <h3>🎯 ¿Querés difusión local en tu zona o en todo el país?</h3>
+          <p class="step-sub">Elegí el alcance que mejor se adapte a tu negocio.</p>
+
+          <div class="radio-group" id="alcanceGroup">
+            <label>
+              <input type="radio" name="alcance" value="local" />
+              <span class="radio-icon">📍</span>
+              <span class="radio-label-text">DIFUSIÓN LOCAL EN TU ZONA</span>
+              <span class="radio-label-small">Llegá a personas de tu ciudad, barrio y localidades cercanas.</span>
+              <span class="radio-check">✅</span>
+            </label>
+
+            <label>
+              <input type="radio" name="alcance" value="nacional" />
+              <span class="radio-icon">🌎</span>
+              <span class="radio-label-text">DIFUSIÓN A TODO EL PAÍS</span>
+              <span class="radio-label-small">Mostrá tu publicación frente a potenciales clientes de distintas partes de Argentina.</span>
+              <span class="radio-check">✅</span>
+            </label>
+          </div>
+
+          <div class="modal-social-proof">
+            <span>💡 <strong>Tip:</strong> Si vendés por envíos, la difusión a todo el país es ideal para vos.</span>
+          </div>
+
+          <div class="modal-buttons">
+            <button class="btn-continue" id="step1Continue" disabled>Continuar →</button>
+          </div>
+        </div>
+
+        <!-- ===== STEP 2: ZONA ===== -->
+        <div class="modal-step" data-step="2">
+          <h3>📍 ¿En qué zona querés promocionar tu negocio?</h3>
+          <p class="step-sub">Indicá tu localidad, ciudad o zona para orientar la difusión local.</p>
+          <input type="text" id="inputZona" placeholder="Ej: Gran Buenos Aires, San Isidro, Tigre…" />
+          <div style="margin-top: 6px; font-size: 13px; color: var(--gris-claro);">
+            Podés indicar una zona amplia o una localidad: Gran Buenos Aires, San Isidro, Tigre, Zona Norte, CABA, etc.
+          </div>
+
+          <div class="modal-social-proof">
+            <div class="sp-avatar">
+              <span>M</span>
+              <span>J</span>
+              <span>R</span>
+            </div>
+            <div class="sp-text">
+              <strong>+200 emprendedores</strong> ya difundieron con nosotros este mes
+            </div>
+          </div>
+
+          <div class="modal-buttons">
+            <button class="btn-back" id="step2Back">← Atrás</button>
+            <button class="btn-continue" id="step2Continue">Continuar →</button>
+          </div>
+        </div>
+
+        <!-- ===== STEP 3: QUÉ DIFUNDIR ===== -->
+        <div class="modal-step" data-step="3">
+          <h3>📢 ¿Qué querés promocionar?</h3>
+          <p class="step-sub">Seleccioná lo que mejor describa tu publicación.</p>
+          <div class="option-grid" id="tipoGrid">
+            <div class="option-btn" data-value="web">🌐 Página web <span class="opt-check">✅</span></div>
+            <div class="option-btn" data-value="producto">🛍️ Producto <span class="opt-check">✅</span></div>
+            <div class="option-btn" data-value="negocio">🏪 Negocio <span class="opt-check">✅</span></div>
+            <div class="option-btn" data-value="servicio">🔧 Servicio <span class="opt-check">✅</span></div>
+            <div class="option-btn" data-value="promocion">🎁 Promoción <span class="opt-check">✅</span></div>
+            <div class="option-btn" data-value="publicacion">📢 Publicación <span class="opt-check">✅</span></div>
+            <div class="option-btn" data-value="redes">📱 Instagram <span class="opt-check">✅</span></div>
+            <div class="option-btn" data-value="otro">✏️ Otro <span class="opt-check">✅</span></div>
+          </div>
+          <div id="otroInputContainer" style="display: none; margin-top: 10px;">
+            <input type="text" id="inputOtro" placeholder="Escribí qué querés promocionar…" />
+          </div>
+          <div class="modal-buttons">
+            <button class="btn-back" id="step3Back">← Atrás</button>
+            <button class="btn-continue" id="step3Continue" disabled>Continuar →</button>
+          </div>
+        </div>
+
+        <!-- ===== STEP 4: INFORMACIÓN ADICIONAL ===== -->
+        <div class="modal-step" data-step="4">
+          <h3>📝 Contanos un poco más</h3>
+          <p class="step-sub">Esto nos ayuda a entender mejor tu necesidad.</p>
+          <textarea id="inputInfo" rows="3" placeholder="Contanos qué ofrecés, qué promoción querés comunicar o cualquier información que consideres importante."></textarea>
+          <div style="margin-top: 16px;">
+            <p style="color: var(--gris-claro); font-size: 14px; margin-bottom: 8px;"><strong>¿Cuántas publicaciones aproximadamente necesitás?</strong></p>
+            <div class="option-grid" id="frecuenciaGrid" style="grid-template-columns: 1fr 1fr;">
+              <div class="option-btn" data-value="una">📄 Una publicación <span class="opt-check">✅</span></div>
+              <div class="option-btn" data-value="varias">📄📄 Varias publicaciones <span class="opt-check">✅</span></div>
+              <div class="option-btn" data-value="periodica">🔄 Difusión periódica <span class="opt-check">✅</span></div>
+              <div class="option-btn" data-value="no_seguro">🤔 No estoy seguro/a <span class="opt-check">✅</span></div>
+            </div>
+          </div>
+          <div class="modal-buttons">
+            <button class="btn-back" id="step4Back">← Atrás</button>
+            <button class="btn-continue" id="step4Continue" disabled>Ver resumen →</button>
+          </div>
+        </div>
+
+        <!-- ===== STEP 5: DATOS DE CONTACTO ===== -->
+        <div class="modal-step" data-step="5">
+          <h3>📱 Dejanos tus datos</h3>
+          <p class="step-sub">Así podemos contactarte con la mejor opción para vos.</p>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <input type="text" id="inputNombre" placeholder="Tu nombre *" />
+            <input type="tel" id="inputTelefono" placeholder="Tu número de WhatsApp *" />
+            <input type="email" id="inputEmail" placeholder="Tu email (opcional)" />
+          </div>
+          <div class="modal-social-proof">
+            <span>🔒 Tus datos están seguros. Solo los usamos para contactarte.</span>
+          </div>
+          <div class="modal-buttons">
+            <button class="btn-back" id="step5Back">← Atrás</button>
+            <button class="btn-continue" id="step5Continue" disabled>Ver resumen final →</button>
+          </div>
+        </div>
+
+        <!-- ===== STEP 6: RESUMEN FINAL ===== -->
+        <div class="modal-step" data-step="6">
+          <h3>✅ ¡Perfecto! Ya tenemos la información necesaria.</h3>
+          <p class="step-sub">Resumen de tus respuestas:</p>
+          <div class="resumen-box" id="resumenBox">
+            <div class="resumen-item"><span class="label">📍 Zona</span><span class="value" id="resumenZona">-</span></div>
+            <div class="resumen-item"><span class="label">🎯 Alcance</span><span class="value" id="resumenAlcance">-</span></div>
+            <div class="resumen-item"><span class="label">📢 Qué quiere difundir</span><span class="value" id="resumenTipo">-</span></div>
+            <div class="resumen-item"><span class="label">📅 Frecuencia</span><span class="value" id="resumenFrecuencia">-</span></div>
+            <div class="resumen-item"><span class="label">👤 Contacto</span><span class="value" id="resumenContacto">-</span></div>
+          </div>
+          <p style="color: var(--gris-claro); font-size: 15px; margin: 10px 0 8px;">
+            Tenemos una opción de difusión que puede adaptarse a lo que necesitás.
+          </p>
+          <button class="btn-show-plans" id="showPlansBtn">👀 Ver opciones y precios</button>
+
+          <!-- Planes ocultos inicialmente -->
+          <div class="plans-modal-container" id="plansModalContainer">
+            <div class="plan-recommendation" id="planRecommendation">
+              💡 <strong>Recomendación:</strong> Según tus respuestas, este plan es el ideal para empezar.
+            </div>
+            <div id="plansDynamicContainer">
+              <!-- Se llena con JS -->
+            </div>
+            <button class="modal-whatsapp-btn" id="whatsappFinalBtn">
+              💬 Enviar consulta por WhatsApp
+            </button>
+            <div style="margin-top: 10px; font-size: 12px; color: #5a6b63; text-align: center;">
+              Al hacer clic, se abrirá WhatsApp con un mensaje con todos tus datos.
+            </div>
+          </div>
+
+          <div class="modal-buttons" style="margin-top: 16px;">
+            <button class="btn-back" id="step6Back">← Atrás</button>
+            <button class="btn-close-modal" id="step6Close" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); color: var(--gris-claro); padding: 12px 28px; border-radius: 30px; font-weight: 700; font-size: 15px; cursor: pointer;">Cerrar</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
 
     <!-- ===== CÓMO FUNCIONA ===== -->
     <section class="how" id="como-funciona">
@@ -2485,7 +2992,7 @@
       </div>
     </section>
 
-    <!-- ===== COBERTURA NACIONAL VS LOCAL ===== -->
+    <!-- ===== COBERTURA ===== -->
     <section class="coverage-section" id="cobertura">
       <div class="section-container">
         <div class="section-header">
@@ -2514,7 +3021,7 @@
               <li>Ideal para productos con envíos a todo el país</li>
               <li>Máxima exposición geográfica</li>
             </ul>
-            <a href="#difusion" class="btn-coverage">Ver opciones de difusión →</a>
+            <a href="#diffusion-pro" class="btn-coverage">Consultar opciones →</a>
           </div>
 
           <div class="coverage-card local">
@@ -2532,7 +3039,7 @@
               <li>Ideal para emprendimientos locales</li>
               <li>Perfecto para servicios sin envíos</li>
             </ul>
-            <a href="#difusion" class="btn-coverage">Ver opciones de difusión →</a>
+            <a href="#diffusion-pro" class="btn-coverage">Consultar opciones →</a>
           </div>
 
         </div>
@@ -2546,192 +3053,24 @@
       </div>
     </section>
 
-    <!-- ===== SECCIÓN DIFUSIÓN PRO (SIN PRECIOS VISIBLES) ===== -->
-    <section class="difusion-section" id="difusion">
-      <div class="difusion-content">
-        <span class="difusion-icon">🚀</span>
-        <h2><span class="neon-text">Difusión PRO</span></h2>
-        <p>
-          Hacé que tu negocio, producto, servicio, página web o promoción
-          llegue a más personas a través de nuestra red de grupos y canales
-          de difusión. Nosotros nos encargamos de distribuir tu mensaje
-          para que tenga mayor visibilidad.
-        </p>
-
-        <div class="difusion-features">
-          <div class="feature-item">
-            <span>📢</span>
-            Publicaciones y anuncios
-          </div>
-          <div class="feature-item">
-            <span>🛍️</span>
-            Productos y negocios
-          </div>
-          <div class="feature-item">
-            <span>🌐</span>
-            Páginas web
-          </div>
-          <div class="feature-item">
-            <span>📱</span>
-            Redes sociales
-          </div>
-          <div class="feature-item">
-            <span>🔥</span>
-            Promociones y ofertas
-          </div>
-          <div class="feature-item">
-            <span>🔧</span>
-            Servicios profesionales
+    <!-- ===== PLANES ===== -->
+    <section class="plans" id="planes">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-label">Planes económicos</div>
+          <h2>Elegí cuánto querés difundir</h2>
+          <p class="section-description">
+            Diferentes opciones para que puedas promocionar tu publicación
+            sin gastar una fortuna.
+          </p>
+          <div style="margin-top: 20px;">
+            <a href="#diffusion-pro" class="btn-primary" style="display: inline-flex;">
+              💬 Conocé nuestros planes
+            </a>
           </div>
         </div>
-
-        <button class="btn-difusion-consultar" id="openModalBtn">
-          💬 Consultar opciones de difusión
-        </button>
       </div>
     </section>
-
-    <!-- ===== MODAL - ASISTENTE DE COTIZACIÓN ===== -->
-    <div class="modal-overlay" id="modalOverlay">
-      <div class="modal-container">
-
-        <button class="modal-close" id="modalCloseBtn" aria-label="Cerrar">✕</button>
-
-        <!-- Progress -->
-        <div class="modal-progress">
-          <span class="step-indicator">Paso <strong id="currentStepNum">1</strong> de <strong>4</strong></span>
-          <div class="progress-bar">
-            <div class="progress-fill" id="progressFill"></div>
-          </div>
-        </div>
-
-        <!-- ===== PASO 1: ZONA ===== -->
-        <div class="modal-step active" data-step="1">
-          <h3>📍 ¿De dónde sos?</h3>
-          <p class="step-sub">Decinos en qué zona querés promocionar tu negocio.</p>
-
-          <label for="zonaInput">Localidad / Zona</label>
-          <input type="text" id="zonaInput" placeholder="Ej: San Miguel, José C. Paz, Moreno…" />
-
-          <label for="provinciaInput">Provincia (opcional)</label>
-          <input type="text" id="provinciaInput" placeholder="Ej: Buenos Aires, Córdoba, Santa Fe…" />
-
-          <div class="modal-buttons">
-            <span></span>
-            <button class="btn-next" id="step1Next">Continuar →</button>
-          </div>
-        </div>
-
-        <!-- ===== PASO 2: ALCANCE ===== -->
-        <div class="modal-step" data-step="2">
-          <h3>🎯 ¿Dónde querés que llegue tu difusión?</h3>
-          <p class="step-sub">Elegí el alcance geográfico de tu campaña.</p>
-
-          <div class="options-grid" id="alcanceOptions">
-            <div class="option-card local-opt" data-value="local">
-              <span class="opt-icon">📍</span>
-              <div class="opt-label">Difusión Local</div>
-              <div class="opt-desc">Llegá a personas de tu zona y localidades cercanas</div>
-            </div>
-            <div class="option-card" data-value="nacional">
-              <span class="opt-icon">🌎</span>
-              <div class="opt-label">Difusión a todo el país</div>
-              <div class="opt-desc">Mostrá tu publicación frente a potenciales clientes de toda Argentina</div>
-            </div>
-          </div>
-
-          <div class="modal-buttons">
-            <button class="btn-back" id="step2Back">← Atrás</button>
-            <button class="btn-next" id="step2Next" disabled>Continuar →</button>
-          </div>
-        </div>
-
-        <!-- ===== PASO 3: QUÉ DIFUNDIR ===== -->
-        <div class="modal-step" data-step="3">
-          <h3>📢 ¿Qué querés promocionar?</h3>
-          <p class="step-sub">Seleccioná qué tipo de contenido querés difundir.</p>
-
-          <div class="options-grid" id="queDifundirOptions">
-            <div class="option-card" data-value="web">🌐 Página web</div>
-            <div class="option-card" data-value="producto">🛍️ Producto</div>
-            <div class="option-card" data-value="negocio">🏪 Negocio</div>
-            <div class="option-card" data-value="servicio">🔧 Servicio</div>
-            <div class="option-card" data-value="promocion">🎁 Promoción</div>
-            <div class="option-card" data-value="publicacion">📢 Publicación/anuncio</div>
-            <div class="option-card" data-value="instagram">📱 Instagram / redes sociales</div>
-            <div class="option-card" data-value="otro">✏️ Otro</div>
-          </div>
-
-          <div id="otroInputContainer" style="display:none; margin-top:10px;">
-            <label for="otroInput">¿Qué querés difundir?</label>
-            <input type="text" id="otroInput" placeholder="Ej: Un curso online, un evento, etc." />
-          </div>
-
-          <div class="modal-buttons">
-            <button class="btn-back" id="step3Back">← Atrás</button>
-            <button class="btn-next" id="step3Next" disabled>Continuar →</button>
-          </div>
-        </div>
-
-        <!-- ===== PASO 4: INFORMACIÓN ADICIONAL + RESULTADO ===== -->
-        <div class="modal-step" data-step="4">
-          <h3>📋 Información adicional</h3>
-          <p class="step-sub">Contanos más sobre lo que querés difundir.</p>
-
-          <label for="infoExtra">Contanos qué ofrecés, qué promoción querés comunicar o cualquier información que consideres importante.</label>
-          <textarea id="infoExtra" placeholder="Contanos qué ofrecés, qué promoción querés comunicar o cualquier información que consideres importante." rows="3"></textarea>
-
-          <label for="frecuenciaSelect">¿Cuántas publicaciones aproximadamente necesitás?</label>
-          <select id="frecuenciaSelect" style="width:100%; padding:14px 16px; border-radius:var(--radio); border:1px solid rgba(0,255,136,0.10); background:#0a0a12; color:white; font-size:16px; font-family:inherit; margin-bottom:12px;">
-            <option value="">Seleccioná una opción</option>
-            <option value="una">Una publicación</option>
-            <option value="varias">Varias publicaciones</option>
-            <option value="periodica">Difusión periódica</option>
-            <option value="no_seguro">No estoy seguro/a</option>
-          </select>
-
-          <!-- Resumen oculto inicialmente -->
-          <div id="resumenContainer" style="display:none; margin-top:20px;">
-            <h4 style="color:var(--verde-neon); margin-bottom:12px;">📋 Resumen de tu consulta</h4>
-            <div class="summary-box" id="summaryBox">
-              <div class="summary-row"><span class="s-label">📍 Zona:</span> <span class="s-value" id="resumenZona">-</span></div>
-              <div class="summary-row"><span class="s-label">🎯 Alcance:</span> <span class="s-value" id="resumenAlcance">-</span></div>
-              <div class="summary-row"><span class="s-label">📢 Qué difundir:</span> <span class="s-value" id="resumenQue">-</span></div>
-              <div class="summary-row"><span class="s-label">📅 Frecuencia:</span> <span class="s-value" id="resumenFrecuencia">-</span></div>
-            </div>
-
-            <div style="text-align:center; margin:15px 0 10px;">
-              <p style="color:var(--gris-claro); font-size:14px;">
-                ✅ Tenemos opciones de difusión que pueden adaptarse a lo que necesitás.
-              </p>
-            </div>
-
-            <button class="btn-next" id="showPlansBtn" style="width:100%; padding:14px; font-size:16px;">
-              📋 Ver opciones y precios
-            </button>
-
-            <!-- Planes (ocultos hasta click en "Ver opciones y precios") -->
-            <div id="plansContainer" style="display:none; margin-top:20px;">
-              <h4 style="color:var(--celeste); margin-bottom:12px;">📊 Planes disponibles</h4>
-              <div class="summary-plans" id="plansList">
-                <!-- Se llena con JS -->
-              </div>
-
-              <button class="btn-whatsapp-final" id="whatsappFinalBtn">
-                <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                Enviar consulta por WhatsApp
-              </button>
-            </div>
-          </div>
-
-          <div class="modal-buttons" id="step4Buttons">
-            <button class="btn-back" id="step4Back">← Atrás</button>
-            <button class="btn-next" id="step4Next" disabled>Generar resumen →</button>
-          </div>
-        </div>
-
-      </div>
-    </div>
 
     <!-- ===== RESEÑAS ===== -->
     <section class="reviews-section" id="reseñas">
@@ -2933,6 +3272,18 @@
           </button>
         </form>
 
+        <!-- DISCLAIMER SUTIL Y PROFESIONAL -->
+        <div class="disclaimer-box" style="margin-top:25px; max-width:100%;">
+          <div class="disclaimer-header">
+            <span>📋 Información importante</span>
+          </div>
+          <p>
+            Nuestro servicio se enfoca en la <strong>difusión y visibilidad</strong> de tu publicación. 
+            Los resultados comerciales dependen de la calidad del producto, el precio y el mercado.
+            <span class="disclaimer-extra">Solo trabajamos con emprendimientos y proyectos legales.</span>
+          </p>
+        </div>
+
         <p style="margin-top: 20px; font-size: 14px; color: #74837b;">
           También podés escribirnos directamente por
           <a href="https://wa.me/5491125128251?text=Hola!%20Quiero%20consultar%20por%20Difusi%C3%B3n%20Pro" target="_blank" rel="noopener noreferrer" style="color: var(--verde-neon); font-weight: bold; display: inline-flex; align-items: center; gap: 6px;">
@@ -3028,32 +3379,10 @@
       </a>
     </div>
     <div class="footer-divider"></div>
-
-    <!-- Términos y condiciones en el footer -->
-    <div class="footer-terms">
-      <span class="term-title">⚖️ Términos y condiciones</span>
-      <p>
-        <strong>Difusión Pro</strong> ofrece un servicio de <strong>DIFUSIÓN</strong> en grupos de compra y venta.
-        <strong>No garantizamos ventas</strong>, ya que el resultado depende de la calidad del producto,
-        el precio, la demanda del mercado y otros factores externos.
-      </p>
-      <p>
-        ✅ Aceptamos todo tipo de emprendimientos, productos, servicios, redes sociales, radios,
-        páginas web y proyectos legales.
-      </p>
-      <p>
-        🚫 <strong>NO trabajamos con casinos, apuestas, estafas, contenido ilegal, pirámides,
-        ni ninguna actividad fraudulenta o prohibida por la ley.</strong>
-      </p>
-      <p>
-        Al contratar nuestro servicio, el cliente <strong>acepta estos términos</strong> y se
-        responsabiliza por el contenido de su publicación.
-      </p>
-    </div>
-
-    <div class="footer-divider" style="margin-top:20px;"></div>
     <p class="footer-copy">
       © 2026 Difusión Pro — Servicio de difusión en grupos de compra y venta.
+      <br>
+      <span style="font-size:11px; color:#5a6b63;">No garantizamos ventas. No trabajamos con casinos, apuestas ni contenido ilegal.</span>
     </p>
   </footer>
 
@@ -3181,7 +3510,7 @@
       },
       {
         stars: 4,
-        text: "Todo bien, lo único es que tardan un poco en responder al principio, pero después todo ok. Sí funciona.",
+        text: "Todo bien, lo único es que tardan un poco en responder al principio, después todo ok. Sí funciona.",
         author: "Micaela S. (Mendoza)"
       },
       {
@@ -3255,149 +3584,127 @@
     renderReviews(0);
     setInterval(rotateReviews, 6000);
 
-    // ============================================================
-    // ===== MODAL - ASISTENTE DE COTIZACIÓN =====
-    // ============================================================
-
-    const modalOverlay = document.getElementById('modalOverlay');
+    // ===== MODAL ASISTENTE PRO =====
+    const modal = document.getElementById('diffusionModal');
     const openModalBtn = document.getElementById('openModalBtn');
-    const closeModalBtn = document.getElementById('modalCloseBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
 
-    // Abrir modal
     openModalBtn.addEventListener('click', () => {
-      modalOverlay.classList.add('active');
+      modal.classList.add('active');
       document.body.style.overflow = 'hidden';
-      resetModal();
+      goToStep(1);
+      document.getElementById('inputZona').value = '';
+      document.querySelectorAll('input[name="alcance"]').forEach(r => {
+        r.checked = false;
+        r.closest('label')?.classList.remove('selected');
+      });
+      selectedAlcance = '';
+      document.getElementById('step1Continue').disabled = true;
+      document.querySelectorAll('#tipoGrid .option-btn').forEach(b => b.classList.remove('selected'));
+      document.getElementById('otroInputContainer').style.display = 'none';
+      document.getElementById('inputOtro').value = '';
+      document.getElementById('inputInfo').value = '';
+      document.querySelectorAll('#frecuenciaGrid .option-btn').forEach(b => b.classList.remove('selected'));
+      document.getElementById('inputNombre').value = '';
+      document.getElementById('inputTelefono').value = '';
+      document.getElementById('inputEmail').value = '';
+      document.getElementById('plansModalContainer').classList.remove('active');
+      selectedTipo = '';
+      selectedFrecuencia = '';
+      document.querySelectorAll('.radio-group label').forEach(l => l.classList.remove('selected'));
+      document.querySelector('.step-indicator').classList.remove('done');
     });
 
-    // Cerrar modal
     function closeModal() {
-      modalOverlay.classList.remove('active');
+      modal.classList.remove('active');
       document.body.style.overflow = '';
     }
 
     closeModalBtn.addEventListener('click', closeModal);
-    modalOverlay.addEventListener('click', (e) => {
-      if (e.target === modalOverlay) closeModal();
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
     });
+    document.getElementById('step6Close').addEventListener('click', closeModal);
 
-    // ===== VARIABLES DE ESTADO =====
     let currentStep = 1;
-    const totalSteps = 4;
-
-    // Datos del formulario
-    const formData = {
+    const totalSteps = 6;
+    const stepData = {
       zona: '',
-      provincia: '',
       alcance: '',
-      queDifundir: '',
-      otro: '',
-      infoExtra: '',
-      frecuencia: ''
+      tipo: '',
+      tipoOtro: '',
+      info: '',
+      frecuencia: '',
+      nombre: '',
+      telefono: '',
+      email: ''
     };
 
-    // Planes disponibles
-    const planes = {
-      local: [
-        { name: 'Plan Barrial', grupos: 15, price: '$5.000', desc: 'Hasta 15 grupos de tu barrio o zona' },
-        { name: 'Plan Zonal ⭐', grupos: 20, price: '$8.000', desc: 'Hasta 20 grupos de tu ciudad y alrededores' },
-        { name: 'Plan Regional', grupos: 30, price: '$12.000', desc: 'Hasta 30 grupos de tu provincia' }
-      ],
-      nacional: [
-        { name: 'Plan Nacional', grupos: 50, price: '$10.000', desc: 'Hasta 50 grupos en todo el país' },
-        { name: 'Plan Nacional Pro ⭐', grupos: 150, price: '$16.000', desc: 'Hasta 150 grupos en todo el país' },
-        { name: 'Plan Nacional Premium', grupos: 250, price: '$24.000', desc: 'Hasta 250 grupos en todo el país' }
-      ]
-    };
-
-    // ===== FUNCIONES DEL MODAL =====
+    const steps = document.querySelectorAll('.modal-step');
+    const stepIndicator = document.getElementById('stepIndicator');
+    const progressFill = document.getElementById('progressFill');
 
     function goToStep(step) {
-      // Ocultar todos los pasos
-      document.querySelectorAll('.modal-step').forEach(el => el.classList.remove('active'));
-
-      // Mostrar el paso deseado
-      const targetStep = document.querySelector(`.modal-step[data-step="${step}"]`);
-      if (targetStep) targetStep.classList.add('active');
-
       currentStep = step;
-
-      // Actualizar indicador de progreso
-      document.getElementById('currentStepNum').textContent = step;
-      const progressPercent = ((step - 1) / (totalSteps - 1)) * 100;
-      document.getElementById('progressFill').style.width = progressPercent + '%';
-
-      // Mostrar/ocultar botones según el paso
-      updateButtons(step);
-    }
-
-    function updateButtons(step) {
-      // No necesitamos lógica compleja aquí porque los botones ya tienen sus propios event listeners
-    }
-
-    function resetModal() {
-      // Resetear formulario
-      document.getElementById('zonaInput').value = '';
-      document.getElementById('provinciaInput').value = '';
-      document.getElementById('otroInput').value = '';
-      document.getElementById('infoExtra').value = '';
-      document.getElementById('frecuenciaSelect').value = '';
-
-      // Resetear selecciones
-      document.querySelectorAll('.option-card').forEach(el => el.classList.remove('selected'));
-      document.getElementById('otroInputContainer').style.display = 'none';
-
-      // Resetear resumen y planes
-      document.getElementById('resumenContainer').style.display = 'none';
-      document.getElementById('plansContainer').style.display = 'none';
-      document.getElementById('step4Buttons').style.display = 'flex';
-
-      // Resetear datos
-      formData.zona = '';
-      formData.provincia = '';
-      formData.alcance = '';
-      formData.queDifundir = '';
-      formData.otro = '';
-      formData.infoExtra = '';
-      formData.frecuencia = '';
-
-      // Ir al paso 1
-      goToStep(1);
-    }
-
-    // ===== PASO 1: ZONA =====
-    document.getElementById('step1Next').addEventListener('click', () => {
-      const zona = document.getElementById('zonaInput').value.trim();
-      const provincia = document.getElementById('provinciaInput').value.trim();
-
-      if (!zona) {
-        alert('Por favor, indicá tu localidad o zona.');
-        return;
+      steps.forEach((el, i) => {
+        el.classList.toggle('active', i + 1 === step);
+      });
+      const pct = ((step - 1) / (totalSteps - 1)) * 100;
+      stepIndicator.innerHTML = `<span class="step-num">${step}</span><span class="check-icon">✅</span> de ${totalSteps}`;
+      if (step === totalSteps) {
+        stepIndicator.innerHTML = `✅ ${totalSteps} de ${totalSteps}`;
+        stepIndicator.classList.add('done');
+      } else {
+        stepIndicator.classList.remove('done');
       }
+      progressFill.style.width = pct + '%';
+      const container = document.querySelector('.modal-container');
+      if (container) container.scrollTop = 0;
+    }
 
-      formData.zona = zona;
-      formData.provincia = provincia || 'No especificada';
+    // ===== STEP 1: ALCANCE =====
+    const alcanceRadios = document.querySelectorAll('input[name="alcance"]');
+    const step1Continue = document.getElementById('step1Continue');
+    let selectedAlcance = '';
 
-      goToStep(2);
-    });
-
-    // ===== PASO 2: ALCANCE =====
-    const alcanceOptions = document.querySelectorAll('#alcanceOptions .option-card');
-    let alcanceSelected = '';
-
-    alcanceOptions.forEach(opt => {
-      opt.addEventListener('click', () => {
-        alcanceOptions.forEach(el => el.classList.remove('selected'));
-        opt.classList.add('selected');
-        alcanceSelected = opt.dataset.value;
-        formData.alcance = opt.querySelector('.opt-label').textContent;
-
-        document.getElementById('step2Next').disabled = false;
+    alcanceRadios.forEach(r => {
+      r.addEventListener('change', () => {
+        alcanceRadios.forEach(r2 => {
+          r2.closest('label').classList.toggle('selected', r2.checked);
+        });
+        selectedAlcance = r.value;
+        step1Continue.disabled = false;
       });
     });
 
-    document.getElementById('step2Next').addEventListener('click', () => {
-      if (!alcanceSelected) return;
+    document.getElementById('step1Continue').addEventListener('click', () => {
+      if (!selectedAlcance) return;
+
+      stepData.alcance = selectedAlcance;
+
+      if (selectedAlcance === 'local') {
+        goToStep(2);
+      } else {
+        // En difusión nacional no necesitamos una localidad específica.
+        stepData.zona = 'Todo el país';
+        goToStep(3);
+      }
+    });
+
+    // ===== STEP 2: ZONA LOCAL =====
+    const inputZona = document.getElementById('inputZona');
+
+    document.getElementById('step2Continue').addEventListener('click', () => {
+      const val = inputZona.value.trim();
+
+      if (!val) {
+        inputZona.style.borderColor = '#ff4444';
+        inputZona.placeholder = '⚠️ Por favor, escribí tu zona';
+        return;
+      }
+
+      inputZona.style.borderColor = '';
+      stepData.zona = val;
       goToStep(3);
     });
 
@@ -3405,167 +3712,271 @@
       goToStep(1);
     });
 
-    // ===== PASO 3: QUÉ DIFUNDIR =====
-    const queOptions = document.querySelectorAll('#queDifundirOptions .option-card');
-    let queSelected = '';
+    inputZona.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') document.getElementById('step2Continue').click();
+    });
 
-    queOptions.forEach(opt => {
-      opt.addEventListener('click', () => {
-        queOptions.forEach(el => el.classList.remove('selected'));
-        opt.classList.add('selected');
+    // ===== STEP 3: TIPO =====
+    const tipoButtons = document.querySelectorAll('#tipoGrid .option-btn');
+    const inputOtro = document.getElementById('inputOtro');
+    const step3Continue = document.getElementById('step3Continue');
+    let selectedTipo = '';
 
-        const value = opt.dataset.value;
-        queSelected = value;
-
-        if (value === 'otro') {
+    tipoButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tipoButtons.forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        const val = btn.dataset.value;
+        if (val === 'otro') {
           document.getElementById('otroInputContainer').style.display = 'block';
-          document.getElementById('step3Next').disabled = true;
-          // Habilitar cuando se escriba algo
-          document.getElementById('otroInput').addEventListener('input', function() {
-            document.getElementById('step3Next').disabled = this.value.trim() === '';
-          });
+          inputOtro.focus();
+          selectedTipo = 'otro';
         } else {
           document.getElementById('otroInputContainer').style.display = 'none';
-          document.getElementById('step3Next').disabled = false;
-          formData.queDifundir = opt.textContent.trim();
-          formData.otro = '';
+          selectedTipo = val;
+          stepData.tipo = val;
+          stepData.tipoOtro = '';
         }
+        step3Continue.disabled = false;
       });
     });
 
-    document.getElementById('step3Next').addEventListener('click', () => {
-      if (queSelected === 'otro') {
-        const otroVal = document.getElementById('otroInput').value.trim();
+    inputOtro.addEventListener('input', () => {
+      stepData.tipoOtro = inputOtro.value.trim();
+    });
+
+    document.getElementById('step3Continue').addEventListener('click', () => {
+      if (!selectedTipo) return;
+      if (selectedTipo === 'otro') {
+        const otroVal = inputOtro.value.trim();
         if (!otroVal) {
-          alert('Por favor, escribí qué querés difundir.');
+          alert('Escribí qué querés promocionar.');
+          inputOtro.focus();
           return;
         }
-        formData.queDifundir = otroVal;
-        formData.otro = otroVal;
+        stepData.tipo = 'otro';
+        stepData.tipoOtro = otroVal;
       } else {
-        const selectedOpt = document.querySelector('#queDifundirOptions .option-card.selected');
-        if (selectedOpt) {
-          formData.queDifundir = selectedOpt.textContent.trim();
+        stepData.tipo = selectedTipo;
+        stepData.tipoOtro = '';
+      }
+      goToStep(4);
+    });
+    document.getElementById('step3Back').addEventListener('click', () => goToStep(2));
+
+    // ===== STEP 4: INFORMACIÓN =====
+    const inputInfo = document.getElementById('inputInfo');
+    const frecuenciaButtons = document.querySelectorAll('#frecuenciaGrid .option-btn');
+    const step4Continue = document.getElementById('step4Continue');
+    let selectedFrecuencia = '';
+
+    frecuenciaButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        frecuenciaButtons.forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        selectedFrecuencia = btn.dataset.value;
+        step4Continue.disabled = false;
+      });
+    });
+
+    document.getElementById('step4Continue').addEventListener('click', () => {
+      if (!selectedFrecuencia) return;
+      stepData.info = inputInfo.value.trim();
+      stepData.frecuencia = selectedFrecuencia;
+      goToStep(5);
+    });
+    document.getElementById('step4Back').addEventListener('click', () => goToStep(3));
+
+    // ===== STEP 5: DATOS DE CONTACTO =====
+    const inputNombre = document.getElementById('inputNombre');
+    const inputTelefono = document.getElementById('inputTelefono');
+    const inputEmail = document.getElementById('inputEmail');
+    const step5Continue = document.getElementById('step5Continue');
+
+    function validateStep5() {
+      const nombre = inputNombre.value.trim();
+      const telefono = inputTelefono.value.trim();
+      step5Continue.disabled = !(nombre && telefono);
+    }
+
+    inputNombre.addEventListener('input', validateStep5);
+    inputTelefono.addEventListener('input', validateStep5);
+
+    document.getElementById('step5Continue').addEventListener('click', () => {
+      const nombre = inputNombre.value.trim();
+      const telefono = inputTelefono.value.trim();
+      if (!nombre || !telefono) return;
+      stepData.nombre = nombre;
+      stepData.telefono = telefono;
+      stepData.email = inputEmail.value.trim();
+
+      document.getElementById('resumenZona').textContent = stepData.zona;
+      const alcanceLabel = stepData.alcance === 'local' ? '📍 Local' : '🌎 Todo el país';
+      document.getElementById('resumenAlcance').textContent = alcanceLabel;
+      let tipoLabel = stepData.tipo;
+      if (tipoLabel === 'otro') tipoLabel = stepData.tipoOtro || 'Otro';
+      else {
+        const map = {
+          web: '🌐 Página web',
+          producto: '🛍️ Producto',
+          negocio: '🏪 Negocio',
+          servicio: '🔧 Servicio',
+          promocion: '🎁 Promoción',
+          publicacion: '📢 Publicación/anuncio',
+          redes: '📱 Instagram / redes sociales'
+        };
+        tipoLabel = map[tipoLabel] || tipoLabel;
+      }
+      document.getElementById('resumenTipo').textContent = tipoLabel;
+      const freqMap = {
+        una: '📄 Una publicación',
+        varias: '📄📄 Varias publicaciones',
+        periodica: '🔄 Difusión periódica',
+        no_seguro: '🤔 No estoy seguro/a'
+      };
+      document.getElementById('resumenFrecuencia').textContent = freqMap[selectedFrecuencia] || selectedFrecuencia;
+      document.getElementById('resumenContacto').textContent = `${stepData.nombre} (${stepData.telefono})`;
+
+      document.getElementById('plansModalContainer').classList.remove('active');
+      goToStep(6);
+    });
+    document.getElementById('step5Back').addEventListener('click', () => goToStep(4));
+
+    // ===== STEP 6: ATRÁS =====
+    document.getElementById('step6Back').addEventListener('click', () => goToStep(5));
+
+    // ===== MOSTRAR PLANES =====
+    document.getElementById('showPlansBtn').addEventListener('click', () => {
+      const container = document.getElementById('plansModalContainer');
+      const dynamic = document.getElementById('plansDynamicContainer');
+      const recommendation = document.getElementById('planRecommendation');
+
+      let plans = [];
+      const alcance = stepData.alcance;
+      const freq = stepData.frecuencia;
+
+      if (alcance === 'local') {
+        if (freq === 'una' || freq === 'no_seguro') {
+          plans = [
+            { name: 'Plan Barrial', price: '$5.000', detail: 'Hasta 15 grupos de tu barrio', grupos: 15, featured: false },
+            { name: 'Plan Zonal', price: '$8.000', detail: 'Hasta 20 grupos de tu ciudad', grupos: 20, featured: true },
+          ];
+          recommendation.innerHTML = '💡 <strong>Recomendación:</strong> Para empezar con difusión local, el <strong>Plan Zonal</strong> es ideal para llegar a más personas de tu ciudad.';
+        } else {
+          plans = [
+            { name: 'Plan Zonal', price: '$8.000', detail: 'Hasta 20 grupos de tu ciudad', grupos: 20, featured: false },
+            { name: 'Plan Regional', price: '$12.000', detail: 'Hasta 30 grupos de tu provincia', grupos: 30, featured: true },
+          ];
+          recommendation.innerHTML = '💡 <strong>Recomendación:</strong> Si necesitás difusión periódica, el <strong>Plan Regional</strong> te da mayor cobertura en tu provincia.';
+        }
+      } else {
+        if (freq === 'una' || freq === 'no_seguro') {
+          plans = [
+            { name: 'Difusión 50', price: '$10.000', detail: 'Hasta 50 grupos en todo el país', grupos: 50, featured: false },
+            { name: 'Difusión 150', price: '$16.000', detail: 'Hasta 150 grupos en todo el país', grupos: 150, featured: true },
+          ];
+          recommendation.innerHTML = '💡 <strong>Recomendación:</strong> Para difusión nacional, el <strong>Difusión 150</strong> es el más elegido por su excelente relación costo-alcance.';
+        } else {
+          plans = [
+            { name: 'Difusión 150', price: '$16.000', detail: 'Hasta 150 grupos en todo el país', grupos: 150, featured: false },
+            { name: 'Difusión 250', price: '$24.000', detail: 'Hasta 250 grupos en todo el país', grupos: 250, featured: true },
+          ];
+          recommendation.innerHTML = '💡 <strong>Recomendación:</strong> Para difusión nacional periódica, el <strong>Difusión 250</strong> te da la máxima cobertura en todo el país.';
         }
       }
 
-      if (!formData.queDifundir) {
-        alert('Por favor, seleccioná qué querés difundir.');
-        return;
+      if (freq === 'varias' || freq === 'periodica') {
+        if (alcance === 'local') {
+          plans = [
+            { name: 'Plan Barrial', price: '$5.000', detail: 'Hasta 15 grupos de tu barrio', grupos: 15, featured: false },
+            { name: 'Plan Zonal', price: '$8.000', detail: 'Hasta 20 grupos de tu ciudad', grupos: 20, featured: false },
+            { name: 'Plan Regional', price: '$12.000', detail: 'Hasta 30 grupos de tu provincia', grupos: 30, featured: true },
+          ];
+          recommendation.innerHTML = '💡 <strong>Recomendación:</strong> Para difusión local periódica, el <strong>Plan Regional</strong> te da la mejor cobertura en tu provincia.';
+        } else {
+          plans = [
+            { name: 'Difusión 50', price: '$10.000', detail: 'Hasta 50 grupos en todo el país', grupos: 50, featured: false },
+            { name: 'Difusión 150', price: '$16.000', detail: 'Hasta 150 grupos en todo el país', grupos: 150, featured: false },
+            { name: 'Difusión 250', price: '$24.000', detail: 'Hasta 250 grupos en todo el país', grupos: 250, featured: true },
+          ];
+          recommendation.innerHTML = '💡 <strong>Recomendación:</strong> Para difusión nacional periódica, el <strong>Difusión 250</strong> es la mejor opción para máxima exposición.';
+        }
       }
 
-      goToStep(4);
+      dynamic.innerHTML = plans.map(p => `
+        <div class="plan-modal-card ${p.featured ? 'featured' : ''}">
+          <div>
+            <div class="plan-name">${p.name} ${p.featured ? '<span class="plan-badge">⭐ Más elegido</span>' : ''}</div>
+            <div class="plan-detail">${p.detail}</div>
+          </div>
+          <div>
+            <span class="plan-price">${p.price} <small>ARS</small></span>
+          </div>
+          <button class="plan-btn" onclick="selectPlan('${p.name}', '${p.price}')">Elegir</button>
+        </div>
+      `).join('');
+
+      container.classList.add('active');
+      container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
 
-    document.getElementById('step3Back').addEventListener('click', () => {
-      goToStep(2);
+    window.selectPlan = function(name, price) {
+      const tipoMostrar = stepData.tipo === 'otro' ? stepData.tipoOtro : stepData.tipo;
+      const msg = `Hola! Quiero consultar por el plan *${name}* (${price} ARS).%0A%0A📍 Zona: ${stepData.zona}%0A🎯 Alcance: ${stepData.alcance === 'local' ? 'Local' : 'Todo el país'}%0A📢 Qué difundir: ${tipoMostrar}%0A📅 Frecuencia: ${stepData.frecuencia}%0A📝 Info adicional: ${stepData.info || 'No especificó'}%0A👤 Contacto: ${stepData.nombre} (${stepData.telefono})%0A📧 Email: ${stepData.email || 'No especificó'}`;
+      window.open(`https://wa.me/5491125128251?text=${encodeURIComponent(msg)}`, '_blank');
+    };
+
+    document.getElementById('whatsappFinalBtn').addEventListener('click', () => {
+      const tipoMostrar = stepData.tipo === 'otro' ? stepData.tipoOtro : stepData.tipo;
+      const msg = `Hola! Quiero consultar por opciones de difusión.%0A%0A📍 Zona: ${stepData.zona}%0A🎯 Alcance: ${stepData.alcance === 'local' ? 'Local' : 'Todo el país'}%0A📢 Qué difundir: ${tipoMostrar}%0A📅 Frecuencia: ${stepData.frecuencia}%0A📝 Info adicional: ${stepData.info || 'No especificó'}%0A👤 Contacto: ${stepData.nombre} (${stepData.telefono})%0A📧 Email: ${stepData.email || 'No especificó'}`;
+      window.open(`https://wa.me/5491125128251?text=${encodeURIComponent(msg)}`, '_blank');
     });
 
-    // ===== PASO 4: INFORMACIÓN ADICIONAL =====
-    document.getElementById('step4Next').addEventListener('click', () => {
-      const frecuencia = document.getElementById('frecuenciaSelect').value;
-      if (!frecuencia) {
-        alert('Por favor, seleccioná la frecuencia de publicación.');
-        return;
-      }
-
-      formData.infoExtra = document.getElementById('infoExtra').value.trim();
-      const freqMap = {
-        'una': 'Una publicación',
-        'varias': 'Varias publicaciones',
-        'periodica': 'Difusión periódica',
-        'no_seguro': 'No estoy seguro/a'
-      };
-      formData.frecuencia = freqMap[frecuencia] || frecuencia;
-
-      // Mostrar resumen
-      mostrarResumen();
+    inputZona.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') document.getElementById('step1Continue').click();
     });
 
-    document.getElementById('step4Back').addEventListener('click', () => {
-      goToStep(3);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
     });
 
-    function mostrarResumen() {
-      document.getElementById('resumenContainer').style.display = 'block';
-      document.getElementById('step4Buttons').style.display = 'none';
-
-      // Llenar resumen
-      document.getElementById('resumenZona').textContent = formData.zona + (formData.provincia !== 'No especificada' ? `, ${formData.provincia}` : '');
-      document.getElementById('resumenAlcance').textContent = formData.alcance;
-      document.getElementById('resumenQue').textContent = formData.queDifundir;
-      document.getElementById('resumenFrecuencia').textContent = formData.frecuencia;
-
-      // Ocultar planes hasta que se haga click en el botón
-      document.getElementById('plansContainer').style.display = 'none';
+    // ===== GUARDAR EN LOCALSTORAGE =====
+    function saveToLocalStorage() {
+      try {
+        localStorage.setItem('diffusionProData', JSON.stringify(stepData));
+      } catch(e) {}
     }
 
-    // ===== VER PLANES =====
-    document.getElementById('showPlansBtn').addEventListener('click', () => {
-      const container = document.getElementById('plansContainer');
-      const plansList = document.getElementById('plansList');
+    function loadFromLocalStorage() {
+      try {
+        const data = localStorage.getItem('diffusionProData');
+        if (data) {
+          const parsed = JSON.parse(data);
+          Object.assign(stepData, parsed);
+          if (stepData.zona) {
+            document.getElementById('inputZona').value = stepData.zona;
+          }
+          if (stepData.nombre) {
+            document.getElementById('inputNombre').value = stepData.nombre;
+          }
+          if (stepData.telefono) {
+            document.getElementById('inputTelefono').value = stepData.telefono;
+          }
+          if (stepData.email) {
+            document.getElementById('inputEmail').value = stepData.email;
+          }
+        }
+      } catch(e) {}
+    }
 
-      // Determinar qué planes mostrar según alcance
-      const isLocal = formData.alcance.includes('Local');
-      const plansToShow = isLocal ? planes.local : planes.nacional;
+    const originalGoToStep = goToStep;
+    goToStep = function(step) {
+      saveToLocalStorage();
+      originalGoToStep(step);
+    };
 
-      // Generar HTML de planes
-      let html = '';
-      plansToShow.forEach(plan => {
-        html += `
-          <div class="plan-option">
-            <div>
-              <div class="plan-name">${plan.name}</div>
-              <div class="plan-desc">${plan.desc}</div>
-            </div>
-            <div class="plan-price">${plan.price}</div>
-          </div>
-        `;
-      });
-
-      // Agregar nota de disclaimer
-      html += `
-        <div style="margin-top:15px; padding:14px; background:rgba(255,216,77,0.04); border-radius:10px; border:1px solid rgba(255,216,77,0.06); font-size:12px; color:#8a9b93; text-align:center;">
-          ⚠️ <strong style="color:var(--amarillo);">No garantizamos ventas.</strong> La difusión aumenta la visibilidad.
-          El éxito depende del producto, precio y demanda.
-        </div>
-      `;
-
-      plansList.innerHTML = html;
-      container.style.display = 'block';
-
-      // Desplazar hacia abajo para ver los planes
-      container.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    });
-
-    // ===== ENVIAR POR WHATSAPP =====
-    document.getElementById('whatsappFinalBtn').addEventListener('click', () => {
-      const mensaje = `
-🚀 *Nueva consulta de Difusión PRO*
-
-📍 *Zona:* ${formData.zona}${formData.provincia !== 'No especificada' ? `, ${formData.provincia}` : ''}
-🎯 *Alcance:* ${formData.alcance}
-📢 *Qué difundir:* ${formData.queDifundir}
-📅 *Frecuencia:* ${formData.frecuencia}
-📝 *Info adicional:* ${formData.infoExtra || 'No especificada'}
-
-📋 *Consulta enviada desde la web Difusión Pro*
-      `.trim();
-
-      const url = `https://wa.me/5491125128251?text=${encodeURIComponent(mensaje)}`;
-      window.open(url, '_blank');
-    });
-
-    // ===== VALIDACIÓN DE ENTER EN INPUTS =====
-    document.getElementById('zonaInput').addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') document.getElementById('step1Next').click();
-    });
-
-    // ===== CIERRE CON ESC =====
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
-        closeModal();
-      }
+    openModalBtn.addEventListener('click', () => {
+      loadFromLocalStorage();
     });
 
   </script>
