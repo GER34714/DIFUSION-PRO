@@ -1,27 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#07111c">
-  <meta name="description" content="Difusión Pro: tu anuncio en hasta 250 grupos de compra y venta.">
-  <title>Difusión Pro | Tu anuncio en hasta 250 grupos</title>
-
-  <!-- ========== OPEN GRAPH TAGS ========== -->
-  <meta property="og:title" content="Difusión Pro | Tu anuncio en hasta 250 grupos">
-  <meta property="og:description" content="Publicá tu anuncio en grupos de compra y venta y llegá a más personas con Difusión Pro.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://difusion-pro.onrender.com/">
-  <!-- Imagen OG (proporcionada) -->
-  <meta property="og:image" content="https://iili.io/nHXMif1.md.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Difusión Pro by CIBORG 347 - Llega a hasta 250 grupos">
-  <!-- ===================================== -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Difusión Pro | Publicá en cientos de grupos</title>
   <meta name="description" content="Publicamos tu anuncio en cientos de grupos de compra y venta. Llegá a miles de personas con Difusión Pro. Planes económicos y difusión en todo el país." />
+
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="Difusión Pro | Publicá en cientos de grupos" />
+  <meta property="og:description" content="Publicamos tu anuncio en cientos de grupos de compra y venta. Llegá a miles de personas con Difusión Pro." />
+  <meta property="og:image" content="https://iili.io/nHwu6OP.md.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://difusionpro.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Difusión Pro | Publicá en cientos de grupos" />
+  <meta name="twitter:description" content="Publicamos tu anuncio en cientos de grupos de compra y venta. Llegá a miles de personas con Difusión Pro." />
+  <meta name="twitter:image" content="https://iili.io/nHwu6OP.md.jpg" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -99,7 +95,7 @@
 
     .section-header {
       text-align: center;
-      max-width: 640px;
+      max-width: 680px;
       margin: 0 auto 48px;
     }
 
@@ -172,7 +168,7 @@
       box-shadow: var(--shadow-sm);
     }
 
-    /* ===== SECCIÓN DE CONFIANZA (arriba del todo) ===== */
+    /* ===== SECCIÓN DE CONFIANZA ===== */
     .trust-top-bar {
       width: 100%;
       background: var(--negro);
@@ -183,7 +179,7 @@
     .trust-top-bar .trust-text {
       font-size: 12px;
       color: rgba(255, 255, 255, 0.5);
-      letter-spacing: 0.5px;
+      letter-spacing: 0.3px;
     }
     .trust-top-bar .trust-text strong {
       color: var(--verde-claro);
@@ -381,21 +377,6 @@
       filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.20));
     }
 
-    .hero-content .section-label-hero {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--verde-claro);
-      background: rgba(22, 163, 74, 0.25);
-      padding: 4px 16px;
-      border-radius: 20px;
-      margin-bottom: 10px;
-      backdrop-filter: blur(4px);
-      width: fit-content;
-    }
-
     .hero-content h1 {
       font-size: clamp(36px, 4.5vw, 50px);
       font-weight: 800;
@@ -539,6 +520,19 @@
       letter-spacing: -0.02em;
     }
 
+    .diffusion-grid .content .by-badge {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--verde);
+      background: var(--verde-claro);
+      padding: 4px 16px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+
     .diffusion-grid .content p {
       color: var(--gris-500);
       font-size: 16px;
@@ -568,6 +562,109 @@
       color: var(--verde);
       font-weight: 700;
       font-size: 18px;
+    }
+
+    /* ===== MARCAS QUE CONFÍAN (CARRUSEL) ===== */
+    .brands-section {
+      background: var(--blanco);
+      border-top: 1px solid var(--gris-100);
+      border-bottom: 1px solid var(--gris-100);
+      padding: 50px 0;
+      width: 100%;
+    }
+
+    .brands-section .brands-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .brands-section .brands-header .brands-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gris-500);
+      background: var(--gris-100);
+      padding: 4px 16px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+
+    .brands-section .brands-header h2 {
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 700;
+      color: var(--negro);
+    }
+
+    .brands-section .brands-header h2 em {
+      color: var(--verde);
+      font-style: normal;
+    }
+
+    .brands-section .brands-header p {
+      color: var(--gris-500);
+      font-size: 15px;
+      margin-top: 6px;
+    }
+
+    .brands-ticker-wrapper {
+      position: relative;
+      overflow: hidden;
+      padding: 10px 0;
+    }
+
+    .brands-ticker {
+      display: flex;
+      gap: 3rem;
+      animation: tickerScroll 35s linear infinite;
+      width: max-content;
+    }
+
+    .brands-ticker.paused {
+      animation-play-state: paused;
+    }
+
+    .brand-item-ticker {
+      flex: 0 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      filter: grayscale(0.4);
+      opacity: 0.7;
+      transition: all 0.3s ease;
+      min-width: 140px;
+    }
+
+    .brand-item-ticker:hover {
+      filter: grayscale(0);
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    .brand-item-ticker img {
+      max-width: 100px;
+      max-height: 60px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: var(--gris-50);
+      padding: 8px 12px;
+      border: 1px solid var(--gris-100);
+    }
+
+    .brand-item-ticker span {
+      font-size: 0.75rem;
+      color: var(--gris-500);
+      text-align: center;
+      white-space: nowrap;
+      font-weight: 500;
+    }
+
+    @keyframes tickerScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     /* ===== WEB SECTION ===== */
@@ -1096,130 +1193,6 @@
       background: var(--verde);
     }
 
-    /* ===== FORMULARIO DE RESEÑAS ===== */
-    .review-form-container {
-      max-width: 560px;
-      margin: 48px auto 0;
-      background: var(--blanco);
-      border-radius: var(--radio);
-      padding: 32px 28px;
-      border: 1px solid var(--gris-100);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .review-form-container h3 {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--negro);
-      margin-bottom: 6px;
-    }
-
-    .review-form-container .subtitle {
-      color: var(--gris-500);
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-
-    .star-rating {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 18px;
-    }
-
-    .star-rating .stars-row {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .star-rating .stars-row .star {
-      font-size: 32px;
-      cursor: pointer;
-      color: var(--gris-300);
-      transition: var(--transition);
-      user-select: none;
-      line-height: 1;
-    }
-    .star-rating .stars-row .star.active {
-      color: #f59e0b;
-    }
-    .star-rating .stars-row .star:hover {
-      transform: scale(1.1);
-    }
-
-    .star-rating .rating-label {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--gris-700);
-      min-height: 24px;
-    }
-
-    .review-form-container input,
-    .review-form-container textarea {
-      width: 100%;
-      padding: 12px 16px;
-      border-radius: var(--radio);
-      border: 1px solid var(--gris-300);
-      background: var(--blanco);
-      color: var(--gris-900);
-      font-size: 15px;
-      font-family: inherit;
-      transition: var(--transition);
-      margin-bottom: 14px;
-    }
-    .review-form-container input:focus,
-    .review-form-container textarea:focus {
-      outline: none;
-      border-color: var(--verde);
-      box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.10);
-    }
-    .review-form-container input::placeholder,
-    .review-form-container textarea::placeholder {
-      color: var(--gris-500);
-    }
-    .review-form-container textarea {
-      min-height: 80px;
-      resize: vertical;
-    }
-
-    .review-form-container .btn-submit-review {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      width: 100%;
-      padding: 14px;
-      border-radius: 50px;
-      background: var(--verde);
-      color: var(--blanco);
-      font-weight: 700;
-      font-size: 16px;
-      border: none;
-      cursor: pointer;
-      transition: var(--transition);
-      box-shadow: 0 4px 16px rgba(22, 163, 74, 0.20);
-    }
-    .review-form-container .btn-submit-review:hover {
-      background: var(--verde-oscuro);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(22, 163, 74, 0.30);
-    }
-
-    .review-form-container .review-success {
-      display: none;
-      text-align: center;
-      padding: 20px;
-      background: var(--verde-claro);
-      border-radius: var(--radio);
-      color: var(--verde-oscuro);
-      font-weight: 600;
-      margin-top: 12px;
-    }
-    .review-form-container .review-success.show {
-      display: block;
-    }
-
     /* ===== CTA ===== */
     .cta-section {
       background: var(--verde);
@@ -1526,9 +1499,6 @@
         margin: 0 auto 16px;
         max-width: 140px;
       }
-      .hero-content .section-label-hero {
-        margin: 0 auto 10px;
-      }
       .hero-content p {
         margin: 0 auto 20px;
         max-width: 100%;
@@ -1564,15 +1534,15 @@
         max-width: 440px;
         padding: 28px 24px 24px;
       }
-      .review-form-container {
-        margin: 32px 16px 0;
-      }
       .web-mockup-top {
         max-width: 220px;
       }
       .trust-top-bar .trust-text {
         font-size: 11px;
       }
+      .brand-item-ticker { min-width: 120px; }
+      .brand-item-ticker img { max-width: 80px; max-height: 50px; }
+      .brands-ticker { gap: 2rem; }
     }
 
     @media (max-width: 768px) {
@@ -1682,16 +1652,6 @@
       .modal-detail .modal-price {
         font-size: 28px;
       }
-      .review-form-container {
-        padding: 24px 18px;
-        margin: 24px 12px 0;
-      }
-      .review-form-container h3 {
-        font-size: 18px;
-      }
-      .star-rating .stars-row .star {
-        font-size: 28px;
-      }
       .web-mockup-top {
         max-width: 200px;
       }
@@ -1707,6 +1667,16 @@
       .trust-top-bar .trust-text .sep {
         margin: 0 4px;
       }
+      .brands-section {
+        padding: 35px 0;
+      }
+      .brands-section .brands-header h2 {
+        font-size: 22px;
+      }
+      .brand-item-ticker { min-width: 100px; }
+      .brand-item-ticker img { max-width: 70px; max-height: 45px; padding: 6px 10px; }
+      .brand-item-ticker span { font-size: 0.65rem; }
+      .brands-ticker { gap: 1.8rem; }
     }
 
     @media (max-width: 480px) {
@@ -1755,12 +1725,6 @@
       .modal-detail .modal-features li {
         font-size: 14px;
       }
-      .review-form-container {
-        padding: 20px 14px;
-      }
-      .star-rating .stars-row .star {
-        font-size: 24px;
-      }
       .web-mockup-top {
         max-width: 160px;
       }
@@ -1781,6 +1745,13 @@
       .trust-top-bar .trust-text {
         font-size: 9px;
       }
+      .brands-section .brands-header h2 {
+        font-size: 20px;
+      }
+      .brand-item-ticker { min-width: 80px; }
+      .brand-item-ticker img { max-width: 60px; max-height: 38px; padding: 4px 8px; }
+      .brand-item-ticker span { font-size: 0.55rem; }
+      .brands-ticker { gap: 1.2rem; }
     }
   </style>
 </head>
@@ -1818,7 +1789,7 @@
         <a href="#planes">Planes</a>
         <a href="#web">Diseño Web</a>
         <a href="#preguntas">FAQ</a>
-        <a class="nav-button" href="#contacto">Publicar ahora</a>
+        <a class="nav-button" href="#contacto">Consultar</a>
       </div>
 
       <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false">
@@ -1836,7 +1807,7 @@
     <a href="#planes">Planes</a>
     <a href="#web">Diseño Web</a>
     <a href="#preguntas">FAQ</a>
-    <a href="#contacto" class="nav-button" style="text-align:center;">Publicar ahora</a>
+    <a href="#contacto" class="nav-button" style="text-align:center;">Consultar</a>
   </div>
 
   <!-- ===== MAIN ===== -->
@@ -1852,7 +1823,6 @@
             class="logo-hero"
             loading="lazy"
           />
-          <span class="section-label-hero">🚀 Difusión en cientos de grupos</span>
           <h1>Tu publicación.<br><span class="highlight">En cientos de grupos.</span></h1>
           <p>Hacemos llegar tu anuncio a una gran cantidad de grupos de compra y venta, con integrantes activos y de distintas zonas. Más lugares donde tu publicación puede ser vista.</p>
           <div class="hero-buttons">
@@ -1898,6 +1868,7 @@
 
         <div class="diffusion-grid">
           <div class="content">
+            <span class="by-badge">⚡ BY CIBORG 347</span>
             <h2>Amplificá tu mensaje sin gastar una fortuna</h2>
             <p>Te ayudamos a que más personas conozcan lo que ofrecés y llegues a nuevos clientes. <span class="highlight-text">Elegí la opción de difusión que mejor se adapte a tu negocio y empezá a darle mayor alcance a tus publicaciones.</span></p>
             <ul class="features-list">
@@ -1923,6 +1894,23 @@
             alt="Banner Difusión Pro - Una nueva forma de comunicar"
             loading="lazy"
           />
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MARCAS QUE CONFÍAN (CARRUSEL) ===== -->
+    <section class="brands-section" id="marcas">
+      <div class="container">
+        <div class="brands-header">
+          <span class="brands-label">🌟 Confianza</span>
+          <h2>Marcas que <em>confían</em> en nosotros</h2>
+          <p>Emprendedores y negocios que ya eligieron Difusión Pro y CIBORG 347</p>
+        </div>
+
+        <div class="brands-ticker-wrapper" id="brandsTickerWrapper">
+          <div class="brands-ticker" id="brandsTicker">
+            <!-- Las marcas se cargan con JavaScript -->
+          </div>
         </div>
       </div>
     </section>
@@ -2137,7 +2125,6 @@
         <div class="section-header">
           <span class="section-label" style="background: #fef3c7; color: #d97706;">⭐ Opiniones</span>
           <h2>Lo que dicen <span style="color: var(--verde);">nuestros clientes</span></h2>
-          <p>Gente real que ya probó el servicio. Vos también podés dejar tu opinión.</p>
         </div>
 
         <div class="testimonials-carousel">
@@ -2148,32 +2135,11 @@
 
         <div class="testimonials-dots" id="testimonialsDots"></div>
 
-        <div class="review-form-container">
-          <h3>📝 Dejanos tu reseña</h3>
-          <p class="subtitle">¿Cómo fue tu experiencia con Difusión Pro?</p>
-
-          <div class="star-rating">
-            <div class="stars-row" id="starsRow">
-              <span class="star" data-value="1">☆</span>
-              <span class="star" data-value="2">☆</span>
-              <span class="star" data-value="3">☆</span>
-              <span class="star" data-value="4">☆</span>
-              <span class="star" data-value="5">☆</span>
-            </div>
-            <div class="rating-label" id="ratingLabel">Seleccioná tu puntuación</div>
-          </div>
-
-          <input type="text" id="reviewName" placeholder="Tu nombre *" />
-          <input type="text" id="reviewLocation" placeholder="Tu localidad *" />
-          <textarea id="reviewText" placeholder="Contanos tu experiencia..." rows="3"></textarea>
-
-          <button class="btn-submit-review" id="submitReviewBtn">
-            💬 Enviar reseña por WhatsApp
-          </button>
-
-          <div class="review-success" id="reviewSuccess">
-            ✅ ¡Gracias! Tu reseña fue enviada. La revisaremos y publicaremos pronto.
-          </div>
+        <div style="text-align: center; margin-top: 40px;">
+          <a href="https://wa.me/5491125128251?text=Hola!%20Quiero%20dejar%20mi%20rese%C3%B1a%20sobre%20Difusi%C3%B3n%20Pro" target="_blank" rel="noopener noreferrer" class="btn-primary" style="background: var(--verde);">
+            💬 ¿Ya probaste el servicio? ¡Dejame tu reseña por WhatsApp!
+          </a>
+          <p style="color: var(--gris-500); font-size: 14px; margin-top: 12px;">Tu opinión nos ayuda a mejorar. ¡La leemos y la publicamos!</p>
         </div>
       </div>
     </section>
@@ -2182,7 +2148,7 @@
     <section class="cta-section" id="contacto">
       <div class="container">
         <h2>¿Querés que tu publicación llegue a más grupos?</h2>
-        <p>Elegí tu plan y completá el formulario. Te contactaremos a la brevedad para coordinar el envío de tu publicación y la difusión.</p>
+        <p>Elegí tu plan y consultanos por WhatsApp. Te contactaremos a la brevedad para coordinar el envío de tu publicación y la difusión.</p>
         <a href="https://wa.me/5491125128251?text=Hola!%20Quiero%20consultar%20por%20Difusi%C3%B3n%20Pro" target="_blank" rel="noopener noreferrer" class="btn-cta">💬 Consultar ahora</a>
         <div style="margin-top: 24px; font-size: 14px; opacity: 0.7;">
           📋 Nuestro servicio se enfoca en la difusión y visibilidad. Los resultados comerciales dependen de la calidad del producto, el precio y el mercado.
@@ -2351,6 +2317,9 @@
     </svg>
   </a>
 
+  <!-- ===== CDN DE SUPABASE ===== -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+
   <!-- ===== SCRIPTS ===== -->
   <script>
     // =============================================
@@ -2389,6 +2358,95 @@
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
     observer.observe(footer);
+
+    // =============================================
+    // CARRUSEL DE MARCAS (desde Supabase)
+    // =============================================
+    const SUPABASE_URL = "https://fhxcumwhgtfirznnznjx.supabase.co";
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZoeGN1bXdoZ3RmaXJ6bm56bmp4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc5OTYyNzEsImV4cCI6MjA4MzU3MjI3MX0.7z1B099L4yrA9k1JxwvYGCABzqiqYtkUClI3E8wQ2zA";
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str).replace(/[&<>]/g, function(m) {
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
+        return m;
+      });
+    }
+
+    async function loadBrandsTicker() {
+      const container = document.getElementById('brandsTicker');
+      if (!container) return;
+
+      container.innerHTML = '<div style="text-align:center; padding:20px; color:var(--gris-500);">Cargando marcas...</div>';
+
+      try {
+        const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        const { data, error } = await sb
+          .from('trusted_brands')
+          .select('*')
+          .eq('active', true)
+          .order('order_index', { ascending: true });
+
+        if (error) throw error;
+
+        if (!data || data.length === 0) {
+          const fallbackBrands = [
+            { name: "Mercado Libre", logo_url: "https://via.placeholder.com/100x60/1a1a2e/00d4ff?text=MercadoLibre", website_url: "#" },
+            { name: "Google", logo_url: "https://via.placeholder.com/100x60/1a1a2e/8b5cf6?text=Google", website_url: "#" },
+            { name: "Amazon", logo_url: "https://via.placeholder.com/100x60/1a1a2e/ff47d1?text=Amazon", website_url: "#" },
+            { name: "Spotify", logo_url: "https://via.placeholder.com/100x60/1a1a2e/00d4ff?text=Spotify", website_url: "#" },
+            { name: "Netflix", logo_url: "https://via.placeholder.com/100x60/1a1a2e/ff8c00?text=Netflix", website_url: "#" },
+            { name: "Apple", logo_url: "https://via.placeholder.com/100x60/1a1a2e/8b5cf6?text=Apple", website_url: "#" },
+          ];
+          renderTicker(fallbackBrands);
+          return;
+        }
+
+        let brandsData = [...data];
+        for (let i = brandsData.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [brandsData[i], brandsData[j]] = [brandsData[j], brandsData[i]];
+        }
+
+        const duplicated = [...brandsData, ...brandsData, ...brandsData];
+        renderTicker(duplicated);
+        setupTickerHover();
+
+      } catch (e) {
+        console.error("Error loading brands:", e);
+        container.innerHTML = '<div style="text-align:center; color:var(--gris-500); padding:20px;">Error al cargar marcas</div>';
+      }
+    }
+
+    function renderTicker(brands) {
+      const container = document.getElementById('brandsTicker');
+      if (!container || !brands || brands.length === 0) return;
+
+      container.innerHTML = brands.map(brand => `
+        <div class="brand-item-ticker">
+          ${brand.website_url ? `<a href="${brand.website_url}" target="_blank" rel="noopener noreferrer">` : ''}
+            <img src="${escapeHtml(brand.logo_url)}" alt="${escapeHtml(brand.name)}" loading="lazy" width="100" height="60" />
+            <span>${escapeHtml(brand.name)}</span>
+          ${brand.website_url ? '</a>' : ''}
+        </div>
+      `).join('');
+    }
+
+    function setupTickerHover() {
+      const wrapper = document.getElementById('brandsTickerWrapper');
+      const ticker = document.getElementById('brandsTicker');
+      if (!wrapper || !ticker) return;
+
+      wrapper.addEventListener('mouseenter', () => {
+        ticker.classList.add('paused');
+      });
+
+      wrapper.addEventListener('mouseleave', () => {
+        ticker.classList.remove('paused');
+      });
+    }
 
     // =============================================
     // TABS DE PLANES
@@ -2455,11 +2513,11 @@
     });
 
     document.getElementById('openModalBtn').addEventListener('click', function() {
-      alert('📩 ¡Consultá por DIFUSIÓN LOCAL o NACIONAL! Te contamos las opciones disponibles.');
+      document.getElementById('planes').scrollIntoView({ behavior: 'smooth' });
     });
 
     // =============================================
-    // SISTEMA DE RESEÑAS
+    // RESEÑAS CARRUSEL
     // =============================================
 
     const reseñas = [
@@ -2570,73 +2628,11 @@
       }
     }
 
-    // ===== FORMULARIO DE RESEÑAS =====
-    const stars = document.querySelectorAll('#starsRow .star');
-    let selectedRating = 0;
-    const ratingLabel = document.getElementById('ratingLabel');
-
-    stars.forEach(star => {
-      star.addEventListener('click', () => {
-        selectedRating = parseInt(star.dataset.value);
-        stars.forEach(s => {
-          s.classList.toggle('active', parseInt(s.dataset.value) <= selectedRating);
-          s.textContent = parseInt(s.dataset.value) <= selectedRating ? '★' : '☆';
-        });
-        const labels = { 1: 'Malo', 2: 'Regular', 3: 'Bueno', 4: 'Muy Bueno', 5: 'Excelente' };
-        ratingLabel.textContent = `⭐ ${selectedRating} estrella${selectedRating > 1 ? 's' : ''} — ${labels[selectedRating]}`;
-      });
-
-      star.addEventListener('mouseenter', () => {
-        const val = parseInt(star.dataset.value);
-        stars.forEach(s => {
-          const sv = parseInt(s.dataset.value);
-          s.textContent = sv <= val ? '★' : '☆';
-          s.style.color = sv <= val ? '#f59e0b' : '';
-        });
-      });
-
-      star.addEventListener('mouseleave', () => {
-        stars.forEach(s => {
-          const sv = parseInt(s.dataset.value);
-          s.textContent = sv <= selectedRating ? '★' : '☆';
-          s.style.color = sv <= selectedRating ? '#f59e0b' : '';
-        });
-      });
-    });
-
-    document.getElementById('submitReviewBtn').addEventListener('click', function() {
-      const nombre = document.getElementById('reviewName').value.trim();
-      const localidad = document.getElementById('reviewLocation').value.trim();
-      const texto = document.getElementById('reviewText').value.trim();
-
-      if (!nombre) { alert('Por favor, escribí tu nombre.'); return; }
-      if (!localidad) { alert('Por favor, escribí tu localidad.'); return; }
-      if (!texto) { alert('Por favor, escribí tu reseña.'); return; }
-      if (selectedRating === 0) { alert('Por favor, seleccioná una calificación con estrellas.'); return; }
-
-      const labels = { 1: 'Malo', 2: 'Regular', 3: 'Bueno', 4: 'Muy Bueno', 5: 'Excelente' };
-      const mensaje = `📝 *Nueva reseña para Difusión Pro*%0A%0A⭐ *Calificación:* ${selectedRating} estrellas (${labels[selectedRating]})%0A👤 *Nombre:* ${nombre}%0A📍 *Localidad:* ${localidad}%0A📄 *Reseña:* ${texto}%0A%0A¡Gracias por tu opinión! 🙌`;
-
-      window.open(`https://wa.me/5491125128251?text=${mensaje}`, '_blank');
-
-      const successMsg = document.getElementById('reviewSuccess');
-      successMsg.classList.add('show');
-      setTimeout(() => successMsg.classList.remove('show'), 4000);
-
-      document.getElementById('reviewName').value = '';
-      document.getElementById('reviewLocation').value = '';
-      document.getElementById('reviewText').value = '';
-      selectedRating = 0;
-      stars.forEach(s => {
-        s.classList.remove('active');
-        s.textContent = '☆';
-        s.style.color = '';
-      });
-      ratingLabel.textContent = 'Seleccioná tu puntuación';
-    });
-
     // ===== INICIALIZAR =====
-    renderizarReseñas();
+    document.addEventListener('DOMContentLoaded', () => {
+      loadBrandsTicker();
+      renderizarReseñas();
+    });
 
   </script>
 
