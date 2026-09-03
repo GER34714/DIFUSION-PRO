@@ -52,6 +52,10 @@
       color: var(--gris-900);
       line-height: 1.6;
       overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
     }
 
     a {
@@ -67,6 +71,7 @@
     /* ===== UTILITY ===== */
     .container {
       max-width: 1150px;
+      width: 100%;
       margin: 0 auto;
       padding: 0 24px;
     }
@@ -158,11 +163,13 @@
       background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(203, 213, 225, 0.3);
+      width: 100%;
     }
 
     .nav-container {
       max-width: 1150px;
-      margin: auto;
+      width: 100%;
+      margin: 0 auto;
       height: 72px;
       padding: 0 24px;
       display: flex;
@@ -295,6 +302,7 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      width: 100%;
     }
 
     .hero::before {
@@ -423,10 +431,12 @@
       padding: 30px 0;
       border-top: 1px solid var(--gris-100);
       border-bottom: 1px solid var(--gris-100);
+      width: 100%;
     }
 
     .banner-container {
       max-width: 1000px;
+      width: 100%;
       margin: 0 auto;
       padding: 0 24px;
     }
@@ -453,6 +463,7 @@
       background: var(--blanco);
       border-top: 1px solid var(--gris-100);
       border-bottom: 1px solid var(--gris-100);
+      width: 100%;
     }
 
     .diffusion-image-center {
@@ -513,11 +524,74 @@
       font-size: 18px;
     }
 
+    /* ===== WEB SECTION ===== */
+    .web-section {
+      background: var(--gris-50);
+      width: 100%;
+    }
+
+    .web-content-centered {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .web-mockup-top {
+      max-width: 280px;
+      margin-bottom: 32px;
+    }
+
+    .web-mockup-top img {
+      width: 100%;
+      height: auto;
+      border-radius: 24px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--gris-100);
+    }
+
+    .web-content-centered h2 {
+      font-size: clamp(30px, 3.5vw, 40px);
+      font-weight: 800;
+      color: var(--negro);
+      margin-bottom: 16px;
+    }
+
+    .web-content-centered p {
+      color: var(--gris-500);
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .web-content-centered ul {
+      list-style: none;
+      margin-bottom: 24px;
+      text-align: left;
+      display: inline-block;
+    }
+    .web-content-centered ul li {
+      padding: 8px 0;
+      color: var(--gris-700);
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .web-content-centered ul li::before {
+      content: "✓";
+      color: var(--celeste);
+      font-weight: 700;
+    }
+
     /* ===== PLANES CON TABS ===== */
     .plans-section {
       background: var(--blanco);
       border-top: none;
       padding-top: 40px;
+      width: 100%;
     }
 
     .plans-tabs {
@@ -890,97 +964,56 @@
       box-shadow: 0 8px 24px rgba(22, 163, 74, 0.30);
     }
 
-    /* ===== WEB SECTION ===== */
-    .web-section {
-      background: var(--gris-50);
-    }
-
-    .web-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .web-grid .content h2 {
-      font-size: clamp(30px, 3.5vw, 40px);
-      font-weight: 800;
-      color: var(--negro);
-      margin-bottom: 16px;
-    }
-
-    .web-grid .content p {
-      color: var(--gris-500);
-      font-size: 16px;
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
-
-    .web-grid .content ul {
-      list-style: none;
-      margin-bottom: 24px;
-    }
-    .web-grid .content ul li {
-      padding: 8px 0;
-      color: var(--gris-700);
-      font-size: 15px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .web-grid .content ul li::before {
-      content: "✓";
-      color: var(--celeste);
-      font-weight: 700;
-    }
-
-    .web-grid .mockup {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .web-grid .mockup img {
-      max-width: 280px;
-      height: auto;
-      border-radius: 24px;
-      box-shadow: var(--shadow-lg);
-      border: 1px solid var(--gris-100);
-    }
-
-    /* ===== TESTIMONIOS ===== */
+    /* ===== RESEÑAS CARRUSEL ===== */
     .testimonials-section {
       background: var(--blanco);
+      padding: 60px 0;
+      overflow: hidden;
+      width: 100%;
     }
 
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+    .testimonials-carousel {
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonials-track {
+      display: flex;
+      transition: transform 0.6s ease-in-out;
+    }
+
+    .testimonial-slide {
+      min-width: 100%;
+      padding: 0 16px;
     }
 
     .testimonial-card {
       background: var(--gris-50);
-      padding: 28px 24px;
+      padding: 32px 28px;
       border-radius: var(--radio);
       border: 1px solid var(--gris-100);
       transition: var(--transition);
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto;
     }
     .testimonial-card:hover {
       box-shadow: var(--shadow-md);
     }
     .testimonial-card .stars {
       color: #f59e0b;
-      font-size: 16px;
-      letter-spacing: 2px;
-      margin-bottom: 8px;
+      font-size: 18px;
+      letter-spacing: 3px;
+      margin-bottom: 10px;
     }
     .testimonial-card blockquote {
       color: var(--gris-700);
-      font-size: 15px;
-      line-height: 1.6;
+      font-size: 16px;
+      line-height: 1.7;
       font-style: italic;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
     .testimonial-card .author {
       font-size: 14px;
@@ -992,12 +1025,248 @@
       color: var(--gris-500);
     }
 
+    .testimonials-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .testimonials-dots .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--gris-300);
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      padding: 0;
+    }
+    .testimonials-dots .dot.active {
+      background: var(--verde);
+      box-shadow: 0 0 16px rgba(22, 163, 74, 0.25);
+      transform: scale(1.15);
+    }
+    .testimonials-dots .dot:hover {
+      background: var(--verde);
+    }
+
+    /* ===== FORMULARIO DE RESEÑAS ===== */
+    .review-form-container {
+      max-width: 560px;
+      margin: 48px auto 0;
+      background: var(--blanco);
+      border-radius: var(--radio);
+      padding: 32px 28px;
+      border: 1px solid var(--gris-100);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .review-form-container h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--negro);
+      margin-bottom: 6px;
+    }
+
+    .review-form-container .subtitle {
+      color: var(--gris-500);
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .star-rating {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .star-rating .stars-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .star-rating .stars-row .star {
+      font-size: 32px;
+      cursor: pointer;
+      color: var(--gris-300);
+      transition: var(--transition);
+      user-select: none;
+      line-height: 1;
+    }
+    .star-rating .stars-row .star.active {
+      color: #f59e0b;
+    }
+    .star-rating .stars-row .star:hover {
+      transform: scale(1.1);
+    }
+
+    .star-rating .rating-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gris-700);
+      min-height: 24px;
+    }
+
+    .review-form-container input,
+    .review-form-container textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: var(--radio);
+      border: 1px solid var(--gris-300);
+      background: var(--blanco);
+      color: var(--gris-900);
+      font-size: 15px;
+      font-family: inherit;
+      transition: var(--transition);
+      margin-bottom: 14px;
+    }
+    .review-form-container input:focus,
+    .review-form-container textarea:focus {
+      outline: none;
+      border-color: var(--verde);
+      box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.10);
+    }
+    .review-form-container input::placeholder,
+    .review-form-container textarea::placeholder {
+      color: var(--gris-500);
+    }
+    .review-form-container textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .review-form-container .btn-submit-review {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px;
+      border-radius: 50px;
+      background: var(--verde);
+      color: var(--blanco);
+      font-weight: 700;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 16px rgba(22, 163, 74, 0.20);
+    }
+    .review-form-container .btn-submit-review:hover {
+      background: var(--verde-oscuro);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(22, 163, 74, 0.30);
+    }
+
+    .review-form-container .review-success {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      background: var(--verde-claro);
+      border-radius: var(--radio);
+      color: var(--verde-oscuro);
+      font-weight: 600;
+      margin-top: 12px;
+    }
+    .review-form-container .review-success.show {
+      display: block;
+    }
+
+    /* ===== TÉRMINOS Y CONDICIONES ===== */
+    .legal-section {
+      background: var(--blanco);
+      border-top: 1px solid var(--gris-100);
+      padding: 60px 0 40px;
+      width: 100%;
+    }
+
+    .legal-section .legal-title {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--negro);
+      margin-bottom: 32px;
+    }
+
+    .legal-accordion {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .legal-accordion details {
+      background: var(--gris-50);
+      border-radius: var(--radio);
+      border: 1px solid var(--gris-100);
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .legal-accordion details:hover {
+      border-color: var(--gris-300);
+    }
+
+    .legal-accordion summary {
+      cursor: pointer;
+      padding: 18px 24px;
+      font-weight: 700;
+      font-size: 16px;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      color: var(--negro);
+      user-select: none;
+    }
+    .legal-accordion summary::-webkit-details-marker {
+      display: none;
+    }
+    .legal-accordion summary::after {
+      content: "+";
+      color: var(--verde);
+      font-size: 26px;
+      line-height: 1;
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+    .legal-accordion details[open] summary::after {
+      content: "−";
+    }
+
+    .legal-accordion .legal-content {
+      padding: 0 24px 24px;
+      color: var(--gris-700);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    .legal-accordion .legal-content p {
+      margin-bottom: 12px;
+    }
+    .legal-accordion .legal-content p:last-child {
+      margin-bottom: 0;
+    }
+    .legal-accordion .legal-content ul {
+      padding-left: 24px;
+      margin: 8px 0 12px;
+    }
+    .legal-accordion .legal-content ul li {
+      margin-bottom: 4px;
+    }
+    .legal-accordion .legal-content strong {
+      color: var(--negro);
+    }
+
     /* ===== CTA ===== */
     .cta-section {
       background: var(--verde);
       padding: 80px 0;
       text-align: center;
       color: var(--blanco);
+      width: 100%;
     }
     .cta-section h2 {
       font-size: clamp(32px, 4vw, 44px);
@@ -1033,6 +1302,7 @@
       background: var(--blanco);
       border-top: 1px solid var(--gris-100);
       padding: 48px 0 32px;
+      width: 100%;
     }
 
     .footer-grid {
@@ -1145,18 +1415,8 @@
       .diffusion-image-center {
         max-width: 80%;
       }
-      .web-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      .web-grid .content ul li {
-        justify-content: center;
-      }
       .plans-grid,
       .plans-grid.active {
-        grid-template-columns: 1fr 1fr;
-      }
-      .testimonials-grid {
         grid-template-columns: 1fr 1fr;
       }
       .footer-grid {
@@ -1165,6 +1425,12 @@
       .modal-detail {
         max-width: 440px;
         padding: 28px 24px 24px;
+      }
+      .review-form-container {
+        margin: 32px 16px 0;
+      }
+      .web-mockup-top {
+        max-width: 220px;
       }
     }
 
@@ -1229,21 +1495,12 @@
         max-width: 420px;
         margin: 0 auto;
       }
-      .testimonials-grid {
-        grid-template-columns: 1fr;
-        max-width: 420px;
-        margin: 0 auto;
-      }
       .footer-grid {
         grid-template-columns: 1fr;
         text-align: center;
       }
       .footer-grid .brand p {
         margin: 8px auto 0;
-      }
-
-      .web-grid .mockup img {
-        max-width: 200px;
       }
 
       .section-padding {
@@ -1279,6 +1536,25 @@
       }
       .modal-detail .modal-price {
         font-size: 28px;
+      }
+      .review-form-container {
+        padding: 24px 18px;
+        margin: 24px 12px 0;
+      }
+      .review-form-container h3 {
+        font-size: 18px;
+      }
+      .star-rating .stars-row .star {
+        font-size: 28px;
+      }
+      .web-mockup-top {
+        max-width: 200px;
+      }
+      .web-content-centered ul {
+        text-align: center;
+      }
+      .web-content-centered ul li {
+        justify-content: center;
       }
     }
 
@@ -1328,6 +1604,15 @@
       .modal-detail .modal-features li {
         font-size: 14px;
       }
+      .review-form-container {
+        padding: 20px 14px;
+      }
+      .star-rating .stars-row .star {
+        font-size: 24px;
+      }
+      .web-mockup-top {
+        max-width: 160px;
+      }
     }
   </style>
 </head>
@@ -1374,7 +1659,7 @@
   </div>
 
   <!-- ===== MAIN ===== -->
-  <main>
+  <main style="width:100%; display:flex; flex-direction:column; align-items:center;">
 
     <!-- ===== HERO ===== -->
     <section class="hero">
@@ -1419,7 +1704,7 @@
         <div class="section-header">
           <span class="section-label">DIFUSIÓN PRO</span>
           <h2>Hacé que tu negocio <span style="color: var(--verde);">llegue a más personas</span></h2>
-          <p>Ofrecemos difusión de publicaciones, negocios, servicios, páginas web, promociones y productos mediante nuestra red de grupos y canales de difusión.</p>
+          <p>Utilizamos herramientas avanzadas de difusión para publicar tu anuncio en hasta <strong>250 grupos</strong> de compra y venta, llegando a más potenciales clientes de todo el territorio argentino.</p>
         </div>
 
         <div class="diffusion-image-center">
@@ -1640,54 +1925,73 @@
           <p>Además de la difusión, también diseñamos páginas web para tu negocio o emprendimiento.</p>
         </div>
 
-        <div class="web-grid">
-          <div class="content">
-            <h2>Diseñamos tu web + difusión opcional</h2>
-            <p>¿Ya tenés tu negocio pero te falta presencia online? <strong>También diseñamos páginas web</strong> profesionales y modernas.</p>
-            <ul>
-              <li>Diseño web moderno y responsive</li>
-              <li>Optimización para celulares y computadoras</li>
-              <li>Contenido y fotos adaptados a tu marca</li>
-              <li>Soporte y acompañamiento personalizado</li>
-              <li style="color: var(--celeste); font-weight: 600;">+ Difusión en grupos (opcional, consultar)</li>
-            </ul>
-            <a href="https://wa.me/5491125128251?text=Hola!%20Quiero%20consultar%20por%20DISE%C3%91O%20WEB%20y%20tambi%C3%A9n%20por%20DIFUSI%C3%93N%20PRO" target="_blank" rel="noopener noreferrer" class="btn-primary" style="background: var(--celeste);">🌐 Consultar diseño web</a>
-          </div>
-          <div class="mockup">
+        <div class="web-content-centered">
+          <div class="web-mockup-top">
             <img
               src="https://fhxcumwhgtfirznnznjx.supabase.co/storage/v1/object/public/difusion%20pro/iPhone-14-PRO-MAX-ciborg347.onrender.com.png"
               alt="Mockup de iPhone mostrando el diseño web de CIBORG 347"
               loading="lazy"
             />
           </div>
+
+          <h2>Diseñamos tu web + difusión opcional</h2>
+          <p>¿Ya tenés tu negocio pero te falta presencia online? <strong>También diseñamos páginas web</strong> profesionales y modernas.</p>
+
+          <ul>
+            <li>Diseño web moderno y responsive</li>
+            <li>Optimización para celulares y computadoras</li>
+            <li>Contenido y fotos adaptados a tu marca</li>
+            <li>Soporte y acompañamiento personalizado</li>
+            <li style="color: var(--celeste); font-weight: 600;">+ Difusión en grupos (opcional, consultar)</li>
+          </ul>
+
+          <a href="https://wa.me/5491125128251?text=Hola!%20Quiero%20consultar%20por%20DISE%C3%91O%20WEB%20y%20tambi%C3%A9n%20por%20DIFUSI%C3%93N%20PRO" target="_blank" rel="noopener noreferrer" class="btn-primary" style="background: var(--celeste);">🌐 Consultar diseño web</a>
         </div>
       </div>
     </section>
 
-    <!-- ===== TESTIMONIOS ===== -->
-    <section class="testimonials-section section-padding" id="reseñas">
+    <!-- ===== RESEÑAS ===== -->
+    <section class="testimonials-section" id="reseñas">
       <div class="container">
         <div class="section-header">
           <span class="section-label" style="background: #fef3c7; color: #d97706;">⭐ Opiniones</span>
           <h2>Lo que dicen <span style="color: var(--verde);">nuestros clientes</span></h2>
-          <p>Gente real que ya probó el servicio.</p>
+          <p>Gente real que ya probó el servicio. Vos también podés dejar tu opinión.</p>
         </div>
 
-        <div class="testimonials-grid">
-          <div class="testimonial-card">
-            <div class="stars">★★★★★</div>
-            <blockquote>"Excelente servicio, mi publicación llegó a mucha gente y vendí en menos de 24 horas. Muy recomendable."</blockquote>
-            <div class="author">Martina G. <small>(CABA)</small></div>
+        <div class="testimonials-carousel">
+          <div class="testimonials-track" id="testimonialsTrack">
+            <!-- Se inserta desde JS -->
           </div>
-          <div class="testimonial-card">
-            <div class="stars">★★★★★</div>
-            <blockquote>"La mejor inversión para mi negocio. Me llegaron consultas de todo el país. Super recomiendo."</blockquote>
-            <div class="author">Gastón L. <small>(Tucumán)</small></div>
+        </div>
+
+        <div class="testimonials-dots" id="testimonialsDots"></div>
+
+        <div class="review-form-container">
+          <h3>📝 Dejanos tu reseña</h3>
+          <p class="subtitle">¿Cómo fue tu experiencia con Difusión Pro?</p>
+
+          <div class="star-rating">
+            <div class="stars-row" id="starsRow">
+              <span class="star" data-value="1">☆</span>
+              <span class="star" data-value="2">☆</span>
+              <span class="star" data-value="3">☆</span>
+              <span class="star" data-value="4">☆</span>
+              <span class="star" data-value="5">☆</span>
+            </div>
+            <div class="rating-label" id="ratingLabel">Seleccioná tu puntuación</div>
           </div>
-          <div class="testimonial-card">
-            <div class="stars">★★★★★</div>
-            <blockquote>"Muy buena la difusión, mi emprendimiento de ropa empezó a verse mucho más. Atención por WhatsApp excelente."</blockquote>
-            <div class="author">Florencia P. <small>(Rosario)</small></div>
+
+          <input type="text" id="reviewName" placeholder="Tu nombre *" />
+          <input type="text" id="reviewLocation" placeholder="Tu localidad *" />
+          <textarea id="reviewText" placeholder="Contanos tu experiencia..." rows="3"></textarea>
+
+          <button class="btn-submit-review" id="submitReviewBtn">
+            💬 Enviar reseña por WhatsApp
+          </button>
+
+          <div class="review-success" id="reviewSuccess">
+            ✅ ¡Gracias! Tu reseña fue enviada. La revisaremos y publicaremos pronto.
           </div>
         </div>
       </div>
@@ -1706,7 +2010,7 @@
     </section>
 
     <!-- ===== FAQ ===== -->
-    <section class="section-padding" id="preguntas" style="background: var(--gris-50);">
+    <section class="section-padding" id="preguntas" style="background: var(--gris-50); width:100%;">
       <div class="container">
         <div class="section-header">
           <span class="section-label">❓ Preguntas frecuentes</span>
@@ -1734,6 +2038,74 @@
             <summary style="font-weight: 600; cursor: pointer; color: var(--negro);">¿Ofrecen diseño web también?</summary>
             <p style="margin-top: 12px; color: var(--gris-500);">¡Sí! Diseñamos páginas web como un servicio complementario a la difusión. Desde <strong>$80.000</strong> para landing pages promocionales.</p>
           </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LEGAL ===== -->
+    <section class="legal-section" id="legal">
+      <div class="container">
+        <h2 class="legal-title">⚖️ Términos y condiciones • Política de privacidad</h2>
+        <div class="legal-accordion">
+
+          <details>
+            <summary>Términos y condiciones</summary>
+            <div class="legal-content">
+              <p><strong>1. Servicio de Difusión</strong><br>
+              Difusión Pro ofrece un servicio de <strong>DIFUSIÓN</strong> de publicaciones en grupos de compra y venta. No garantizamos ventas ni resultados específicos, ya que estos dependen de factores externos como la calidad del producto, el precio, la demanda del mercado y la estrategia de marketing del cliente.</p>
+
+              <p><strong>2. Responsabilidad del cliente</strong><br>
+              El cliente es el único responsable del contenido de su publicación (texto, imágenes, enlaces, etc.). El cliente garantiza que el material difundido no infringe derechos de terceros ni leyes aplicables.</p>
+
+              <p><strong>3. Contenido prohibido</strong><br>
+              No se aceptan publicaciones que promuevan:</p>
+              <ul>
+                <li>Casinos, apuestas o juegos de azar</li>
+                <li>Estafas, esquemas piramidales o fraudes</li>
+                <li>Contenido ilegal, violento, discriminatorio o difamatorio</li>
+                <li>Productos o servicios prohibidos por la ley argentina</li>
+              </ul>
+
+              <p><strong>4. Alcance del servicio</strong><br>
+              La difusión se realiza en grupos de compra y venta seleccionados por Difusión Pro. La cantidad de grupos puede variar según la zona, disponibilidad y tipo de difusión contratada. No se garantiza un número exacto de visualizaciones o interacciones.</p>
+
+              <p><strong>5. Modificaciones y cancelaciones</strong><br>
+              Una vez confirmado el pago y enviada la publicación para difundir, no se realizan reembolsos. El cliente puede solicitar cambios en su publicación antes de que comience la difusión.</p>
+
+              <p><strong>6. Aceptación de los términos</strong><br>
+              Al contratar nuestro servicio, el cliente acepta estos términos y condiciones en su totalidad.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Política de privacidad</summary>
+            <div class="legal-content">
+              <p><strong>1. Datos que recopilamos</strong><br>
+              Recopilamos la información que nos proporcionás voluntariamente al contactarnos, contratar nuestros servicios o dejar una reseña: nombre, número de teléfono, localidad, y el contenido de tu publicación.</p>
+
+              <p><strong>2. Uso de los datos</strong><br>
+              Utilizamos tus datos para:</p>
+              <ul>
+                <li>Procesar y coordinar tu difusión</li>
+                <li>Comunicarnos con vos sobre tu pedido</li>
+                <li>Publicar tu reseña (si nos autorizás)</li>
+                <li>Mejorar nuestros servicios</li>
+              </ul>
+
+              <p><strong>3. No compartimos tus datos</strong><br>
+              No vendemos, alquilamos ni compartimos tu información personal con terceros, excepto cuando sea necesario para cumplir con la ley o con tu pedido expreso.</p>
+
+              <p><strong>4. Seguridad</strong><br>
+              Implementamos medidas de seguridad para proteger tu información. Sin embargo, ninguna transmisión por Internet es 100% segura.</p>
+
+              <p><strong>5. Tus derechos</strong><br>
+              Podés solicitar en cualquier momento la eliminación de tus datos personales de nuestra base de datos, contactándonos por WhatsApp.</p>
+
+              <p><strong>6. Consentimiento</strong><br>
+              Al usar nuestros servicios, aceptás nuestra Política de Privacidad.</p>
+            </div>
+          </details>
+
         </div>
       </div>
     </section>
@@ -1766,8 +2138,8 @@
         </div>
         <div class="col">
           <h4>Legal</h4>
-          <a href="#terminos">Términos y condiciones</a>
-          <a href="#privacidad">Política de privacidad</a>
+          <a href="#legal">Términos y condiciones</a>
+          <a href="#legal">Política de privacidad</a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -1792,7 +2164,9 @@
 
   <!-- ===== SCRIPTS ===== -->
   <script>
-    // ===== MENÚ HAMBURGUESA =====
+    // =============================================
+    // MENÚ HAMBURGUESA
+    // =============================================
     const hamburgerBtn = document.getElementById('hamburgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
 
@@ -1810,7 +2184,9 @@
       });
     });
 
-    // ===== WHATSAPP FLOTANTE =====
+    // =============================================
+    // WHATSAPP FLOTANTE
+    // =============================================
     const whatsappFloat = document.getElementById('whatsappFloat');
     const footer = document.querySelector('footer');
 
@@ -1822,14 +2198,12 @@
           whatsappFloat.classList.remove('hidden');
         }
       });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    });
-
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
     observer.observe(footer);
 
-    // ===== TABS DE PLANES =====
+    // =============================================
+    // TABS DE PLANES
+    // =============================================
     const tabBtns = document.querySelectorAll('.tab-btn');
     const planesLocal = document.getElementById('planesLocal');
     const planesNacional = document.getElementById('planesNacional');
@@ -1853,7 +2227,9 @@
       });
     });
 
-    // ===== MODAL DE DETALLE DEL PLAN =====
+    // =============================================
+    // MODAL DE DETALLE DEL PLAN
+    // =============================================
     const planModal = document.getElementById('planModal');
 
     function openPlanDetail(name, price, grupos, publicaciones, detalle, tipo) {
@@ -1865,11 +2241,9 @@
       document.getElementById('modalBadge').style.background = tipo === 'local' ? 'var(--verde-claro)' : '#dbeafe';
       document.getElementById('modalBadge').style.color = tipo === 'local' ? 'var(--verde)' : 'var(--celeste)';
 
-      // Actualizar el detalle de los grupos en el modal
       const gruposText = document.querySelector('#modalGrupos').closest('.text').querySelector('.sub');
       if (gruposText) gruposText.textContent = detalle;
 
-      // Actualizar el link de WhatsApp
       const whatsappBtn = document.getElementById('modalWhatsappBtn');
       const msg = `Hola!%20Quiero%20contratar%20el%20plan%3A%20${encodeURIComponent(name)}%20(${price}%20ARS)%0A%0A📢%20${publicaciones}%0A📍%20${grupos}%0A%0A¿Qué%20necesito%20enviar%20para%20empezar?`;
       whatsappBtn.href = `https://wa.me/5491125128251?text=${msg}`;
@@ -1883,20 +2257,198 @@
       document.body.style.overflow = '';
     }
 
-    // Cerrar modal al hacer clic fuera
     planModal.addEventListener('click', (e) => {
       if (e.target === planModal) closePlanDetail();
     });
 
-    // Cerrar con ESC
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && planModal.classList.contains('active')) closePlanDetail();
     });
 
-    // ===== ABRIR MODAL ASISTENTE =====
     document.getElementById('openModalBtn').addEventListener('click', function() {
       alert('📩 ¡Consultá por DIFUSIÓN LOCAL o NACIONAL! Te contamos las opciones disponibles.');
     });
+
+    // =============================================
+    // SISTEMA DE RESEÑAS
+    // =============================================
+
+    const reseñas = [
+      { nombre: "Carla M.", localidad: "Moreno", texto: "La verdad que llegó a bastante gente, aunque no vendí nada al toque. Pero bueno, sirve para que te conozcan.", estrellas: 4 },
+      { nombre: "Lucas D.", localidad: "Córdoba", texto: "Mira, funcionó, me contactaron varias personas. El único tema es que tardaron un poco en responder al principio, después todo ok.", estrellas: 4 },
+      { nombre: "Sofía R.", localidad: "Rosario", texto: "Está bien el servicio, llegó a varios grupos. Capaz esperaba un poco más de interacción pero bueno, cumplió.", estrellas: 4 },
+      { nombre: "Tomás G.", localidad: "CABA", texto: "Excelente la verdad, mi publicación apareció en todos lados y vendí el mismo día. Muy bueno.", estrellas: 5 },
+      { nombre: "Julieta P.", localidad: "La Plata", texto: "Mira, está bueno pero hay que tener en cuenta que la difusión sola no vende, el producto tiene que ser bueno. Pero cumple.", estrellas: 3 },
+      { nombre: "Nahuel S.", localidad: "Mar del Plata", texto: "Me sirvió para darme a conocer, aunque esperaba que haya más grupos de mi zona. Pero bueno, dentro de todo bien.", estrellas: 4 },
+      { nombre: "Martín R.", localidad: "Tigre", texto: "La verdad que no sabía si iba a funcionar pero me llegaron un par de consultas. Para probar está bien.", estrellas: 4 },
+      { nombre: "Florencia T.", localidad: "Quilmes", texto: "Buen servicio, lo recomiendo. Capaz el precio un poco alto para lo que es, pero funciona.", estrellas: 3 }
+    ];
+
+    function getStarsHTML(cantidad) {
+      return '★'.repeat(cantidad) + '☆'.repeat(5 - cantidad);
+    }
+
+    let currentSlide = 0;
+    let slideInterval;
+
+    function renderizarReseñas() {
+      const track = document.getElementById('testimonialsTrack');
+      const dotsContainer = document.getElementById('testimonialsDots');
+
+      track.innerHTML = '';
+      dotsContainer.innerHTML = '';
+
+      if (reseñas.length === 0) {
+        track.innerHTML = `
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <blockquote>Todavía no hay reseñas. ¡Sé el primero en dejar la tuya!</blockquote>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      reseñas.forEach((r, index) => {
+        const slide = document.createElement('div');
+        slide.className = 'testimonial-slide';
+        slide.innerHTML = `
+          <div class="testimonial-card">
+            <div class="stars">${getStarsHTML(r.estrellas)}</div>
+            <blockquote>"${r.texto}"</blockquote>
+            <div class="author">${r.nombre} <small>(${r.localidad})</small></div>
+          </div>
+        `;
+        track.appendChild(slide);
+      });
+
+      reseñas.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.className = 'dot' + (index === 0 ? ' active' : '');
+        dot.dataset.index = index;
+        dot.addEventListener('click', () => irASlide(index));
+        dotsContainer.appendChild(dot);
+      });
+
+      currentSlide = 0;
+      actualizarCarrusel();
+      iniciarAutoSlide();
+    }
+
+    function actualizarCarrusel() {
+      const track = document.getElementById('testimonialsTrack');
+      const dots = document.querySelectorAll('#testimonialsDots .dot');
+      const total = reseñas.length;
+
+      if (total === 0) return;
+      if (currentSlide >= total) currentSlide = 0;
+      if (currentSlide < 0) currentSlide = total - 1;
+
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentSlide);
+      });
+    }
+
+    function irASlide(index) {
+      if (reseñas.length === 0) return;
+      currentSlide = index;
+      actualizarCarrusel();
+      reiniciarAutoSlide();
+    }
+
+    function siguienteSlide() {
+      if (reseñas.length === 0) return;
+      currentSlide = (currentSlide + 1) % reseñas.length;
+      actualizarCarrusel();
+    }
+
+    function iniciarAutoSlide() {
+      if (slideInterval) clearInterval(slideInterval);
+      if (reseñas.length > 1) {
+        slideInterval = setInterval(siguienteSlide, 6000);
+      }
+    }
+
+    function reiniciarAutoSlide() {
+      if (slideInterval) {
+        clearInterval(slideInterval);
+        slideInterval = null;
+      }
+      if (reseñas.length > 1) {
+        slideInterval = setInterval(siguienteSlide, 6000);
+      }
+    }
+
+    // ===== FORMULARIO DE RESEÑAS =====
+    const stars = document.querySelectorAll('#starsRow .star');
+    let selectedRating = 0;
+    const ratingLabel = document.getElementById('ratingLabel');
+
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        selectedRating = parseInt(star.dataset.value);
+        stars.forEach(s => {
+          s.classList.toggle('active', parseInt(s.dataset.value) <= selectedRating);
+          s.textContent = parseInt(s.dataset.value) <= selectedRating ? '★' : '☆';
+        });
+        const labels = { 1: 'Malo', 2: 'Regular', 3: 'Bueno', 4: 'Muy Bueno', 5: 'Excelente' };
+        ratingLabel.textContent = `⭐ ${selectedRating} estrella${selectedRating > 1 ? 's' : ''} — ${labels[selectedRating]}`;
+      });
+
+      star.addEventListener('mouseenter', () => {
+        const val = parseInt(star.dataset.value);
+        stars.forEach(s => {
+          const sv = parseInt(s.dataset.value);
+          s.textContent = sv <= val ? '★' : '☆';
+          s.style.color = sv <= val ? '#f59e0b' : '';
+        });
+      });
+
+      star.addEventListener('mouseleave', () => {
+        stars.forEach(s => {
+          const sv = parseInt(s.dataset.value);
+          s.textContent = sv <= selectedRating ? '★' : '☆';
+          s.style.color = sv <= selectedRating ? '#f59e0b' : '';
+        });
+      });
+    });
+
+    document.getElementById('submitReviewBtn').addEventListener('click', function() {
+      const nombre = document.getElementById('reviewName').value.trim();
+      const localidad = document.getElementById('reviewLocation').value.trim();
+      const texto = document.getElementById('reviewText').value.trim();
+
+      if (!nombre) { alert('Por favor, escribí tu nombre.'); return; }
+      if (!localidad) { alert('Por favor, escribí tu localidad.'); return; }
+      if (!texto) { alert('Por favor, escribí tu reseña.'); return; }
+      if (selectedRating === 0) { alert('Por favor, seleccioná una calificación con estrellas.'); return; }
+
+      const labels = { 1: 'Malo', 2: 'Regular', 3: 'Bueno', 4: 'Muy Bueno', 5: 'Excelente' };
+      const mensaje = `📝 *Nueva reseña para Difusión Pro*%0A%0A⭐ *Calificación:* ${selectedRating} estrellas (${labels[selectedRating]})%0A👤 *Nombre:* ${nombre}%0A📍 *Localidad:* ${localidad}%0A📄 *Reseña:* ${texto}%0A%0A¡Gracias por tu opinión! 🙌`;
+
+      window.open(`https://wa.me/5491125128251?text=${mensaje}`, '_blank');
+
+      const successMsg = document.getElementById('reviewSuccess');
+      successMsg.classList.add('show');
+      setTimeout(() => successMsg.classList.remove('show'), 4000);
+
+      document.getElementById('reviewName').value = '';
+      document.getElementById('reviewLocation').value = '';
+      document.getElementById('reviewText').value = '';
+      selectedRating = 0;
+      stars.forEach(s => {
+        s.classList.remove('active');
+        s.textContent = '☆';
+        s.style.color = '';
+      });
+      ratingLabel.textContent = 'Seleccioná tu puntuación';
+    });
+
+    // ===== INICIALIZAR =====
+    renderizarReseñas();
+
   </script>
 
 </body>
