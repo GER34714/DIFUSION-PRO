@@ -19,6 +19,15 @@
   <meta name="twitter:description" content="Publicamos tu anuncio en cientos de grupos de compra y venta. Llegá a miles de personas con Difusión Pro." />
   <meta name="twitter:image" content="https://iili.io/nHwu6OP.md.jpg" />
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B1E20LSMW7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B1E20LSMW7');
+  </script>
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -885,6 +894,38 @@
     }
     .plan-card.featured .btn-plan:hover {
       background: var(--verde-oscuro);
+    }
+
+    /* ===== PLAN FULL PREMIUM (destacado especial) ===== */
+    .plan-card.full-premium {
+      border-color: var(--naranja);
+      background: linear-gradient(135deg, #fff7ed, var(--blanco));
+      box-shadow: 0 8px 32px rgba(249, 115, 22, 0.15);
+    }
+    .plan-card.full-premium .popular {
+      background: var(--naranja);
+      box-shadow: 0 4px 12px rgba(249, 115, 22, 0.30);
+    }
+    .plan-card.full-premium .price {
+      color: var(--naranja);
+    }
+    .plan-card.full-premium .btn-plan {
+      background: var(--naranja);
+      color: var(--blanco);
+      border-color: var(--naranja);
+      box-shadow: 0 4px 16px rgba(249, 115, 22, 0.25);
+    }
+    .plan-card.full-premium .btn-plan:hover {
+      background: #ea580c;
+      border-color: #ea580c;
+      box-shadow: 0 8px 24px rgba(249, 115, 22, 0.35);
+    }
+    .plan-card.full-premium .features li::before {
+      color: var(--naranja);
+    }
+    .plan-card.full-premium:hover {
+      border-color: var(--naranja);
+      box-shadow: 0 12px 40px rgba(249, 115, 22, 0.20);
     }
 
     .plans-extra {
@@ -1855,7 +1896,7 @@
         <div class="section-header">
           <span class="section-label">DIFUSIÓN PRO</span>
           <h2>Hacé que tu negocio <span style="color: var(--verde);">llegue a más personas</span></h2>
-          <p>Utilizamos herramientas avanzadas de difusión para publicar tu anuncio en hasta <strong>250 grupos</strong> de compra y venta, llegando a más potenciales clientes de todo el territorio argentino.</p>
+          <p>Utilizamos herramientas avanzadas de difusión para publicar tu anuncio en hasta <strong>400 grupos</strong> de compra y venta, llegando a más potenciales clientes de todo el territorio argentino.</p>
         </div>
 
         <div class="diffusion-image-center">
@@ -1981,7 +2022,7 @@
             <h4>💥 ¡Y OJO CON ESTO!</h4>
             <p>
               Muchas veces podemos publicar en <span class="highlight-text">más grupos de los acordados</span>,
-              por lo que tu publicación puede llegar a aparecer en <span class="highlight-text">hasta 250 grupos</span>. 🚀
+              por lo que tu publicación puede llegar a aparecer en <span class="highlight-text">hasta 400 grupos</span>. 🚀
             </p>
             <div class="tip">
               <span>💡 <strong>Tip:</strong> ¡No te olvides de publicar tus <strong>redes sociales</strong> y pedir que te sigan! 📲 Así aprovechás la difusión no solo para vender, sino también para <strong>hacer crecer tus seguidores y conseguir futuros clientes.</strong></span>
@@ -2035,6 +2076,24 @@
               <li>Coordinación por WhatsApp</li>
             </ul>
             <button class="btn-plan" onclick="openPlanDetail('Plan Nacional Premium', '$24.000', '250 grupos', '3 publicaciones', 'Hasta 250 grupos en todo el país.', 'nacional')">Elegir este plan</button>
+          </div>
+
+          <!-- NUEVO PLAN FULL PREMIUM 400 GRUPOS -->
+          <div class="plan-card full-premium">
+            <div class="popular">🔥 FULL PREMIUM</div>
+            <div class="plan-name">Plan Full Premium</div>
+            <h3>400 grupos</h3>
+            <div class="price">$35.000 <small>ARS</small></div>
+            <div class="plan-detail">Hasta 400 grupos en todo el país. La máxima difusión.</div>
+            <ul class="features">
+              <li>Hasta 400 grupos</li>
+              <li><strong>4 publicaciones</strong></li>
+              <li>Grupos de compra y venta</li>
+              <li>Máxima cobertura nacional total</li>
+              <li>Coordinación por WhatsApp</li>
+              <li>⭐ Máxima visibilidad garantizada</li>
+            </ul>
+            <button class="btn-plan" onclick="openPlanDetail('Plan Full Premium', '$35.000', '400 grupos', '4 publicaciones', 'Hasta 400 grupos en todo el país. La máxima difusión.', 'nacional')">Elegir este plan</button>
           </div>
         </div>
 
@@ -2167,7 +2226,7 @@
         <div class="faq-list">
           <details>
             <summary>¿En cuántos grupos puedo publicar?</summary>
-            <p>Dependiendo del plan elegido, podés contratar difusión desde 20 hasta 250 grupos de compra y venta.</p>
+            <p>Dependiendo del plan elegido, podés contratar difusión desde 20 hasta 400 grupos de compra y venta.</p>
           </details>
           <details>
             <summary>¿Qué diferencia hay entre difusión local y nacional?</summary>
