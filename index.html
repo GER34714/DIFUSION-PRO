@@ -2158,6 +2158,21 @@
       }
     }
 
+    /* ===== BLOQUE "AMPLIFICÁ TU MENSAJE" CENTRADO ===== */
+    .diffusion-grid {
+      grid-template-columns: 1fr;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .diffusion-grid .content .features-list {
+      display: inline-block;
+      text-align: left;
+    }
+    .diffusion-grid .content .features-list li {
+      justify-content: flex-start;
+    }
+
   </style>
 </head>
 
@@ -2289,7 +2304,6 @@
             </ul>
             <button class="btn-primary" id="openModalBtn">💬 Consultar opciones de difusión</button>
           </div>
-          <div class="image"></div>
         </div>
 
       </div>
@@ -2941,7 +2955,7 @@
       const status = document.getElementById('galleryStatus');
       if (!gallery || !lightbox || !lightboxImage) return;
 
-      const referenceImages = ['https://iili.io/nSzH4ff.md.jpg', 'https://iili.io/nSzHsJ2.md.jpg', 'https://iili.io/nSzHPUl.md.jpg', 'https://iili.io/nSzH6l4.md.jpg', 'https://iili.io/nSzHDxe.md.jpg', 'https://iili.io/nSzHmib.md.jpg', 'https://iili.io/nSzHyfj.md.jpg', 'https://iili.io/nSzJ90x.md.jpg', 'https://iili.io/nSzJ3OP.md.jpg', 'https://iili.io/nSzJFb1.md.jpg', 'https://iili.io/nSzJfzF.md.jpg'];
+      const referenceImages = ['https://iili.io/nSzH4ff.md.jpg', 'https://iili.io/nSzHsJ2.md.jpg', 'https://iili.io/nSzHPUl.md.jpg', 'https://iili.io/nSzH6l4.md.jpg', 'https://iili.io/nSzHDxe.md.jpg', 'https://iili.io/nSzHmib.md.jpg', 'https://iili.io/nSzHyfj.md.jpg', 'https://iili.io/nSzJ90x.md.jpg', 'https://iili.io/nSzJfzF.md.jpg'];
       const visibleCount = 4;
       let deck = [];
       let cursor = 0;
