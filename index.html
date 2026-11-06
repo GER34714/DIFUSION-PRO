@@ -2313,16 +2313,6 @@
     <a href="#contacto" class="nav-button" style="text-align:center;">Consultar</a>
   </div>
 
-  <!-- ===== PROMOCIÓN ESPECIAL: IMAGEN MOSTRADA JUSTO ANTES DE LA SECCIÓN DE PLANES ===== -->
-  <aside class="dp-offer-overlay" id="dpOfferModal" aria-hidden="true" aria-label="Promoción especial de Difusión Pro">
-    <section class="dp-offer-card" aria-label="Oferta exclusiva por contratar desde la web">
-      <button type="button" class="dp-offer-close" onclick="closeDpOffer()" aria-label="Cerrar promoción">×</button>
-      <a class="dp-offer-image-link" href="#planes" onclick="closeDpOffer()" aria-label="Ver planes de Difusión Pro">
-        <img class="dp-offer-image" src="https://iili.io/ntwB87V.md.png" alt="Promoción exclusiva de Difusión Pro: contratando desde la web obtenés el doble de publicaciones" loading="lazy">
-      </a>
-    </section>
-  </aside>
-
   <!-- ===== MAIN ===== -->
   <main style="width:100%; display:flex; flex-direction:column; align-items:center;">
 
@@ -2365,6 +2355,16 @@
         <div class="hero-image"></div>
       </div>
     </section>
+
+  <!-- ===== OFERTA DIFUSIÓN PRO: UBICADA INMEDIATAMENTE DESPUÉS DEL HERO ===== -->
+  <aside class="dp-offer-overlay" id="dpOfferModal" aria-hidden="true" aria-label="Promoción especial de Difusión Pro">
+    <section class="dp-offer-card" aria-label="Oferta exclusiva por contratar desde la web">
+      <button type="button" class="dp-offer-close" onclick="closeDpOffer()" aria-label="Cerrar promoción">×</button>
+      <a class="dp-offer-image-link" href="#planes" onclick="closeDpOffer()" aria-label="Ver planes de Difusión Pro">
+        <img class="dp-offer-image" src="https://iili.io/ntwB87V.md.png" alt="Promoción exclusiva de Difusión Pro: contratando desde la web obtenés el doble de publicaciones" loading="lazy">
+      </a>
+    </section>
+  </aside>
 
     <!-- ===== DIFUSIÓN PRO ===== -->
     <section class="diffusion-section section-padding" id="diffusion-pro">
@@ -3207,9 +3207,8 @@
 
 
     // =============================================
-    // PROMOCIÓN FLOTANTE DIFUSIÓN PRO
+    // PROMOCIÓN DIFUSIÓN PRO: APARECE AL TERMINAR EL HERO
     // =============================================
-    // Promoción flotante: aparece cuando el visitante está llegando a la sección de planes.
     let dpOfferShown = false;
     function closeDpOffer() {
       const offer = document.getElementById('dpOfferModal');
@@ -3224,19 +3223,17 @@
       dpOfferShown = true;
       offer.classList.add('active');
       offer.setAttribute('aria-hidden', 'false');
-      // Es una tarjeta flotante: no crea fondo oscuro, no captura el scroll ni bloquea la página.
+      // No oscurece el fondo ni bloquea el desplazamiento de la página.
     }
     function maybeShowDpOffer() {
       if (dpOfferShown) return;
       let alreadySeen = false;
       try { alreadySeen = sessionStorage.getItem('dpOfferSeen') === '1'; } catch (error) {}
       if (alreadySeen) return;
-      // Se activa al aproximarse a la sección de planes, no al entrar al sitio.
-      const plansSection = document.getElementById('planes');
-      if (!plansSection) return;
-      const plansTop = plansSection.getBoundingClientRect().top;
-      const triggerPoint = window.innerHeight * 0.85;
-      if (plansTop <= triggerPoint) {
+      const hero = document.querySelector('.hero');
+      if (!hero) return;
+      // Se muestra cuando el visitante termina de recorrer el Hero, antes del contenido y del banner.
+      if (hero.getBoundingClientRect().bottom <= 0) {
         openDpOffer();
         window.removeEventListener('scroll', maybeShowDpOffer);
       }
@@ -3246,14 +3243,16 @@
       if (event.key === 'Escape' && document.getElementById('dpOfferModal')?.classList.contains('active')) closeDpOffer();
     });
 
-
     // ===== INICIALIZAR =====
     document.addEventListener('DOMContentLoaded', () => {
       loadBrandsTicker();
       renderizarReseñas();
       let offerAlreadySeen = false;
       try { offerAlreadySeen = sessionStorage.getItem('dpOfferSeen') === '1'; } catch (error) {}
-      if (!offerAlreadySeen) window.addEventListener('scroll', maybeShowDpOffer, { passive: true });
+      if (!offerAlreadySeen) {
+        window.addEventListener('scroll', maybeShowDpOffer, { passive: true });
+        maybeShowDpOffer();
+      }
     });
 
   </script>
