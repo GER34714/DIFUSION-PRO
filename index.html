@@ -1044,6 +1044,31 @@
       box-shadow: 0 12px 40px rgba(249, 115, 22, 0.20);
     }
 
+
+    .basic-single-plan {
+      background: var(--blanco);
+      box-shadow: var(--shadow-md);
+    }
+    .basic-plan-kicker {
+      min-height: 34px;
+      margin: 0 0 10px;
+      color: var(--naranja);
+      font-size: 12px;
+      line-height: 1.35;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .35px;
+    }
+    .basic-single-plan .price { color: var(--naranja); }
+    .basic-single-plan .btn-plan {
+      border-color: var(--naranja);
+      color: var(--naranja);
+    }
+    .basic-single-plan .btn-plan:hover {
+      background: var(--naranja);
+      color: var(--blanco);
+      border-color: var(--naranja);
+    }
     .plans-extra {
       margin-top: 40px;
       text-align: center;
@@ -1089,6 +1114,59 @@
     .plans-extra .tip strong {
       color: var(--verde);
     }
+
+    /* ===== PROMOCIÓN FLOTANTE CON IMAGEN ===== */
+    .dp-offer-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9998;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      pointer-events: none;
+    }
+    .dp-offer-overlay.active { display: flex; }
+    .dp-offer-card {
+      position: relative;
+      width: min(760px, 100%);
+      max-height: 86vh;
+      pointer-events: auto;
+      animation: dpOfferIn .42s cubic-bezier(.2,.8,.2,1) both;
+    }
+    .dp-offer-image-link { display:block; width:100%; cursor:pointer; }
+    .dp-offer-image {
+      display:block;
+      width:100%;
+      max-height:86vh;
+      object-fit:contain;
+      border:0;
+      border-radius:16px;
+      box-shadow:0 18px 55px rgba(0,0,0,.38);
+    }
+    .dp-offer-close {
+      position:absolute;
+      z-index:2;
+      top:10px;
+      right:10px;
+      width:34px;
+      height:34px;
+      border:1px solid rgba(255,255,255,.45);
+      border-radius:50%;
+      color:#fff;
+      background:rgba(0,0,0,.68);
+      font-size:22px;
+      line-height:1;
+      cursor:pointer;
+    }
+    @keyframes dpOfferIn { from { opacity: 0; transform: translateY(16px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    @media(max-width:520px) {
+      .dp-offer-overlay { padding:12px; }
+      .dp-offer-card { width:100%; }
+      .dp-offer-image { border-radius:12px; }
+      .dp-offer-close { top:7px; right:7px; width:30px; height:30px; }
+    }
+    @media(prefers-reduced-motion:reduce) { .dp-offer-card { animation:none; } }
 
     /* ===== MODAL DE DETALLE DEL PLAN ===== */
     .modal-overlay {
@@ -2125,6 +2203,8 @@
     #planesNacional .plan-card .features {
       text-align: left;
     }
+    .web-bonus-feature { color: var(--verde) !important; background: rgba(22,163,74,.07); border-radius: 8px; padding: 9px 10px !important; margin: 3px 0; }
+
     .national-reach-note {
       max-width: 980px;
       margin: 28px auto 0;
@@ -2172,6 +2252,9 @@
     .diffusion-grid .content .features-list li {
       justify-content: flex-start;
     }
+
+
+
 
   </style>
 </head>
@@ -2230,6 +2313,16 @@
     <a href="#contacto" class="nav-button" style="text-align:center;">Consultar</a>
   </div>
 
+  <!-- ===== PROMOCIÓN ESPECIAL: IMAGEN MOSTRADA JUSTO ANTES DE LA SECCIÓN DE PLANES ===== -->
+  <aside class="dp-offer-overlay" id="dpOfferModal" aria-hidden="true" aria-label="Promoción especial de Difusión Pro">
+    <section class="dp-offer-card" aria-label="Oferta exclusiva por contratar desde la web">
+      <button type="button" class="dp-offer-close" onclick="closeDpOffer()" aria-label="Cerrar promoción">×</button>
+      <a class="dp-offer-image-link" href="#planes" onclick="closeDpOffer()" aria-label="Ver planes de Difusión Pro">
+        <img class="dp-offer-image" src="https://iili.io/ntwB87V.md.png" alt="Promoción exclusiva de Difusión Pro: contratando desde la web obtenés el doble de publicaciones" loading="lazy">
+      </a>
+    </section>
+  </aside>
+
   <!-- ===== MAIN ===== -->
   <main style="width:100%; display:flex; flex-direction:column; align-items:center;">
 
@@ -2250,9 +2343,9 @@
             <a href="#cobertura" class="btn-secondary">🌎 ¿Vendés a todo el país?</a>
           </div>
           <div class="hero-reach">
-            <span class="hero-reach-label">Alcance potencial estimado del plan nacional más amplio</span>
-            <strong>Hasta 225.000 exposiciones potenciales por semana</strong>
-            <small>500 grupos × 90 integrantes aprox. × 5 publicaciones</small>
+            <span class="hero-reach-label">Alcance potencial estimado del Premium Full (2 publicaciones diarias)</span>
+            <strong>Hasta 630.000 exposiciones potenciales en 7 días</strong>
+            <small>500 grupos × 90 integrantes aprox. × 7 días × 2 publicaciones</small>
           </div>
           <div class="hero-stats">
             <div class="stat">
@@ -2280,7 +2373,7 @@
         <div class="section-header">
           <span class="section-label">DIFUSIÓN PRO</span>
           <h2>Hacé que tu negocio <span style="color: var(--verde);">llegue a más personas</span></h2>
-          <p>Publicamos tu anuncio en hasta <strong>500 grupos</strong> de compra y venta. Cada grupo suele reunir aproximadamente <strong>entre 60 y 90 integrantes o más</strong>, ampliando los espacios donde tu publicación puede ser vista.</p>
+          <p>Contamos con más de <strong>500 grupos disponibles</strong> de compra y venta para difundir anuncios. Cada grupo suele reunir aproximadamente <strong>entre 60 y 90 integrantes o más</strong>, ampliando los espacios donde tu publicación puede ser vista.</p>
         </div>
 
         <div class="diffusion-image-center">
@@ -2295,14 +2388,14 @@
           <div class="content">
             <span class="by-badge">⚡ BY CIBORG 347</span>
             <h2>Amplificá tu mensaje sin gastar una fortuna</h2>
-            <p>Te ayudamos a que más personas conozcan lo que ofrecés y llegues a nuevos clientes. <span class="highlight-text">Elegí la opción de difusión que mejor se adapte a tu negocio y empezá a darle mayor alcance a tus publicaciones.</span></p>
+            <p>Te ayudamos a que más personas conozcan lo que ofrecés y llegues a nuevos clientes. <span class="highlight-text">Elegí un plan nacional y empezá a darle mayor alcance a tus publicaciones. Si necesitás difusión en una zona específica, consultanos por WhatsApp.</span></p>
             <ul class="features-list">
               <li>Difusión en grupos de compra y venta</li>
-              <li>Cobertura nacional o local según tu necesidad</li>
+              <li>Planes nacionales semanales</li>
               <li>Planes accesibles para todo tipo de emprendimientos</li>
               <li>Coordinación por WhatsApp, simple y rápida</li>
             </ul>
-            <button class="btn-primary" id="openModalBtn">💬 Consultar opciones de difusión</button>
+            <button class="btn-primary" id="openModalBtn">💬 Consultar planes de difusión</button>
           </div>
         </div>
 
@@ -2369,165 +2462,64 @@
     <section class="plans-section section-padding" id="planes">
       <div class="container">
         <div class="section-header">
-          <span class="section-label">Oferta especial · planes semanales</span>
+          <span class="section-label">Planes nacionales · contratación semanal</span>
           <h2>Elegí cuánto querés difundir</h2>
-          <p>Elegí el alcance de tu campaña: difusión <strong>zonal</strong> o <strong>nacional</strong>, con planes semanales.</p>
+          <p>Conocé nuestros planes nacionales semanales y elegí el alcance que mejor se adapte a tu negocio.</p>
         </div>
 
-        <div class="plans-tabs">
-          <button class="tab-btn" data-tab="local">📍 Difusión Zonal · Oferta especial</button>
-          <button class="tab-btn active" data-tab="nacional">🌎 Difusión Nacional</button>
-        </div>
-
-        <!-- PLANES ZONALES – OFERTA ESPECIAL POR 7 DÍAS -->
-        <div class="plans-grid" id="planesLocal">
-          <div class="plan-card">
-            <div class="plan-name">📍 Plan Barrial</div>
-            <h3>Hasta 20 grupos</h3>
-            <div class="price">$6.000 <small>ARS</small></div>
-            <div class="plan-detail">Una semana de difusión en grupos de tu zona.</div>
-            <div class="potential-reach"><span>Visualizaciones potenciales estimadas por semana</span><strong>2.400 a 3.600+</strong><small>Por publicación: 1.200 a 1.800</small></div>
-            <ul class="features">
-              <li>Hasta 20 grupos de compra y venta</li>
-              <li><strong>2 publicaciones semanales</strong></li>
-              <li>Difusión en distintas zonas de Argentina</li>
-              <li>Plan con vigencia de 7 días</li>
-              <li>Coordinación por WhatsApp</li>
-            </ul>
-            <button class="btn-plan" onclick="openPlanDetail('Plan Barrial', '$6.000', 'Hasta 20 grupos', '2 publicaciones semanales · plan de 7 días', 'Difusión en grupos de compra y venta de distintas zonas de Argentina. El plan tiene una vigencia de 7 días.', 'local')">Elegir este plan</button>
-          </div>
-
-          <div class="plan-card featured">
-            <div class="popular">⭐ Más elegido</div>
-            <div class="plan-name">⭐ Plan Zonal A</div>
-            <h3>Hasta 50 grupos</h3>
-            <div class="price">$8.500 <small>ARS</small></div>
-            <div class="plan-detail">Más presencia durante toda la semana.</div>
-            <div class="potential-reach"><span>Visualizaciones potenciales estimadas por semana</span><strong>9.000 a 13.500+</strong><small>Por publicación: 3.000 a 4.500</small></div>
-            <ul class="features">
-              <li>Hasta 50 grupos de compra y venta</li>
-              <li><strong>3 publicaciones semanales</strong></li>
-              <li>Difusión en distintas zonas de Argentina</li>
-              <li>Plan con vigencia de 7 días</li>
-              <li>Coordinación por WhatsApp</li>
-            </ul>
-            <button class="btn-plan" onclick="openPlanDetail('Plan Zonal A', '$8.500', 'Hasta 50 grupos', '3 publicaciones semanales · plan de 7 días', 'Difusión en grupos de compra y venta de distintas zonas de Argentina. El plan tiene una vigencia de 7 días.', 'local')">Elegir este plan</button>
-          </div>
-
-          <div class="plan-card">
-            <div class="plan-name">🥇 Plan Regional</div>
-            <h3>Hasta 70 grupos</h3>
-            <div class="price">$12.000 <small>ARS</small></div>
-            <div class="plan-detail">Mayor alcance y frecuencia semanal.</div>
-            <div class="potential-reach"><span>Visualizaciones potenciales estimadas por semana</span><strong>16.800 a 25.200+</strong><small>Por publicación: 4.200 a 6.300</small></div>
-            <ul class="features">
-              <li>Hasta 70 grupos de compra y venta</li>
-              <li><strong>4 publicaciones semanales</strong></li>
-              <li>Difusión en distintas zonas de Argentina</li>
-              <li>Plan con vigencia de 7 días</li>
-              <li>Coordinación por WhatsApp</li>
-            </ul>
-            <button class="btn-plan" onclick="openPlanDetail('Plan Regional', '$12.000', 'Hasta 70 grupos', '4 publicaciones semanales · plan de 7 días', 'Difusión en grupos de compra y venta de distintas zonas de Argentina. El plan tiene una vigencia de 7 días.', 'local')">Elegir este plan</button>
-          </div>
-
-          <div class="plan-card">
-            <div class="plan-name">🚀 Plan Zonal B</div>
+        <!-- PLANES NACIONALES – CONTRATACIÓN SEMANAL -->
+        <div class="plans-grid active" id="planesNacional">
+          <div class="plan-card basic-single-plan">
+            <div class="basic-plan-kicker">¿No querés contratar semanalmente?</div>
+            <div class="plan-name">Plan Básico</div>
             <h3>Hasta 100 grupos</h3>
-            <div class="price">$15.000 <small>ARS</small></div>
-            <div class="plan-detail">La opción de mayor alcance zonal.</div>
-            <div class="potential-reach"><span>Visualizaciones potenciales estimadas por semana</span><strong>24.000 a 36.000+</strong><small>Por publicación: 6.000 a 9.000</small></div>
+            <div class="price">$10.000 <small>ARS</small></div>
+            <div class="plan-detail">Una sola publicación · una única difusión.</div>
             <ul class="features">
               <li>Hasta 100 grupos de compra y venta</li>
-              <li><strong>4 publicaciones semanales</strong></li>
-              <li>Difusión en distintas zonas de Argentina</li>
-              <li>Plan con vigencia de 7 días</li>
-              <li>Coordinación por WhatsApp</li>
+              <li>1 imagen + 1 texto</li>
+              <li>Sin contratación semanal</li>
             </ul>
-            <button class="btn-plan" onclick="openPlanDetail('Plan Zonal B', '$15.000', 'Hasta 100 grupos', '4 publicaciones semanales · plan de 7 días', 'Difusión en grupos de compra y venta de distintas zonas de Argentina. El plan tiene una vigencia de 7 días.', 'local')">Elegir este plan</button>
+            <button class="btn-plan" onclick="openPlanDetail('Plan Básico · Difusión puntual', '$10.000', 'Hasta 100 grupos', '1 sola publicación', 'Una única difusión en hasta 100 grupos de compra y venta. No requiere contratación semanal.', 'puntual')">Elegir este plan</button>
           </div>
-
-          <div class="plans-extra active" id="plansExtraLocal">
-            <h4>📌 IMPORTANTE SOBRE LOS PLANES ZONALES</h4>
-            <p>Todos los planes tienen una <span class="highlight-text">vigencia de 7 días</span>. Las publicaciones indicadas son el total previsto para esa semana. La estimación de visualizaciones potenciales se calcula multiplicando la cantidad de grupos por un promedio de 60 a 90 integrantes por grupo y por la cantidad de publicaciones semanales.</p>
-            <p class="reach-disclaimer">Son oportunidades potenciales de exposición acumuladas, no vistas verificadas ni personas únicas. Algunos integrantes pueden pertenecer a varios grupos y no todos necesariamente ven cada publicación.</p>
-            <div class="tip">
-              <span>⚠️ La difusión ayuda a ampliar el alcance de tu anuncio, pero <strong>no garantiza ventas ni una cantidad determinada de consultas</strong>.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- PLANES NACIONALES – PRECIOS POR SEMANA -->
-        <div class="plans-grid active" id="planesNacional">
-          <div class="plan-card">
-            <div class="plan-name">⭐ Plan Nacional Básico</div>
-            <h3>50 grupos</h3>
-            <div class="price">$10.000 <small>ARS</small></div>
-            <div class="plan-detail">Difusión nacional por semana.</div>
-            <div class="potential-reach"><span>Visualizaciones potenciales estimadas por semana</span><strong>3.000 a 4.500+</strong><small>Por publicación: 3.000 a 4.500</small></div>
-            <ul class="features">
-              <li>Hasta 50 grupos</li>
-              <li><strong>1 publicación</strong></li>
-              <li>Grupos de compra y venta</li>
-              <li>Cobertura nacional</li>
-              <li>Coordinación por WhatsApp</li>
-            </ul>
-            <button class="btn-plan" onclick="openPlanDetail('Plan Nacional Básico', '$10.000', '50 grupos', '1 publicación', 'Hasta 50 grupos en todo el país. Precio por semana.', 'nacional')">Elegir este plan</button>
-          </div>
-
           <div class="plan-card featured">
-            <div class="popular">⭐ Más elegido</div>
-            <div class="plan-name">⭐ Plan Nacional Pro</div>
-            <h3>150 grupos</h3>
+            <div class="popular">⭐ Más elegido</div><div class="plan-name">🚀 Plan Nacional Pro</div><h3>150 grupos</h3>
             <div class="price">$16.000 <small>ARS</small></div>
-            <div class="plan-detail">Más alcance para tu publicación.</div>
-            <div class="potential-reach"><span>Visualizaciones potenciales estimadas por semana</span><strong>27.000 a 40.500+</strong><small>Por publicación: 9.000 a 13.500</small></div>
+            <div class="plan-detail">5 días de difusión · lunes a viernes.</div>
+            <div class="potential-reach"><span>Exposiciones potenciales estimadas</span><strong>90.000 a 135.000+</strong><small>Referencia: 5 días × 150 grupos × 60–90 integrantes × 2 publicaciones</small></div>
             <ul class="features">
-              <li>Hasta 150 grupos</li>
-              <li><strong>3 publicaciones</strong></li>
-              <li>Grupos de compra y venta</li>
-              <li>Mayor alcance nacional</li>
-              <li>Coordinación por WhatsApp</li>
+              <li>Hasta 150 grupos de compra y venta</li><li class="web-bonus-feature"><strong>2 publicaciones diarias contratando desde la web · 10 en total</strong></li>
+              <li>Cobertura nacional</li><li>Contratación semanal</li>
             </ul>
-            <button class="btn-plan" onclick="openPlanDetail('Plan Nacional Pro', '$16.000', '150 grupos', '3 publicaciones', 'Hasta 150 grupos en todo el país. Precio por semana.', 'nacional')">Elegir este plan</button>
+            <button class="btn-plan" onclick="openPlanDetail('Plan Nacional Pro', '$16.000', '150 grupos', '2 publicaciones diarias contratando desde la web · 10 en total', 'Difusión en hasta 150 grupos de todo el país, de lunes a viernes. Contratando desde la web recibís una segunda publicación diaria sin costo adicional.', 'nacional')">Elegir este plan</button>
           </div>
-
           <div class="plan-card">
-            <div class="plan-name">🚀 Plan Nacional Premium</div>
-            <h3>250 grupos</h3>
+            <div class="plan-name">🔥 Plan Nacional Premium</div><h3>250 grupos</h3>
             <div class="price">$24.000 <small>ARS</small></div>
-            <div class="plan-detail">Mayor frecuencia y cobertura nacional.</div>
-            <div class="potential-reach"><span>Visualizaciones potenciales estimadas por semana</span><strong>60.000 a 90.000+</strong><small>Por publicación: 15.000 a 22.500</small></div>
+            <div class="plan-detail">5 días de difusión · lunes a viernes.</div>
+            <div class="potential-reach"><span>Exposiciones potenciales estimadas</span><strong>150.000 a 225.000+</strong><small>Referencia: 5 días × 250 grupos × 60–90 integrantes × 2 publicaciones</small></div>
             <ul class="features">
-              <li>Hasta 250 grupos</li>
-              <li><strong>4 publicaciones</strong></li>
-              <li>Grupos de compra y venta</li>
-              <li>Máxima cobertura nacional</li>
-              <li>Coordinación por WhatsApp</li>
+              <li>Hasta 250 grupos de compra y venta</li><li class="web-bonus-feature"><strong>2 publicaciones diarias contratando desde la web · 10 en total</strong></li>
+              <li>Cobertura nacional</li><li>Contratación semanal</li>
             </ul>
-            <button class="btn-plan" onclick="openPlanDetail('Plan Nacional Premium', '$24.000', '250 grupos', '4 publicaciones', 'Hasta 250 grupos en todo el país. Precio por semana.', 'nacional')">Elegir este plan</button>
+            <button class="btn-plan" onclick="openPlanDetail('Plan Nacional Premium', '$24.000', '250 grupos', '2 publicaciones diarias contratando desde la web · 10 en total', 'Difusión en hasta 250 grupos de todo el país, de lunes a viernes. Contratando desde la web recibís una segunda publicación diaria sin costo adicional.', 'nacional')">Elegir este plan</button>
           </div>
-
           <div class="plan-card full-premium">
-            <div class="popular">🔥 FULL PREMIUM</div>
-            <div class="plan-name">🔥 Plan Nacional Premium Full</div>
-            <h3>500 grupos</h3>
+            <div class="popular">👑 PREMIUM FULL · 7 DÍAS</div><div class="plan-name">👑 Plan Nacional Premium Full</div><h3>Hasta 500 grupos</h3>
             <div class="price">$35.000 <small>ARS</small></div>
-            <div class="plan-detail">La máxima cobertura nacional, de lunes a viernes.</div>
-            <div class="potential-reach"><span>Visualizaciones potenciales estimadas por semana</span><strong>150.000 a 225.000+</strong><small>Por publicación: 30.000 a 45.000</small></div>
+            <div class="plan-detail">7 días consecutivos de difusión.</div>
+            <div class="potential-reach"><span>Exposiciones potenciales estimadas</span><strong>420.000 a 630.000+</strong><small>Referencia: 7 días × 500 grupos × 60–90 integrantes × 2 publicaciones</small></div>
             <ul class="features">
-              <li>Hasta 500 grupos</li>
-              <li><strong>5 publicaciones (lunes a viernes)</strong></li>
-              <li>Grupos de compra y venta</li>
-              <li>Máxima cobertura nacional</li>
-              <li>Coordinación por WhatsApp</li>
+              <li>Hasta 500 grupos de compra y venta</li><li class="web-bonus-feature"><strong>2 publicaciones diarias contratando desde la web · 14 en total</strong></li>
+              <li>Cobertura nacional</li><li>7 días consecutivos</li>
             </ul>
-            <button class="btn-plan" onclick="openPlanDetail('Plan Nacional Premium Full', '$35.000', '500 grupos', '5 publicaciones (lunes a viernes)', 'Hasta 500 grupos en todo el país. Precio por semana.', 'nacional')">Elegir este plan</button>
+            <button class="btn-plan" onclick="openPlanDetail('Plan Nacional Premium Full', '$35.000', 'Hasta 500 grupos', '2 publicaciones diarias contratando desde la web · 14 en total', 'Difusión en hasta 500 grupos de todo el país durante 7 días consecutivos. Contratando desde la web recibís una segunda publicación diaria sin costo adicional.', 'nacional')">Elegir este plan</button>
           </div>
         </div>
 
         <div class="plans-extra active national-reach-note">
           <h4>🌎 ¿CÓMO CALCULAMOS EL ALCANCE POTENCIAL?</h4>
-          <p>Tomamos como referencia entre 60 y 90 integrantes por grupo y multiplicamos esa cantidad por los grupos incluidos y por el número de publicaciones semanales de cada plan.</p>
+          <p>Tomamos como referencia entre 60 y 90 integrantes por grupo y multiplicamos esa cantidad por los grupos incluidos y por los días de difusión de cada plan. Las contrataciones desde la web incluyen una segunda publicación diaria de bonificación.</p>
           <p class="reach-disclaimer">Son exposiciones potenciales acumuladas, no visualizaciones reales verificadas ni personas únicas. Puede haber integrantes repetidos entre grupos y no todos necesariamente ven cada publicación. La cantidad real de vistas puede ser menor o mayor.</p>
         </div>
 
@@ -2543,9 +2535,9 @@
       <div class="modal-detail">
         <button class="modal-close" onclick="closePlanDetail()">✕</button>
 
-        <span class="modal-badge" id="modalBadge">📍 Difusión Local</span>
-        <h2 id="modalTitle">Plan Barrial</h2>
-        <div class="modal-price" id="modalPrice">$6.000 <small>ARS</small></div>
+        <span class="modal-badge" id="modalBadge">🌎 Difusión Nacional</span>
+        <h2 id="modalTitle">Seleccioná un plan</h2>
+        <div class="modal-price" id="modalPrice">— <small>ARS</small></div>
 
         <div class="modal-divider"></div>
 
@@ -2556,7 +2548,7 @@
           </li>
           <li>
             <span class="icon">📄</span>
-            <span class="text"><strong id="modalPublicaciones">1 publicación</strong> <span class="sub">1 imagen + 1 texto (vos lo preparás)</span></span>
+            <span class="text"><strong id="modalPublicaciones">Según el plan seleccionado</strong> <span class="sub">1 imagen + 1 texto por publicación (vos lo preparás)</span></span>
           </li>
           <li>
             <span class="icon">🖼️</span>
@@ -2572,7 +2564,7 @@
           <p>💡 <strong>¿Cómo preparo mi publicación?</strong> Podés usar herramientas como <strong>ChatGPT o Gemini</strong> para crear el texto y <strong>Canva</strong> para diseñar la imagen. ¡Nosotros nos encargamos de difundirla!</p>
         </div>
 
-        <a href="https://wa.me/5491125128251?text=Hola!%20Quiero%20contratar%20el%20plan%3A%20" target="_blank" rel="noopener noreferrer" class="btn-modal-whatsapp" id="modalWhatsappBtn">
+        <a href="https://wa.me/5491164499481?text=Hola!%20Quiero%20contratar%20el%20plan%3A%20" target="_blank" rel="noopener noreferrer" class="btn-modal-whatsapp" id="modalWhatsappBtn">
           💬 Contratar este plan por WhatsApp
         </a>
       </div>
@@ -2607,7 +2599,7 @@
             <li style="color: var(--celeste); font-weight: 600;">+ Difusión en grupos (opcional, consultar)</li>
           </ul>
 
-          <a href="https://wa.me/5491125128251?text=Hola!%20Quiero%20consultar%20por%20DISE%C3%91O%20WEB%20y%20tambi%C3%A9n%20por%20DIFUSI%C3%93N%20PRO" target="_blank" rel="noopener noreferrer" class="btn-primary" style="background: var(--celeste);">🌐 Consultar diseño web</a>
+          <a href="https://wa.me/5491164499481?text=Hola!%20Quiero%20consultar%20por%20DISE%C3%91O%20WEB%20y%20tambi%C3%A9n%20por%20DIFUSI%C3%93N%20PRO" target="_blank" rel="noopener noreferrer" class="btn-primary" style="background: var(--celeste);">🌐 Consultar diseño web</a>
         </div>
       </div>
     </section>
@@ -2629,7 +2621,7 @@
         <div class="testimonials-dots" id="testimonialsDots"></div>
 
         <div style="text-align: center; margin-top: 40px;">
-          <a href="https://wa.me/5491125128251?text=Hola!%20Quiero%20dejar%20mi%20rese%C3%B1a%20sobre%20Difusi%C3%B3n%20Pro" target="_blank" rel="noopener noreferrer" class="btn-primary" style="background: var(--verde);">
+          <a href="https://wa.me/5491164499481?text=Hola!%20Quiero%20dejar%20mi%20rese%C3%B1a%20sobre%20Difusi%C3%B3n%20Pro" target="_blank" rel="noopener noreferrer" class="btn-primary" style="background: var(--verde);">
             💬 ¿Ya probaste el servicio? ¡Dejame tu reseña por WhatsApp!
           </a>
           <p style="color: var(--gris-500); font-size: 14px; margin-top: 12px;">Tu opinión nos ayuda a mejorar. ¡La leemos y la publicamos!</p>
@@ -2642,7 +2634,7 @@
       <div class="container">
         <h2>¿Querés que tu publicación llegue a más grupos?</h2>
         <p>Elegí tu plan y consultanos por WhatsApp. Te contactaremos a la brevedad para coordinar el envío de tu publicación y la difusión.</p>
-        <a href="https://wa.me/5491125128251?text=Hola!%20Quiero%20consultar%20por%20Difusi%C3%B3n%20Pro" target="_blank" rel="noopener noreferrer" class="btn-cta">💬 Consultar ahora</a>
+        <a href="https://wa.me/5491164499481?text=Hola!%20Quiero%20consultar%20por%20Difusi%C3%B3n%20Pro" target="_blank" rel="noopener noreferrer" class="btn-cta">💬 Consultar ahora</a>
         <div style="margin-top: 24px; font-size: 14px; opacity: 0.7;">
           📋 Nuestro servicio se enfoca en la difusión y visibilidad. Los resultados comerciales dependen de la calidad del producto, el precio y el mercado.
         </div>
@@ -2660,11 +2652,11 @@
         <div class="faq-list">
           <details>
             <summary>¿En cuántos grupos puedo publicar?</summary>
-            <p>Dependiendo del plan elegido, podés contratar difusión desde 20 hasta 500 grupos de compra y venta.</p>
+            <p>Dependiendo del plan elegido, podés contratar difusión desde 50 hasta 500 grupos de compra y venta.</p>
           </details>
           <details>
-            <summary>¿Qué diferencia hay entre difusión local y nacional?</summary>
-            <p>La <strong>difusión local</strong> se enfoca en grupos de tu barrio, ciudad o provincia. La <strong>difusión nacional</strong> distribuye tu anuncio en grupos de distintas provincias de Argentina.</p>
+            <summary>¿Puedo contratar difusión en una zona específica?</summary>
+            <p>¡Sí! La difusión zonal se coordina de manera personalizada. Escribinos por WhatsApp, contanos en qué zona necesitás publicar y evaluamos una propuesta según tu necesidad.</p>
           </details>
           <details>
             <summary>¿La difusión garantiza ventas?</summary>
@@ -2800,7 +2792,7 @@
   <a
     class="whatsapp-float"
     id="whatsappFloat"
-    href="https://wa.me/5491125128251?text=Hola!%20Quiero%20consultar%20por%20Difusi%C3%B3n%20Pro"
+    href="https://wa.me/5491164499481?text=Hola!%20Quiero%20consultar%20por%20Difusi%C3%B3n%20Pro"
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Contactar por WhatsApp"
@@ -3052,32 +3044,6 @@
     })();
 
     // =============================================
-    // TABS DE PLANES
-    // =============================================
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const planesLocal = document.getElementById('planesLocal');
-    const planesNacional = document.getElementById('planesNacional');
-    const plansExtraLocal = document.getElementById('plansExtraLocal');
-
-    tabBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        tabBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const tab = btn.dataset.tab;
-        if (tab === 'local') {
-          planesLocal.classList.add('active');
-          planesNacional.classList.remove('active');
-          plansExtraLocal.style.display = 'block';
-        } else {
-          planesNacional.classList.add('active');
-          planesLocal.classList.remove('active');
-          plansExtraLocal.style.display = 'none';
-        }
-      });
-    });
-
-    // =============================================
     // MODAL DE DETALLE DEL PLAN
     // =============================================
     const planModal = document.getElementById('planModal');
@@ -3086,17 +3052,24 @@
       document.getElementById('modalTitle').textContent = name;
       document.getElementById('modalPrice').innerHTML = price + ' <small>ARS</small>';
       document.getElementById('modalGrupos').textContent = grupos;
-      document.getElementById('modalPublicaciones').textContent = publicaciones;
-      document.getElementById('modalBadge').textContent = tipo === 'local' ? '📍 Difusión Zonal' : '🌎 Difusión Nacional';
-      document.getElementById('modalBadge').style.background = tipo === 'local' ? 'var(--verde-claro)' : '#dbeafe';
-      document.getElementById('modalBadge').style.color = tipo === 'local' ? 'var(--verde)' : 'var(--celeste)';
+      const publicacionesEl = document.getElementById('modalPublicaciones');
+      publicacionesEl.textContent = publicaciones;
+      document.getElementById('modalBadge').textContent = '🌎 Difusión Nacional';
+      document.getElementById('modalBadge').style.background = '#dbeafe';
+      document.getElementById('modalBadge').style.color = 'var(--celeste)';
 
       const gruposText = document.querySelector('#modalGrupos').closest('.text').querySelector('.sub');
       if (gruposText) gruposText.textContent = detalle;
+      const publicationsSub = document.querySelector('#modalPublicaciones').closest('.text').querySelector('.sub');
+      if (publicationsSub) {
+        publicationsSub.textContent = tipo === 'puntual'
+          ? 'Una única publicación; no incluye publicaciones diarias ni contratación semanal.'
+          : 'Dos publicaciones por día durante toda la vigencia del plan.';
+      }
 
       const whatsappBtn = document.getElementById('modalWhatsappBtn');
       const msg = `Hola!%20Quiero%20contratar%20el%20plan%3A%20${encodeURIComponent(name)}%20(${price}%20ARS)%0A%0A📢%20${publicaciones}%0A📍%20${grupos}%0A%0A¿Qué%20necesito%20enviar%20para%20empezar?`;
-      whatsappBtn.href = `https://wa.me/5491125128251?text=${msg}`;
+      whatsappBtn.href = `https://wa.me/5491164499481?text=${msg}`;
 
       planModal.classList.add('active');
       document.body.style.overflow = 'hidden';
@@ -3231,10 +3204,56 @@
       }
     }
 
+
+
+    // =============================================
+    // PROMOCIÓN FLOTANTE DIFUSIÓN PRO
+    // =============================================
+    // Promoción flotante: aparece cuando el visitante está llegando a la sección de planes.
+    let dpOfferShown = false;
+    function closeDpOffer() {
+      const offer = document.getElementById('dpOfferModal');
+      if (!offer) return;
+      offer.classList.remove('active');
+      offer.setAttribute('aria-hidden', 'true');
+      try { sessionStorage.setItem('dpOfferSeen', '1'); } catch (error) {}
+    }
+    function openDpOffer() {
+      const offer = document.getElementById('dpOfferModal');
+      if (!offer || dpOfferShown) return;
+      dpOfferShown = true;
+      offer.classList.add('active');
+      offer.setAttribute('aria-hidden', 'false');
+      // Es una tarjeta flotante: no crea fondo oscuro, no captura el scroll ni bloquea la página.
+    }
+    function maybeShowDpOffer() {
+      if (dpOfferShown) return;
+      let alreadySeen = false;
+      try { alreadySeen = sessionStorage.getItem('dpOfferSeen') === '1'; } catch (error) {}
+      if (alreadySeen) return;
+      // Se activa al aproximarse a la sección de planes, no al entrar al sitio.
+      const plansSection = document.getElementById('planes');
+      if (!plansSection) return;
+      const plansTop = plansSection.getBoundingClientRect().top;
+      const triggerPoint = window.innerHeight * 0.85;
+      if (plansTop <= triggerPoint) {
+        openDpOffer();
+        window.removeEventListener('scroll', maybeShowDpOffer);
+      }
+    }
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && document.getElementById('dpOfferModal')?.classList.contains('active')) closeDpOffer();
+    });
+
+
     // ===== INICIALIZAR =====
     document.addEventListener('DOMContentLoaded', () => {
       loadBrandsTicker();
       renderizarReseñas();
+      let offerAlreadySeen = false;
+      try { offerAlreadySeen = sessionStorage.getItem('dpOfferSeen') === '1'; } catch (error) {}
+      if (!offerAlreadySeen) window.addEventListener('scroll', maybeShowDpOffer, { passive: true });
     });
 
   </script>
